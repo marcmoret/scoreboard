@@ -1,6 +1,7 @@
 import { ScoreComponent } from './../score/score.component';
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { TestBed } from '@angular/core/testing';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class ChooseNameComponent implements OnInit {
   @ViewChild('name') addname2: ElementRef;
   @Output() newName: any;
   lasttry = new EventEmitter();
+  @Output() test1;
 
   onAddName(value: any){
 
@@ -29,7 +31,6 @@ export class ChooseNameComponent implements OnInit {
     console.log(this.names);
     this.newName = this.addname2.nativeElement.value;
     console.log(this.newName);
-    
   }
 
 }

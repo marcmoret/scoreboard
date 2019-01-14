@@ -5,4 +5,4 @@
         <button class="btn btn-primary" style="margin: 1%;" type="submit" (click)="onAddName($event)">Add</button>
     </div>
 </div>
-<app-score *ngFor="let x of names"></app-score>
+<app-score *ngFor="let x of names" [(newN)]="newName"></app-score>
