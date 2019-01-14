@@ -1,5 +1,6 @@
 {
   "projects": {
-    "production": "scoreboard-9dfd6"
+    "production": "scoreboard-ffd72",
+    "default": "scoreboard-ffd72"
   }
 }
