@@ -1,4 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { ChooseNameComponent } from './../choose-name/choose-name.component';
+import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { TestBed } from '@angular/core/testing';
+
 
 @Component({
   selector: 'app-score',
@@ -7,30 +11,23 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class ScoreComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  
+  @Input() newN: any;
   @Output() user1:number = 0;
   @Output() user2:number = 0;
+  
 
-  goal1(){
-    
+  goal(){
   this.user1++;
   console.log(this.user1);
-
   }
-  goal2(){
-    
-    this.user2++;
-    console.log(this.user2);
-  
-    }
-    reset1(){
-      this.user1 = 0;
-    }
-    reset2(){
-      this.user2 = 0;
-    }
 
+  reset(){
+    this.user1 = 0;
+  }
+    
+    ngOnInit() {
+      
+    }
+    constructor() { }
 }
