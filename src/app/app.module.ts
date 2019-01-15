@@ -7,6 +7,14 @@ import { ScoreComponent } from './score/score.component';
 import { ChooseNameComponent } from './choose-name/choose-name.component';
 import { HeadComponent } from './head/head.component';
 import { NgForm, FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'scoreboard', component: ScoreComponent },
+  { path: '', component: HeadComponent },
+  
+  
+];
 
 @NgModule({
   declarations: [
@@ -19,6 +27,7 @@ import { NgForm, FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]

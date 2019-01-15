@@ -10,7 +10,6 @@ import { TestBed } from '@angular/core/testing';
   styleUrls: ['./choose-name.component.css']
 })
 
-
 export class ChooseNameComponent implements OnInit {
 
   constructor() { }
@@ -26,20 +25,4 @@ export class ChooseNameComponent implements OnInit {
   reset(){
     this.x  = 0;
   }
-
-  // @Output() names: any[] =[];
-  // @ViewChild('name') addname2: ElementRef;
-  // @Output() newName: any;
-  // lasttry = new EventEmitter();
-  // @Output() test1;
-
-  // onAddName(value: any){
-
-  //   //console.log(this.addname2.nativeElement.value);
-  //   this.names.push(this.addname2.nativeElement.value);
-  //   console.log(this.names);
-  //   this.newName = this.addname2.nativeElement.value;
-  //   console.log(this.newName);
-  // }
-
 }
