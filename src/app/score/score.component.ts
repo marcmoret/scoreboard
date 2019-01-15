@@ -10,13 +10,27 @@ import { TestBed } from '@angular/core/testing';
   styleUrls: ['./score.component.css']
 })
 export class ScoreComponent implements OnInit {
-
+  ngOnInit() {
+      
+  }
+  constructor() { }
   
-  @Input() newN: any;
+  @Output() names: any[] =[];
+  @ViewChild('name') addname2: ElementRef;
+  @Output() newName: any;
+  
+
+  onAddName(value: any){
+
+    //console.log(this.addname2.nativeElement.value);
+    this.names.push(this.addname2.nativeElement.value);
+    console.log(this.names);
+    this.newName = this.addname2.nativeElement.value;
+    console.log(this.newName);
+  }
+
   @Output() user1:number = 0;
-  @Output() user2:number = 0;
   
-
   goal(){
   this.user1++;
   console.log(this.user1);
@@ -26,8 +40,5 @@ export class ScoreComponent implements OnInit {
     this.user1 = 0;
   }
     
-    ngOnInit() {
-      
-    }
-    constructor() { }
+    
 }

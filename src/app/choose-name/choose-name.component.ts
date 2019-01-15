@@ -18,19 +18,19 @@ export class ChooseNameComponent implements OnInit {
   }
 
 
-  @Output() names: any[] =[];
-  @ViewChild('name') addname2: ElementRef;
-  @Output() newName: any;
-  lasttry = new EventEmitter();
-  @Output() test1;
+  // @Output() names: any[] =[];
+  // @ViewChild('name') addname2: ElementRef;
+  // @Output() newName: any;
+  // lasttry = new EventEmitter();
+  // @Output() test1;
 
-  onAddName(value: any){
+  // onAddName(value: any){
 
-    //console.log(this.addname2.nativeElement.value);
-    this.names.push(this.addname2.nativeElement.value);
-    console.log(this.names);
-    this.newName = this.addname2.nativeElement.value;
-    console.log(this.newName);
-  }
+  //   //console.log(this.addname2.nativeElement.value);
+  //   this.names.push(this.addname2.nativeElement.value);
+  //   console.log(this.names);
+  //   this.newName = this.addname2.nativeElement.value;
+  //   console.log(this.newName);
+  // }
 
 }
