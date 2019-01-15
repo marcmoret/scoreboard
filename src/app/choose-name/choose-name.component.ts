@@ -16,7 +16,16 @@ export class ChooseNameComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
+  x:number= 0;
 
+  goal(){
+
+    this.x++;
+
+  }
+  reset(){
+    this.x  = 0;
+  }
 
   // @Output() names: any[] =[];
   // @ViewChild('name') addname2: ElementRef;

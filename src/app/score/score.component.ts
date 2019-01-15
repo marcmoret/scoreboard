@@ -1,7 +1,9 @@
+
 import { ChooseNameComponent } from './../choose-name/choose-name.component';
 import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
+
 
 
 @Component({
@@ -14,15 +16,21 @@ export class ScoreComponent implements OnInit {
       
   }
   constructor() { }
+
   
-  @Output() names: any[] =[];
+  
+  @Output() names = [];
   @ViewChild('name') addname2: ElementRef;
   @Output() newName: any;
+  @Output() score = [0];
   
+  onReset(){
+    this.names.length = 0;
+    this.names = [];
+  }
 
-  onAddName(value: any){
+  onAddName(){
 
-    //console.log(this.addname2.nativeElement.value);
     this.names.push(this.addname2.nativeElement.value);
     console.log(this.names);
     this.newName = this.addname2.nativeElement.value;
@@ -33,7 +41,8 @@ export class ScoreComponent implements OnInit {
   
   goal(){
   this.user1++;
-  console.log(this.user1);
+  this.score.push(this.user1);
+  console.log(this.score);
   }
 
   reset(){

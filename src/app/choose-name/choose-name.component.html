@@ -6,3 +6,6 @@
     </div>
 </div>
 <app-score *ngFor="let x of names" [(newN)]="newName"></app-score> -->
+<p>{{ this.x }}</p>
+  <button class="btn btn-success" (click)="goal()">GOAL</button>
+  <button class="btn btn-danger" (click)="reset()">Reset</button>
