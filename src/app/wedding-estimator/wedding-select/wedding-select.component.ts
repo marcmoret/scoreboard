@@ -10,6 +10,10 @@ export class WeddingSelectComponent implements OnInit {
   constructor() { }
   @Output() isSubmitted:boolean =false;
   
+  onSubmit(){
+    
+  }
+
   onClick(){
     this.isSubmitted = true;
   }
