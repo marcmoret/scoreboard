@@ -1,30 +1,45 @@
 <div class="row">
-    <form class="pure-form pure-form-aligned">
+    <form (ngSubmit)="onSubmit(f)" #f=ngForm class="pure-form pure-form-aligned">
         <fieldset>
             <div class="pure-control-group">
-                <label>Choose a Hall: </label>
-            <select class="form-control">
-                <option value="buffetMarina">Buffet Marina</option>
-                <option value="renaissance">Renaissance</option>
-                <option value="plaza">Plaza</option>
-                <option value="resort">Punta Resort Cana Don Pablo</option>
-                <option value="outside">Outside</option>
-                <option value="none">None</option>
-            </select>
-            <hr>   
+                <label for="guests">Number of Guests</label>
+                <input ngModel type="number" name="guests" class="form-control">
             </div>
+            <hr>
+            <div class="pure-control-group">
+                <label>Choose a Hall: </label>
+            <select class="form-control" name="hall" ngModel>
+                <option value="140">Buffet Marina</option>
+                <option value="129">Renaissance</option>
+                <option value="160">Plaza</option>
+                <option value="2000">Punta Resort Cana Don Pablo</option>
+                <option value="50">Outside</option>
+                <option value="0">None</option>
+            </select>   
+            </div>
+            <hr>
             <div class="pure-control-group">
                 <label>Choose a DJ: </label>
-            <select class="form-control">
-                <option value="marcoFerri">Marco Ferri</option>
-                <option value="djmario">DJ Mario</option>
-                <option value="band">The Foo Fighters</option>
-                <option value="none">None</option>
-                
+            <select class="form-control" name="dj" ngModel >
+                <option value="3000">Marco Ferri</option>
+                <option value="2000">DJ Mario</option>
+                <option value="10000">The Foo Fighters</option>
+                <option value="0">None</option>
             </select>
+            </div> <hr>
+            <div class="pure-control-group">
+                <label>Flowers?</label>
+                <div class="radio" name="radio">
+                    <label><input type="radio" value="true" ngModel name="optradio">Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" value="false" ngModel name="optradio">No</label>
+                </div>
             </div> 
             <hr>
             <button type="submit" class="btn btn-primary">Calculate</button>
         </fieldset>
+        <hr>
+        <label>Estimated Total Costs: <span>{{this.result}}</span> </label>
     </form>
 </div>
