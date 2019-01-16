@@ -9,25 +9,23 @@ import { HeadComponent } from './head/head.component';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { ChooseNameComponent } from './score/choose-name/choose-name.component';
+import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 
-const appRoutes: Routes = [
-  { path: 'scoreboard', component: ScoreComponent },
-  { path: '', component: HeadComponent },
 
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreComponent,
     ChooseNameComponent,
-    HeadComponent
+    HeadComponent,
+    WeddingEstimatorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
