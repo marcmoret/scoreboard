@@ -1,10 +1,5 @@
 
-import { ChooseNameComponent } from './../choose-name/choose-name.component';
-import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { TestBed } from '@angular/core/testing';
-
-
+import { Component, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-score',
@@ -12,9 +7,6 @@ import { TestBed } from '@angular/core/testing';
   styleUrls: ['./score.component.css']
 })
 export class ScoreComponent implements OnInit {
-  ngOnInit() {
-      
-  }
   constructor() { }
 
   
@@ -23,31 +15,29 @@ export class ScoreComponent implements OnInit {
   @ViewChild('name') addname2: ElementRef;
   @Output() newName: any;
   @Output() score = [0];
-  
-  onReset(){
+
+  @Output() user1:number = 0;
+  ngOnInit() {
+  }
+
+  onReset() {
     this.names.length = 0;
     this.names = [];
   }
 
-  onAddName(){
-
+  onAddName() {
     this.names.push(this.addname2.nativeElement.value);
     console.log(this.names);
     this.newName = this.addname2.nativeElement.value;
     console.log(this.newName);
   }
-
-  @Output() user1:number = 0;
-  
-  goal(){
+  goal() {
   this.user1++;
   this.score.push(this.user1);
   console.log(this.score);
   }
 
-  reset(){
+  reset() {
     this.user1 = 0;
   }
-    
-    
 }
