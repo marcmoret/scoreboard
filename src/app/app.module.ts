@@ -11,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ChooseNameComponent } from './score/choose-name/choose-name.component';
 import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 import { WeddingOptionsComponent } from './wedding-estimator/wedding-options/wedding-options.component';
+import { WeddingSelectComponent } from './wedding-estimator/wedding-select/wedding-select.component';
 
 
 
@@ -21,7 +22,8 @@ import { WeddingOptionsComponent } from './wedding-estimator/wedding-options/wed
     ChooseNameComponent,
     HeadComponent,
     WeddingEstimatorComponent,
-    WeddingOptionsComponent
+    WeddingOptionsComponent,
+    WeddingSelectComponent
   ],
   imports: [
     BrowserModule,

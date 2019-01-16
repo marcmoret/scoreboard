@@ -38,8 +38,9 @@
             </div> 
             <hr>
             <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="button" routerLink="/" (click)="onReset()" class="btn btn-danger">Reset</button>
         </fieldset>
         <hr>
-        <label>Estimated Total Costs: <span>{{this.result}}</span> </label>
+        <label>Estimated Total Costs: <span>{{this.result | currency}}</span> </label>
     </form>
 </div>

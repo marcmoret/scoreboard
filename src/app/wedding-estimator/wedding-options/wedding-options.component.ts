@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -10,11 +10,20 @@ export class WeddingOptionsComponent implements OnInit {
 @ViewChild('f') form: NgForm;
   constructor() { }
 
-  result: number;
+  @Input() isSubmitted:boolean;
+
+  result: number = 0;
   flowers: number;
 
   ngOnInit() {
+  
   }
+
+  onReset(){
+    this.isSubmitted = false;
+    console.log(this.isSubmitted);
+  }
+
   onSubmit(form:NgForm){
 
     if(form.value.optradio === 'true'){
