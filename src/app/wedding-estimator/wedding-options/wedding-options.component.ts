@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,9 +6,10 @@ import { NgForm } from '@angular/forms';
   templateUrl: './wedding-options.component.html',
   styleUrls: ['./wedding-options.component.css']
 })
+@Injectable()
 export class WeddingOptionsComponent implements OnInit {
 @ViewChild('f') form: NgForm;
-  constructor() { }
+  constructor() {}
 
   @Input() isSubmitted:boolean;
 

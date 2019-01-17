@@ -1,53 +1,51 @@
-<div class="container" *ngIf="!isSubmitted">
+<div class="container" [hidden]="isSubmitted"> 
 <div class="row">
 <div class="col-md-5">
-<form (ngSubmit)="onSubmit()" class="form-group">
-<div class="container">
-  <div class="row">
-      <div class="column">
-          <label for="guests">Number of Guests</label>
-          <input ngModel type="number" name="guests" class="form-control">
-          <hr>
-          <label for="budget">Budget</label>
-          <input ngModel type="number" name="guests" class="form-control">
-          <hr>
-          <label for="limo">Limousines:  </label>
-          <input type="number" name="limo" class="form-control" id="test">
-      </div>
-      <div class="column">
+<form (ngSubmit)="onSubmit(y)" #y="ngForm" class="form-group">
+  <div class="container">
+    <div class="row">
+        <div class="column">
+            <label for="guests">Number of Guests</label>
+            <input ngModel type="number" name="guests" class="form-control">
+            <hr>
+            <label for="budget">Budget</label>
+            <input ngModel type="number" name="budget" class="form-control">
+            <hr>
+            <label for="limo">Limousines:  </label>
+            <input ngModel type="number" name="limo" class="form-control" id="test">
+        </div>
+        <div class="column">
         <label>Music?</label>
         <div class="radio" name="radio">
             <label><input type="radio" value="dj" ngModel name="radiomusic">DJ</label>
         </div>
         <div class="radio">
-          <label><input type="radio" value="band" ngModel name="radiomusic">Band</label>
-      </div>
-      <div class="radio">
-          <label><input type="radio" value="none" ngModel name="radiomusic">None</label>
-      </div>
-      <hr>
-      <label>Flowers?</label>
-      <div class="radio" name="radio">
-          <label><input type="radio" value="true" ngModel name="radioflowers">Yes</label>
-      </div>
-      <div class="radio">
-          <label><input type="radio" value="false" ngModel name="radioflowers">No</label>
-      </div>
-      </div>
+            <label><input type="radio" value="band" ngModel name="radiomusic">Band</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" value="none" ngModel name="radiomusic">None</label>
+        </div>
+        <hr>
+        <label>Flowers?</label>
+        <div class="radio" name="radio">
+            <label><input type="radio" value="true" ngModel name="radioflowers">Yes</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" value="false" ngModel name="radioflowers">No</label>
+        </div>
+        </div>
     </div>
     <div>
         <hr>
-        <button type="button" (click)="onClick()" class="btn btn-primary">Submit</button>
+        <button type="submit" (click)="onClick()" class="btn btn-primary">Submit</button>
         <button type="button" type="reset" (click)="onReset()" class="btn btn-danger">Reset</button>
     </div>
-</div>
+  </div>
 </form>
 </div>
 </div>
 </div>
+
 <div>
   <app-wedding-options *ngIf="this.isSubmitted"></app-wedding-options>
 </div>
-    
-    
-    
