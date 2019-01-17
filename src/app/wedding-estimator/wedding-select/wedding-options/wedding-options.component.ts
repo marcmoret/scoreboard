@@ -1,5 +1,4 @@
-import { WeddingSelectComponent } from './../wedding-select.component';
-import { Component, OnInit, ViewChild, Input, Injectable } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Injectable, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,10 +14,12 @@ export class WeddingOptionsComponent implements OnInit {
 
   @Input() test = [];
   @Input() isSubmitted:boolean;
+  @Output() hopefully = new EventEmitter();
 
-  result: number = 0;
+  expectedCost: number = 0;
   flowers: number;
   guests;
+  balance:number = 0;
 
   
 
@@ -29,8 +30,10 @@ export class WeddingOptionsComponent implements OnInit {
   }
 
   onReset(){
-    this.isSubmitted = false;
+    this.hopefully.emit(this.isSubmitted = false);
     console.log(this.isSubmitted);
+    this.form.reset();
+    this.test = [];
    
   }
   
@@ -42,11 +45,14 @@ export class WeddingOptionsComponent implements OnInit {
     }
     if(form.value.optradio === 'true'){
      this.flowers = (this.guests/10 * 200)
-     this.result = (this.guests * form.value.hall) + +form.value.dj + this.flowers;
+     this.expectedCost = (this.guests * form.value.hall) + +form.value.dj + this.flowers;
+     this.balance = this.balance - this.expectedCost;
     }else{
-      this.result = (this.guests * form.value.hall) + +form.value.dj;
+      this.expectedCost = (this.guests * form.value.hall) + +form.value.dj;
+      this.balance = this.balance - this.expectedCost;
     }
     console.log(form.value);
+    console.log(this.expectedCost);
     //console.log(this.result);
   }
 }

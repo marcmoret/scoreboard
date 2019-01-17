@@ -1,18 +1,17 @@
 <div class="container" [hidden]="isSubmitted"> 
 <div class="row">
-<div class="col-md-5">
 <form (ngSubmit)="onSubmit(y)" #y="ngForm" class="form-group">
   <div class="container">
     <div class="row">
         <div class="column">
             <label for="guests">Number of Guests</label>
-            <input ngModel type="number" name="guests" class="form-control">
+            <input [ngModel]="defaultValue" min="0" type="number" name="guests" class="form-control" id="test">
             <hr>
             <label for="budget">Budget</label>
-            <input ngModel type="number" name="budget" class="form-control">
+            <input [ngModel]="defaultValue" min="0" type="number" name="budget" class="form-control" id="test2">
             <hr>
             <label for="limo">Limousines:  </label>
-            <input ngModel type="number" name="limo" class="form-control" id="test">
+            <input [ngModel]="defaultValue" min="0" type="number" name="limo" class="form-control" id="test">
         </div>
         <div class="column">
         <label>Music?</label>
@@ -38,13 +37,10 @@
     <div>
         <hr>
         <button type="submit" (click)="onClick()" class="btn btn-primary">Submit</button>
-        <button type="button" type="reset" (click)="onReset()" class="btn btn-danger">Reset</button>
+        <button type="button" style="margin-left:1%" type="button" (click)="onReset()" class="btn btn-danger">Reset</button>
     </div>
   </div>
 </form>
 </div>
 </div>
-</div>
-<div>
-  <app-wedding-options *ngIf="this.isSubmitted" [test]="currentForm"></app-wedding-options>
-</div>
+<app-wedding-options (hopefully)="ngOnInit()" [(hidden)]="!this.isSubmitted" [test]="currentForm"></app-wedding-options>

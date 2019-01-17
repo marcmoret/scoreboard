@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 
@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './wedding-select.component.html',
   styleUrls: ['./wedding-select.component.css']
 })
-export class WeddingSelectComponent implements OnInit, OnDestroy {
+export class WeddingSelectComponent implements OnInit {
 
   constructor() { }
   @Output() isSubmitted:boolean =false;
@@ -15,8 +15,9 @@ export class WeddingSelectComponent implements OnInit, OnDestroy {
   @ViewChild('y') form: NgForm;
 
   @Output() currentForm = [];
+  defaultValue:number = 0;
 
-  onSubmit(){
+  onSubmit(form: NgForm){
     
     console.log(this.form.value);
     this.currentForm.push(this.form.value);
@@ -29,13 +30,12 @@ export class WeddingSelectComponent implements OnInit, OnDestroy {
   }
   onReset(){
     this.isSubmitted = false;
+    this.form.reset();
   }
 
   ngOnInit() {
     this.isSubmitted = false;
+    this.form.reset();
+    this.currentForm = [];
   }
-  ngOnDestroy(){
-    console.log('Destroyed');
-  }
-
 }
