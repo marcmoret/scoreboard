@@ -24,14 +24,15 @@
             </div>
             <hr>
             <button type="submit" class="btn btn-primary">Calculate</button>
-            <button type="button" (click)="onReset()" class="btn btn-danger">Reset</button>
+            <button type="button" style="margin-left:1%" (click)="onReset()" class="btn btn-danger">Reset</button>
         </fieldset>
-        <hr>
+    </form>
+    <hr>
+    <div *ngIf="showBudget">
         <label>Estimated Total Costs: <span>{{this.expectedCost | currency}}</span> </label>
         <br>
         <label>Budget: <span *ngFor="let x of test">{{x.budget | currency}}</span> </label>
         <br>
-        <label>Balance: <span>{{this.balance | currency}}</span> </label>
-    </form>
-    <p *ngFor="let x of test">{{x.guests}}</p>
+        <label>Balance: <span *ngIf="this.balance > 0" style="color:green">{{this.balance | currency}}</span><span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}}</span> </label>
+    </div>  
 </div>

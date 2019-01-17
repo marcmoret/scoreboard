@@ -20,12 +20,12 @@ export class WeddingOptionsComponent implements OnInit {
   flowers: number;
   guests;
   balance:number = 0;
-
+  budget = 0;
+  limo = 0;
+  showBudget:boolean = false;
   
 
   ngOnInit() {
-
-    console.log('form' + this.guests);
     console.log(this.test);
   }
 
@@ -34,7 +34,16 @@ export class WeddingOptionsComponent implements OnInit {
     console.log(this.isSubmitted);
     this.form.reset();
     this.test = [];
+    this.bringToZero();
    
+  }
+  bringToZero(){
+
+    this.expectedCost = 0;
+    this.budget = 0;
+    this.balance = 0;
+    this.limo = 0;
+    this.showBudget = false;  
   }
   
   onSubmit(form:NgForm){
@@ -42,17 +51,25 @@ export class WeddingOptionsComponent implements OnInit {
     {
       this.guests = x.guests;
       console.log('guests:' + x.guests);
+      this.budget = x.budget;
+      console.log('budget:' + x.budget);
+      this.limo = x.limo * 800;
+      console.log('limo:' + this.limo);
+      this.flowers = x.radioflowers/10 * 200;
+      console.log('flowers: ' + this.flowers);
+
     }
-    if(form.value.optradio === 'true'){
-     this.flowers = (this.guests/10 * 200)
-     this.expectedCost = (this.guests * form.value.hall) + +form.value.dj + this.flowers;
-     this.balance = this.balance - this.expectedCost;
-    }else{
-      this.expectedCost = (this.guests * form.value.hall) + +form.value.dj;
-      this.balance = this.balance - this.expectedCost;
-    }
+    // adds the expected costs
+    this.expectedCost = (this.guests * form.value.hall)
+     + +form.value.dj + +this.limo + this.flowers;
+
+    //does the budget minus expected costs
+    this.balance = this.budget - this.expectedCost;
+    
     console.log(form.value);
-    console.log(this.expectedCost);
+    console.log('Expected costs:' + this.expectedCost);
+    console.log('Balance: ' + this.balance)
+    this.showBudget = true;
     //console.log(this.result);
   }
 }
