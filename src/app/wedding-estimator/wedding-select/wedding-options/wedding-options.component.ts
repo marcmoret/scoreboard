@@ -3,11 +3,12 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-wedding-options',
-  templateUrl: './wedding-options.component.html',
-  styleUrls: ['./wedding-options.component.css']
+  templateUrl: '././wedding-options.component.html',
+  styleUrls: ['././wedding-options.component.css']
 })
 @Injectable()
 export class WeddingOptionsComponent implements OnInit {
+  
 @ViewChild('f') form: NgForm;
   constructor() {}
 

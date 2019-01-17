@@ -14,9 +14,13 @@ export class WeddingSelectComponent implements OnInit {
   
   @ViewChild('y') form: NgForm;
 
+  currentForm = [];
+
   onSubmit(){
     
     console.log(this.form.value);
+    this.currentForm.push(this.form.value);
+    console.log(this.currentForm);
 
   }
 
