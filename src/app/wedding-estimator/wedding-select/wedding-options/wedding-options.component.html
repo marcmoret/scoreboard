@@ -29,6 +29,10 @@
         </fieldset>
         <hr>
         <label>Estimated Total Costs: <span>{{this.result | currency}}</span> </label>
+        <br>
+        <label>Budget: <span *ngFor="let x of test">{{x.budget | currency}}</span> </label>
+        <br>
+        <label>Balance: <span>{{this.result | currency}}</span> </label>
     </form>
     <p *ngFor="let x of test">{{x.guests}}</p>
 </div>

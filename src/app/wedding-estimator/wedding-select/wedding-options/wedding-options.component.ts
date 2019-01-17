@@ -34,13 +34,11 @@ export class WeddingOptionsComponent implements OnInit {
    
   }
   
-  
-
   onSubmit(form:NgForm){
     for(let x of this.test)
     {
       this.guests = x.guests;
-      console.log('test' + x.guests);
+      console.log('guests:' + x.guests);
     }
     if(form.value.optradio === 'true'){
      this.flowers = (this.guests/10 * 200)
@@ -50,6 +48,5 @@ export class WeddingOptionsComponent implements OnInit {
     }
     console.log(form.value);
     //console.log(this.result);
-    console.log(this.guests);
   }
 }

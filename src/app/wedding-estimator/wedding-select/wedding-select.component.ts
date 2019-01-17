@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 
@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './wedding-select.component.html',
   styleUrls: ['./wedding-select.component.css']
 })
-export class WeddingSelectComponent implements OnInit {
+export class WeddingSelectComponent implements OnInit, OnDestroy {
 
   constructor() { }
   @Output() isSubmitted:boolean =false;
@@ -33,6 +33,9 @@ export class WeddingSelectComponent implements OnInit {
 
   ngOnInit() {
     this.isSubmitted = false;
+  }
+  ngOnDestroy(){
+    console.log('Destroyed');
   }
 
 }
