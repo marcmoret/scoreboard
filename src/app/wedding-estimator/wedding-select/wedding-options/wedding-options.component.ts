@@ -69,7 +69,12 @@ export class WeddingOptionsComponent implements OnInit {
 
     //does the budget minus expected costs
     this.balance = this.budget - this.expectedCost;
+    if(this.balance === null)
+    {
+      this.balance = 0;
+    }
     
+    console.log('null balance: ' + this.balance);
     console.log(form.value);
     console.log('Expected costs:' + this.expectedCost);
     console.log('Balance: ' + this.balance)

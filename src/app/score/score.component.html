@@ -1,15 +1,13 @@
 <app-head></app-head>
 <body>
     <div class="container">
-    <div class="col-xs-13">
-            <h1 id="scoreboard" class="jumbotron">Scoreboard (Beta)</h1>
-            <div id="scoreboard" class="form-group">
-                <label for="name" style="margin: 1%;">Enter Name: </label>
-                <input #name ngModel name="name" (keyup.enter)="onAddName()" type="text" class="form-group" >
-                <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
-                <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
-            </div>
-    </div>
+        <h1 id="scoreboard" class="jumbotron">Scoreboard (Beta)</h1>
+        <div id="scoreboard" >
+            <label for="name" style="margin: 1%;">Enter Name: </label>
+            <input #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+            <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
+            <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
+        </div>
     </div>
     <div class="container">
     <div class="col-xs-12">

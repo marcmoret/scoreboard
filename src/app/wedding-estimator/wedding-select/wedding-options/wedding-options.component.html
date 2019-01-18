@@ -33,6 +33,6 @@
         <br>
         <label>Budget: <span *ngFor="let x of test">{{x.budget | currency}}</span> </label>
         <br>
-        <label>Balance: <span *ngIf="this.balance > 0" style="color:green">{{this.balance | currency}} - You should be fine.</span><span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span> </label>
+        <label>Balance: <span *ngIf="this.balance >= 0" style="color:green">{{this.balance | currency}} - You should be fine.</span><span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span> </label>
     </div>  
 </div>
