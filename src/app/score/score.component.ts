@@ -15,6 +15,7 @@ export class ScoreComponent implements OnInit {
   @ViewChild('name') addname2: ElementRef;
   @Output() newName: any;
   @Output() score = [0];
+  ArrayAdded:boolean = false;
 
   @Output() user1:number = 0;
   ngOnInit() {
@@ -23,6 +24,7 @@ export class ScoreComponent implements OnInit {
   onReset() {
     this.names.length = 0;
     this.names = [];
+    this.ArrayAdded = false;
   }
 
   onAddName() {
@@ -30,6 +32,7 @@ export class ScoreComponent implements OnInit {
     console.log(this.names);
     // resets the input field to nothing
     this.addname2.nativeElement.value = '';
+    this.ArrayAdded = true;
    
   }
   goal() {
@@ -38,7 +41,9 @@ export class ScoreComponent implements OnInit {
   console.log(this.score);
   }
 
-  reset() {
-    this.user1 = 0;
+  onDelete(index:number){
+    console.log(index);
+    this.names.splice(index, 1);
   }
+
 }

@@ -1,0 +1,16 @@
+body{
+    background-color: #eee;
+}
+
+.col-xs-12{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eee;
+}
+#test{
+    text-decoration: underline;
+}
+#scoreboard{
+    text-align: center;
+}
