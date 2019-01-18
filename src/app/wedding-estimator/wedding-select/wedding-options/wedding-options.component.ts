@@ -57,6 +57,10 @@ export class WeddingOptionsComponent implements OnInit {
       console.log('limo:' + this.limo);
       this.flowers = x.radioflowers/10 * 200;
       console.log('flowers: ' + this.flowers);
+      if(x.budget === null)
+      {
+        x.budget = 0;
+      }
 
     }
     // adds the expected costs

@@ -12,6 +12,7 @@ import { ChooseNameComponent } from './score/choose-name/choose-name.component';
 import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 import { WeddingSelectComponent } from './wedding-estimator/wedding-select/wedding-select.component';
 import { WeddingOptionsComponent } from './wedding-estimator/wedding-select/wedding-options/wedding-options.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -23,7 +24,8 @@ import { WeddingOptionsComponent } from './wedding-estimator/wedding-select/wedd
     HeadComponent,
     WeddingEstimatorComponent,
     WeddingOptionsComponent,
-    WeddingSelectComponent
+    WeddingSelectComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
