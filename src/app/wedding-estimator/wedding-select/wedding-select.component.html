@@ -2,7 +2,7 @@
 <div class="row">
 <form (ngSubmit)="onSubmit(y)" #y="ngForm" class="form-group">
   <div class="container">
-    <div class="row">
+    <div id="form" class="row">
         <div class="column">
             <label for="guests">Number of Guests</label>
             <input [ngModel] min="0" type="number" name="guests" class="form-control" id="test">
@@ -37,10 +37,18 @@
     <div>
         <hr>
         <button type="submit" (click)="onClick()" class="btn btn-primary">Submit</button>
-        <button type="button" style="margin-left:1%" type="button" (click)="onReset()" class="btn btn-danger">Reset</button>
+        
+        <button type="button" 
+        style="margin-left:1%" 
+        type="button" 
+        (click)="onReset()" 
+        class="btn btn-danger">Reset</button>
     </div>
   </div>
 </form>
 </div>
 </div>
-<app-wedding-options (hopefully)="ngOnInit()" [(hidden)]="!this.isSubmitted" [test]="currentForm"></app-wedding-options>
+<app-wedding-options (hopefully)="ngOnInit()" 
+[(hidden)]="!this.isSubmitted" 
+[test]="currentForm">
+</app-wedding-options>

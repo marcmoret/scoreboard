@@ -1,7 +1,27 @@
 <h4>Score: {{ this.x }}</h4>
-<input type="number" (keyup.enter)="AddScore()" #addScore> 
 <div class="form-group">
-<button class="btn btn-success" (click)="goal()">+1</button>
-<button class="btn btn-success" style="margin-left: 1%" (click)="onMinus()">-1</button>
-<button class="btn btn-danger" style="margin: 1%" (click)="reset()">Reset</button>
-<button class="btn btn-success"  (click) = "AddScore()">Add Score</button>
+
+<button class="btn btn-success" 
+(click)="goal()"><img src="../../../assets/img/plus.png"></button>
+
+<button class="btn btn-success"
+ style="margin-left: 1%" (click)="onMinus()"><img src="../../../assets/img/minus.png"></button>
+
+<br>
+<br>
+ <input class="form-control" 
+ style="margin-right:5%;" 
+ type="number" 
+ id="number"
+ (keyup.enter)="AddScore()" 
+ #addScore>
+
+ <br>
+
+<button class="btn btn-success"  
+(click) = "AddScore()">Add Score</button> 
+
+
+
+<button class="btn btn-danger"
+ style="margin: 1%" (click)="reset()">Reset</button>
