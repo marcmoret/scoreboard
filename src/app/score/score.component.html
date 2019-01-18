@@ -4,12 +4,13 @@
   <div class="form-group">
       <label for="name" style="margin: 1%;">Enter Name: </label>
       <input #name ngModel name="name" (keyup.enter)="onAddName()" type="text" class="form-group" >
-      <button class="btn btn-primary" style="margin: 1%;" type="submit" (click)="onAddName()">Add</button>
-      <button class="form control" class="btn btn-danger" type="submit" (click)="onReset()"> Reset</button>
+      <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
+      <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
   </div>
 </div>
 <div class="col-xs-11" >
 <ul *ngFor="let x of names; let i = index">
+    <hr>
   <label id="test"> {{ x }} </label><app-choose-name></app-choose-name>
 </ul>
 </div>

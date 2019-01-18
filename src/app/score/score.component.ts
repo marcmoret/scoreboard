@@ -28,8 +28,9 @@ export class ScoreComponent implements OnInit {
   onAddName() {
     this.names.push(this.addname2.nativeElement.value);
     console.log(this.names);
-    this.newName = this.addname2.nativeElement.value;
-    console.log(this.newName);
+    // resets the input field to nothing
+    this.addname2.nativeElement.value = '';
+   
   }
   goal() {
   this.user1++;

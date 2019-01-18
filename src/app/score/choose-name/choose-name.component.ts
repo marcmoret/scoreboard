@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-choose-name',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ChooseNameComponent implements OnInit {
+
+  @ViewChild('addScore') addScore: ElementRef;
 
   constructor() { }
   x:number= 0;
@@ -21,5 +23,9 @@ export class ChooseNameComponent implements OnInit {
   }
   reset(){
     this.x  = 0;
+  }
+  AddScore(){
+    this.x =  this.x + +this.addScore.nativeElement.value;
+    console.log(this.x);
   }
 }

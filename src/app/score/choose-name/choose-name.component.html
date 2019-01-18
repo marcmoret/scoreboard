@@ -1,6 +1,11 @@
 <p>{{ this.x }}</p>
 <div class="form-group">
-    <button class="btn btn-success" (click)="goal()">GOAL</button>
-    <button class="btn btn-danger" style="margin: 1%;" (click)="reset()">Reset</button>
+    <button class="btn btn-success" (click)="goal()">+1</button>
+    <button class="btn btn-danger" style="margin: 1%" (click)="reset()">Reset</button>
+    <button class="btn btn-success"  (click) = "AddScore()">Add Score</button>
+    <br>
+    <div class="form-group">
+        <input type="number" #addScore> 
+    </div>
 </div>
  
