@@ -3,6 +3,7 @@
 <form (ngSubmit)="onSubmit(y)" #y="ngForm" class="form-group">
   <div class="container">
     <div id="form" class="row">
+        <!-- First column, budget, guests and limo-->
         <div class="column">
             <label for="guests">Number of Guests</label>
             <input [ngModel] min="0" type="number" name="guests" class="form-control" id="test">
@@ -13,6 +14,7 @@
             <label for="limo">Limousines:  </label>
             <input [ngModel] min="0" type="number" name="limo" class="form-control" id="test">
         </div>
+        <!-- Second column, music, hall, flowers-->
         <div class="column">
         <label>Music?</label>
         <div class="radio" name="radio">
@@ -32,9 +34,17 @@
         <div class="radio">
             <label><input type="radio" value="0" ngModel name="radioflowers">No</label>
         </div>
+        <hr>
+        <label>Hall?</label>
+        <div class="radio" name="radio">
+            <label><input type="radio" value="1" ngModel name="radiohall">Yes</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" value="0" ngModel name="radiohall">No</label>
+        </div>
         </div>
     </div>
-    <div>
+    <div id="showSubmit">
         <hr>
         <button type="submit" (click)="onClick()" class="btn btn-primary">Submit</button>
         
@@ -50,5 +60,7 @@
 </div>
 <app-wedding-options (hopefully)="ngOnInit()" 
 [(hidden)]="!this.isSubmitted" 
-[test]="currentForm">
+[test]="currentForm"
+[isHall]="isHall"
+[isMusic]="isMusic">
 </app-wedding-options>

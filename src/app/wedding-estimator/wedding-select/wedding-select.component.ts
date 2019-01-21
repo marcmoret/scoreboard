@@ -11,6 +11,9 @@ export class WeddingSelectComponent implements OnInit {
 
   constructor() { }
   @Output() isSubmitted:boolean =false;
+  @Output() isMusic:boolean = false;
+  @Output() isHall:boolean = false;
+
   
   @ViewChild('y') form: NgForm;
 
@@ -22,7 +25,18 @@ export class WeddingSelectComponent implements OnInit {
     console.log(this.form.value);
     this.currentForm.push(this.form.value);
     console.log(this.currentForm);
-
+    if(this.form.value.radiomusic === 'none'){
+        this.isMusic = false;
+    }else{
+      this.isMusic = true;
+    }
+    if(this.form.value.radiohall === '0'){
+      console.log(this.form.value.radiohall)
+      this.isHall = false;
+  }else{
+    this.isHall = true;
+  }
+    
   }
 
   onClick(){
