@@ -43,7 +43,7 @@ export class ScoreComponent implements OnInit {
 
   onDelete(index:number){
     console.log(index);
-    this.names.splice(index, 1);
+    this.names.splice(index,1);
   }
 
 }
