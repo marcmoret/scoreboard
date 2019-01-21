@@ -15,6 +15,7 @@ export class WeddingOptionsComponent implements OnInit {
   @Input() test = [];
   @Input() isMusic:boolean;
   @Input() isHall:boolean;
+  @Input() isBand:boolean;
   @Input() isSubmitted:boolean;
   @Output() hopefully = new EventEmitter();
 
@@ -34,6 +35,13 @@ export class WeddingOptionsComponent implements OnInit {
     {name: 'None', price: 0},
   ]
 
+  @Output() Band = [
+    {name: 'The Foo Fighters', price: 100000},
+    {name: 'The Beatles' , price: 150000},
+    {name: 'The Showmen', price: 10000},
+    {name: "Davide's Band", price: 1000}
+  ]
+
   expectedCost: number = 0;
   flowers: number;
   guests;
@@ -44,9 +52,7 @@ export class WeddingOptionsComponent implements OnInit {
  
   
 
-  ngOnInit() {
-    console.log(this.test);
-    
+  ngOnInit() {    
   }
 
   onReset(){
@@ -65,26 +71,25 @@ export class WeddingOptionsComponent implements OnInit {
     this.limo = 0;
     this.showBudget = false;  
   }
-  verifyNull(form: NgForm){
+  verifyNull(form){
      //verifies if there are any null values
-     if(form.value.dj || form.value.hall === null ){
-      //console.log('got some null values here');
-      if(form.value.dj === null){
-        this.form.value.dj = 0;
-        console.log('null dj:' + this.form.value.dj);
-      }else{
-        this.form.value.hall = 0;
-        console.log('null hall:' + this.form.value.hall);
+     if(form.value.dj == 'undefined' || form.value.hall == null ){
 
+      if(form.value.dj === null){
+        form.value.dj = 0;
+      //  console.log('null dj:' + this.form.value.dj);
+      }else{
+        form.value.hall = 0;
+        //console.log('null hall:' + this.form.value.hall);
       }
     }
   }
   
   onSubmit(form:NgForm){
     //sets null values to 0
-    this.verifyNull(form);
+     this.verifyNull(this.form);
 
-//******starts fetching info from Array********
+  //******starts fetching info from Array********
 
     for(let x of this.test)
     {
@@ -103,6 +108,20 @@ export class WeddingOptionsComponent implements OnInit {
 
     }
     // adds the expected costs
+
+  // fixes the dj undefined.
+    if(form.value.dj ){
+      console.log('different error');
+    }else{
+      console.log('caught error');
+      this.form.value.dj = 0;
+    }
+
+    console.log('before the null' + this.form.value.hall);
+    console.log( 'before the nullll ' + this.form.value.dj);
+    console.log(this.isBand);
+    console.log();
+    console.log();
     this.expectedCost = (this.guests * this.form.value.hall)
      + +this.form.value.dj + +this.limo + this.flowers;
 
@@ -115,11 +134,9 @@ export class WeddingOptionsComponent implements OnInit {
     }
     
     console.log(this.form.value)
-    console.log('null balance: ' + this.balance);
     console.log(form.value);
     console.log('Expected costs:' + this.expectedCost);
     console.log('Balance: ' + this.balance)
     this.showBudget = true;
-    //console.log(this.result);
   }
 }
