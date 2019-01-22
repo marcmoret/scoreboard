@@ -1,6 +1,7 @@
-<h4>Score: {{ this.x }}</h4> 
-<button class="btn btn-danger" id="reset"
-style="margin: 1%" (click)="reset()"><img src="../../../assets/img/Reset.png"></button>
+<div id="score" >
+    <span >{{ this.x }}</span>
+</div>
+
 <div class="" id="increment">
 
     <button class="btn btn-success" 
@@ -14,16 +15,21 @@ style="margin: 1%" (click)="reset()"><img src="../../../assets/img/Reset.png"></
     <br>
     <br>
 
- <input 
- placeholder="0" 
- class="input" 
- type="number" 
- id="number"
- (keyup.enter)="AddScore()" 
- #addScore>
+    <input 
+    placeholder="0" 
+    class="input" 
+    type="number" 
+    id="number"
+    (keyup.enter)="AddScore()" 
+    #addScore>
 
- <input class="btn btn-success" id="Addscore" type="image" src="../../../assets/img/up-arrow-key.png" (click)="AddScore()" />
+    <input class="btn btn-success" id="Addscore" type="image" 
+    src="../../../assets/img/up-arrow-key.png" 
+    (click)="AddScore()" />
+    
+    <button class="btn btn-danger" id="increment"
+    style="margin: 1%" (click)="reset()">
+    <img src="../../../assets/img/Reset.png">
+    </button>
 
-<button class="btn btn-danger"
- style="margin: 1%" (click)="reset()">Reset</button>
 </div>

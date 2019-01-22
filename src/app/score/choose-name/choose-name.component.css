@@ -1,6 +1,6 @@
 img{
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
 }
 .form-group{
     width: 165px;
@@ -8,21 +8,26 @@ img{
 #number{
     width: 155px;
 }
-#Addscore{
+/* #Addscore{
     color: black;
     font-weight: bold;
-}
-h4{
-    font-weight: bold;
+} */
+#score{
+    font-size: 50px;
 }
 @media (min-width: 600px){
     
 }
 
 @media (max-width: 375px){
-    h4{
-        font-size: 15px;
-        display: inline;
+    #score{
+       
+        font-size: 35px;
+        position: static;
+        float: right;
+        margin-bottom: 5%;
+        width: 100%;
+        
     }
     #reset{
         float: right;
@@ -42,12 +47,19 @@ h4{
         margin-left: 5%;
         vertical-align: bottom;
     }
-    input{
+    #number{
         max-width: 20%;
+        height: 33px;
+        vertical-align: middle;
+        margin: 4%;
     }
     #increment{
-        margin-top:30px !important;
-        margin-bottom: 10px;
+        /* margin-top:30px !important; */
+        margin-bottom: 0px;
+        
+    }
+    #Addscore{
+        height: 33px;
     }
     
 }
