@@ -1,6 +1,13 @@
 body{
     background-color: #eee;
     min-height:1000px;
+    min-width: 100%;
+    
+}
+.container{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 .col-xs-12{
     display: -webkit-flex; /* Safari */
@@ -35,6 +42,7 @@ input{
 #scoreboard{
     text-align: center;
     padding: 0 !important;
+    
 }
 ::placeholder{
     color: white;

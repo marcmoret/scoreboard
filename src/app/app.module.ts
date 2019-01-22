@@ -14,6 +14,7 @@ import { WeddingOptionsComponent } from './wedding-estimator/wedding-select/wedd
 import { HomeComponent } from './home/home.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { TestingComponent } from './testing/testing.component';
 
 
 
@@ -28,14 +29,13 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
     WeddingSelectComponent,
     HomeComponent,
     CountdownComponent,
-    
+    TestingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CountdownTimerModule.forRoot(),
-    
+    CountdownTimerModule.forRoot(),    
   ],
   providers: [],
   bootstrap: [AppComponent]
