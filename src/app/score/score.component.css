@@ -4,11 +4,7 @@ body{
     min-width: 100%;
     
 }
-.container{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
+
 .col-xs-12{
     display: -webkit-flex; /* Safari */
     display: flex;
@@ -38,6 +34,7 @@ ul{
 
 input{
     height: 34px;
+    font-size: 16px;
 }
 #scoreboard{
     text-align: center;
