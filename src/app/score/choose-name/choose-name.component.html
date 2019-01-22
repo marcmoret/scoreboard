@@ -1,29 +1,29 @@
-<h4>Score: {{ this.x }}</h4>
-<div ngClass="form-group">
+<h4>Score: {{ this.x }}</h4> 
+<button class="btn btn-danger" id="reset"
+style="margin: 1%" (click)="reset()"><img src="../../../assets/img/Reset.png"></button>
+<div class="" id="increment">
 
-<button class="btn btn-success" 
-(click)="goal()"><img src="../../../assets/img/plus.png"></button>
+    <button class="btn btn-success" 
+    (click)="goal()"><img src="../../../assets/img/plus.png">
+    </button>
 
-<button class="btn btn-success"
- style="margin-left: 1%" (click)="onMinus()"><img src="../../../assets/img/minusPng.png"></button>
+    <button class="btn btn-success"
+    style="margin-left: 1%" (click)="onMinus()">
+    <img src="../../../assets/img/minusPng.png"></button>
 
-<br>
-<br>
+    <br>
+    <br>
 
- <input 
- placeholder="0" 
- class="form-control" 
- style="margin-right:5%;" 
- type="number" 
- id="number"
- (keyup.enter)="AddScore()" 
- #addScore>
- <br>
+    <input 
+    placeholder="0" 
+    class="form-control" 
+    style="margin-right:5%;" 
+    type="number" 
+    id="number"
+    (keyup.enter)="AddScore()" 
+    #addScore>
+    <br>
 
-<button class="btn btn-success"  
-(click) = "AddScore()" id="Addscore">Add Score</button> 
-
-
-<button class="btn btn-danger"
- style="margin: 1%" (click)="reset()">Reset</button>
+    <button class="btn btn-success"  
+    (click) = "AddScore()" id="Addscore">Add Score</button> 
 </div>
