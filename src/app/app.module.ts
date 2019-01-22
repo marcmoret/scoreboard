@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
 
 import { HeadComponent } from './head/head.component';
-import { NgForm, FormsModule } from '@angular/forms';
-//import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ChooseNameComponent } from './score/choose-name/choose-name.component';
 import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 import { WeddingSelectComponent } from './wedding-estimator/wedding-select/wedding-select.component';
 import { WeddingOptionsComponent } from './wedding-estimator/wedding-select/wedding-options/wedding-options.component';
 import { HomeComponent } from './home/home.component';
+import { CountdownComponent } from './countdown/countdown.component';
+import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 
 
@@ -25,15 +26,20 @@ import { HomeComponent } from './home/home.component';
     WeddingEstimatorComponent,
     WeddingOptionsComponent,
     WeddingSelectComponent,
-    HomeComponent
+    HomeComponent,
+    CountdownComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CountdownTimerModule.forRoot(),
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

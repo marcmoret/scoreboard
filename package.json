@@ -23,9 +23,12 @@
     "angularfire2": "^5.1.1",
     "bootstrap": "^3.4.0",
     "core-js": "^2.5.4",
+    "easycountdown": "^1.0.9",
     "firebase": "^5.8.0",
     "firebase-functions": "^2.1.0",
     "maths.ts": "0.0.8",
+    "ngx-countdown": "^3.1.0",
+    "ngx-countdown-timer": "^0.1.9",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "^0.8.28"
