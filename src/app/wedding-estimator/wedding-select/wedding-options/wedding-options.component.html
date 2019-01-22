@@ -1,38 +1,46 @@
 <div class="row">
     <form (ngSubmit)="onSubmit(f)" #f=ngForm class="pure-form pure-form-aligned">
         <fieldset>
-            <div class="pure-control-group">
-                <label>Choose a Hall: </label>
-            <select class="form-control" name="hall" ngModel>
-                <option value="140">Buffet Marina</option>
-                <option value="129">Renaissance</option>
-                <option value="160">Plaza</option>
-                <option value="2000">Punta Resort Cana Don Pablo</option>
-                <option value="50">Outside</option>
-                <option value="0">None</option>
-            </select>   
+            <div *ngIf="isHall" class="pure-control-group">
+            <label>Choose a Hall: </label>
+            <select class="form-control" name="hall"  ngModel>
+                    <option *ngFor="let x of Hall"
+                    [value]="x.price"
+                    >{{ x.name }}</option>
+            </select> 
+            <hr>  
             </div>
-            <hr>
-            <div class="pure-control-group">
-                <label>Choose a DJ: </label>
+            <div *ngIf="isMusic" class="pure-control-group">
+            <label>Choose a DJ: </label>
             <select class="form-control" name="dj" ngModel >
-                <option value="3000">Marco Ferri</option>
-                <option value="2000">DJ Mario</option>
-                <option value="10000">The Foo Fighters</option>
-                <option value="0">None</option>
+                <option *ngFor="let y of DJ"
+                [value]="y.price"
+                >{{ y.name }}</option>
             </select>
-            </div>
             <hr>
+            </div>
+            <div *ngIf="isBand" class="pure-control-group">
+                <label>Choose a Band: </label>
+                <select class="form-control" name="band" ngModel >
+                    <option *ngFor="let z of Band"
+                    [value]="z.price"
+                    >{{ z.name }}</option>
+                </select>
+                <hr>
+            </div>
             <button type="submit" class="btn btn-primary">Calculate</button>
             <button type="button" style="margin-left:1%" (click)="onReset()" class="btn btn-danger">Reset</button>
         </fieldset>
     </form>
-    <hr>
     <div *ngIf="showBudget">
+        <hr>
         <label>Estimated Total Costs: <span>{{this.expectedCost | currency}}</span> </label>
         <br>
         <label>Budget: <span *ngFor="let x of test">{{x.budget | currency}}</span> </label>
         <br>
-        <label>Balance: <span *ngIf="this.balance >= 0" style="color:green">{{this.balance | currency}} - You should be fine.</span><span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span> </label>
+        <label>Balance: <span *ngIf="this.balance >= 0" style="color:green">{{this.balance | currency}} - You should be fine.</span>
+            <span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span>
+        </label>
     </div>  
 </div>
+<!-- <p *ngFor="let x of DJ">{{x.name}} and {{x.rice}}</p> -->

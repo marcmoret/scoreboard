@@ -14,16 +14,16 @@ style="margin: 1%" (click)="reset()"><img src="../../../assets/img/Reset.png"></
     <br>
     <br>
 
-    <input 
-    placeholder="0" 
-    class="form-control" 
-    style="margin-right:5%;" 
-    type="number" 
-    id="number"
-    (keyup.enter)="AddScore()" 
-    #addScore>
-    <br>
+ <input 
+ placeholder="0" 
+ class="input" 
+ type="number" 
+ id="number"
+ (keyup.enter)="AddScore()" 
+ #addScore>
 
-    <button class="btn btn-success"  
-    (click) = "AddScore()" id="Addscore">Add Score</button> 
+ <input class="btn btn-success" id="Addscore" type="image" src="../../../assets/img/up-arrow-key.png" (click)="AddScore()" />
+
+<button class="btn btn-danger"
+ style="margin: 1%" (click)="reset()">Reset</button>
 </div>
