@@ -12,7 +12,7 @@ export class CountdownComponent implements OnInit {
 
   ngOnInit() {
     // Set the date we're counting down to
-  var countDownDate = new Date("June 22, 2019 00:00:00").getTime();
+  var countDownDate = new Date("Sept 22, 2019 00:00:00").getTime();
 
   // Update the count down every 1 second
   var x = setInterval(function() {
