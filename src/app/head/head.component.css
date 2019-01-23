@@ -7,8 +7,12 @@
 }
 .jumbotron{
     padding-bottom: 0%;
+    background-color: #c3c3c3;
 }
 img{
     height: 15px;
     width: 15px;
+}
+.navbar-default .navbar-brand{
+    color: #0a0606;
 }
