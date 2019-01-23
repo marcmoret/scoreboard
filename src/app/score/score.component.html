@@ -4,7 +4,7 @@
         <h1 id="scoreboard" class="jumbotron">Scoreboard</h1>
         <div id="scoreboard" >
             <label id="enterName" for="name" style="margin: 1%;">Enter Name: </label>
-            <input required id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+            <input required maxlength="10" id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
             <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
             <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
         </div>
