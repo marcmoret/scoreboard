@@ -1,10 +1,10 @@
 <app-head></app-head>
 <body>
     <div class="container">
-        <h1 id="scoreboard" class="jumbotron">Scoreboard (Beta)</h1>
+        <h1 id="scoreboard" class="jumbotron">Scoreboard</h1>
         <div id="scoreboard" >
             <label id="enterName" for="name" style="margin: 1%;">Enter Name: </label>
-            <input id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+            <input required id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
             <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
             <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
         </div>
@@ -19,3 +19,4 @@
     </div>
     </div>
 </body>
+<p>v 1.0</p>
