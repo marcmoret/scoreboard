@@ -4,7 +4,7 @@
         <h1 id="scoreboard" class="jumbotron">Scoreboard (Beta)</h1>
         <div id="scoreboard" >
             <label id="enterName" for="name" style="margin: 1%;">Enter Name: </label>
-            <input  placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+            <input id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
             <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
             <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
         </div>
@@ -13,17 +13,6 @@
     <div class="col-xs-12">
         <ul *ngFor="let x of names; let i = index">
             <app-choose-name playerName="{{x}}" indexplayer="{{i}}" [names]="names"></app-choose-name>
-            <!-- <button *ngIf="ArrayAdded" 
-            type="click" 
-            (click)="onDelete(i)" 
-            name="reset" 
-            class="btn btn-danger">Delete Player</button> -->
-            <!-- <input *ngIf="ArrayAdded" 
-            type="image" 
-            (click)="onDelete(i)" 
-            name="reset" 
-            class="btn btn-danger"
-            src="../../../assets/img/minus-player.png"> -->
             <br>
             <br>
         </ul>
