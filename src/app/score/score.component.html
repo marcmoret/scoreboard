@@ -12,12 +12,18 @@
     <div class="container">
     <div class="col-xs-12">
         <ul *ngFor="let x of names; let i = index">
-            <app-choose-name playerName="{{x}}"></app-choose-name>
-            <button *ngIf="ArrayAdded" 
+            <app-choose-name playerName="{{x}}" indexplayer="{{i}}" [names]="names"></app-choose-name>
+            <!-- <button *ngIf="ArrayAdded" 
             type="click" 
             (click)="onDelete(i)" 
             name="reset" 
-            class="btn btn-danger">Delete Player</button>
+            class="btn btn-danger">Delete Player</button> -->
+            <!-- <input *ngIf="ArrayAdded" 
+            type="image" 
+            (click)="onDelete(i)" 
+            name="reset" 
+            class="btn btn-danger"
+            src="../../../assets/img/minus-player.png"> -->
             <br>
             <br>
         </ul>

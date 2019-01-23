@@ -29,3 +29,8 @@
     display: table;
     clear: both;
   }
+  @media (max-width: 375px){
+    #test, #test2{
+        max-width: 100%;
+    }
+  }

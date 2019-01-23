@@ -1,21 +1,28 @@
 <div class="row">
+    <div id="score" class="col-xs-12" >
+        <span id="playerName"> {{ this.playerName }}: </span>
+        <br>
+        <span id="scoreSpan" >{{ this.x }}</span>
+        
+        <input 
+        id="delete"
+        type="image" 
+        (click)="onDelete(i)" 
+        name="reset" 
+        class="btn btn-danger"
+        src="../../../assets/img/minus-player.png">
     
-        <div id="score" class="col-xs-12" >
-            <span id="test"> {{ this.playerName }}: </span>
-            <span id="scoreSpan" >{{ this.x }}</span>
-        </div>
-   
+    </div>   
 </div>
 
 <div class="" id="increment">
 
-    <button class="btn btn-success" 
-    (click)="goal()"><img src="../../../assets/img/plus.png">
-    </button>
-
-    <button class="btn btn-success"
-    style="margin-left: 1%" (click)="onMinus()">
-    <img src="../../../assets/img/minusPng.png"></button>
+    <input class="btn btn-success" type="image"
+    (click)="goal()" src="../../../assets/img/plus.png">
+    
+    <input class="btn btn-success" type="image"
+    style="margin-left: 1%" (click)="onMinus()"
+    src="../../../assets/img/minusPng.png">
 
     <!-- Required for desktop, hides on Mobile-->
     <br>
@@ -33,10 +40,11 @@
     <input class="btn btn-success" id="Addscore" type="image" 
     src="../../../assets/img/up-arrow-key.png" 
     (click)="AddScore()" />
+
     
-    <button class="btn btn-danger" id="increment"
-    style="margin: 1%" (click)="reset()">
-    <img src="../../../assets/img/Reset.png">
-    </button>
+    
+    <input class="btn btn-danger" id="increment" type="image"
+    style="margin: 1%" (click)="reset()"
+    src="../../../assets/img/Reset.png">
 
 </div>

@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && firebase deploy --project default && git add . && git commit -m'general deploy' && git push"
+    "deploy": "ng build --prod && firebase deploy --project default",
+    "deployh": "ng build --prod && firebase deploy --project default && git add . && git commit -m'general deploy' && git push"
+
   },
   "private": true,
   "dependencies": {

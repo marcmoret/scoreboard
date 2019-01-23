@@ -10,6 +10,8 @@ export class ChooseNameComponent implements OnInit {
 
   @ViewChild('addScore') addScore: ElementRef;
   @Input() playerName:any;
+  @Input() indexplayer:any;
+  @Input() names:[];
 
   constructor() { }
   x:number= 0;
@@ -33,5 +35,9 @@ export class ChooseNameComponent implements OnInit {
     this.x =  this.x + +this.addScore.nativeElement.value;
     console.log(this.x);
     this.addScore.nativeElement.value = '';
+  }
+  onDelete(index:number){
+    console.log(index);
+    this.names.splice(index,1);
   }
 }

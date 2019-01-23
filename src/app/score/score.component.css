@@ -13,13 +13,12 @@ body{
 }
 
 ul{
-    
+    height: auto;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 5%;
+    max-width: 100%;
 }
-
-
 
 .btn{
     vertical-align: baseline !important;
