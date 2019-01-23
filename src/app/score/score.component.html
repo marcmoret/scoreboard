@@ -12,8 +12,7 @@
     <div class="container">
     <div class="col-xs-12">
         <ul *ngFor="let x of names; let i = index">
-            <span id="test"> {{ x }} </span>
-            <app-choose-name></app-choose-name>
+            <app-choose-name playerName="{{x}}"></app-choose-name>
             <button *ngIf="ArrayAdded" 
             type="click" 
             (click)="onDelete(i)" 

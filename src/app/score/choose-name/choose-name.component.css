@@ -8,6 +8,9 @@ img{
 #number{
     width: 155px;
 }
+#test{
+    font-size: 25px;
+}
 /* #Addscore{
     color: black;
     font-weight: bold;
@@ -21,13 +24,14 @@ img{
 
 @media (max-width: 375px){
     #score{
-       
         font-size: 35px;
         position: static;
         float: right;
         margin-bottom: 5%;
         width: 100%;
-        
+    }
+    #scoreSpan{
+        float: right;
     }
     #reset{
         float: right;
@@ -60,6 +64,9 @@ img{
     }
     #Addscore{
         height: 33px;
+    }
+    #test{
+        font-size: 20px;
     }
     
 }

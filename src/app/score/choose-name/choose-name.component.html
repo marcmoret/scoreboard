@@ -1,5 +1,10 @@
-<div id="score" >
-    <span >{{ this.x }}</span>
+<div class="row">
+    
+        <div id="score" class="col-xs-12" >
+            <span id="test"> {{ this.playerName }}: </span>
+            <span id="scoreSpan" >{{ this.x }}</span>
+        </div>
+   
 </div>
 
 <div class="" id="increment">
@@ -12,8 +17,10 @@
     style="margin-left: 1%" (click)="onMinus()">
     <img src="../../../assets/img/minusPng.png"></button>
 
+    <!-- Required for desktop, hides on Mobile-->
     <br>
     <br>
+    <!-- Required for desktop, hides on Mobile-->
 
     <input 
     placeholder="0" 
