@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input, Injectable, EventEmitter, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-wedding-options',
@@ -151,5 +151,8 @@ export class WeddingOptionsComponent implements OnInit {
     console.log('Balance: ' + this.balance)
     console.log(this.budget);
     this.showBudget = true;
+  }
+  onEditSubmit(edit: NgForm){
+    this.isSet = true;
   }
 }
