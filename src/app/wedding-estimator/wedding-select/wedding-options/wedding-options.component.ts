@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 export class WeddingOptionsComponent implements OnInit {
   
 @ViewChild('f') form: NgForm;
+@ViewChild('g') edit: NgForm;
   constructor() {}
 
   @Input() personInfo = [];
@@ -18,12 +19,12 @@ export class WeddingOptionsComponent implements OnInit {
   @Input() isBand:boolean;
   @Input() isSubmitted:boolean;
   @Output() hopefully = new EventEmitter();
+  isSet:boolean;
 
   @Output() DJ =[
     {name: 'Marco Ferri', price: 5000},
     {name: 'DJ Mario', price: 4000},
     {name: 'Foo Fighters', price: 10000},
-    {name: 'None', price: 0},
   ]
 
   @Output() Hall =[
@@ -32,7 +33,6 @@ export class WeddingOptionsComponent implements OnInit {
     {name: 'Plaza Hotel', price: 160},
     {name: 'Punta Cana Don Pablo Resort', price: 2000},
     {name: 'Backyard', price: 50},
-    {name: 'None', price: 0},
   ]
 
   @Output() Band = [
@@ -52,7 +52,8 @@ export class WeddingOptionsComponent implements OnInit {
  
   
 
-  ngOnInit() {    
+  ngOnInit() {
+    this.isSet = true;    
   }
 
   onReset(){
@@ -61,6 +62,7 @@ export class WeddingOptionsComponent implements OnInit {
     this.form.reset();
     this.personInfo = [];
     this.bringToZero();
+    this.isSet = true;
    
   }
   bringToZero(){
@@ -91,6 +93,13 @@ export class WeddingOptionsComponent implements OnInit {
     }
   }
   
+  onEdit(){
+    this.isSet = false;
+    console.log('fired');
+  }
+  onEdit1(){
+    this.isSet = true;
+  }
   
   onSubmit(form:NgForm){
     //sets null and undefined values to 0

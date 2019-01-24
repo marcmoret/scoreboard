@@ -29,7 +29,7 @@
                 <hr>
             </div>
             <button type="submit" class="btn btn-primary">Calculate</button>
-            <button type="button" style="margin-left:1%" (click)="onReset()" class="btn btn-danger">Reset</button>
+            <button type="button" style="margin-left:1%" (click)="onReset()" class="btn btn-danger">Go Back</button>
             <div id="result" *ngIf="showBudget">
                     <label>Estimated Total Costs: <span>{{this.expectedCost | currency}}</span> </label>
                     <br>
@@ -41,25 +41,35 @@
                 </div>
         </fieldset>
     </form>
-    
+    <!-- Legend and Edit Values-->
     <div>
         <hr>
         <div id="legend">
         <label class="underline">Legend</label><br>
         </div>
         <div class="container">
-                <div class="prices">
-                        <label class="underline">DJ Prices </label>
-                        <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price}}</p>  
+                <div class="prices" *ngIf="isSet">
+                    <label class="underline">DJ Prices </label> <button id="Edit" (click)="onEdit()">  Edit</button>
+                    <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price}}</p>  
+                </div>
+                <div class="prices" *ngIf="!isSet">
+                <label class="underline">DJ Prices </label>
+                    <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
+                    <div *ngFor="let dj of DJ; let i = index">
+                        <label class="form-group"> {{dj.name}} <br> </label>
+                        <input (ngModel)="DJ[i].price" type="number" name="newPrice" class="form-control"> <hr>
                     </div>
-                    <div class="prices">
+                    <button class="btn btn-primary" type="submit">Done</button> 
+                    </form>
+                </div>
+                    <!-- <div class="prices">
                         <label class="underline">Hall Prices per Person </label>
                         <p *ngFor="let hall of Hall">{{hall.name}}  {{hall.price}}</p>  
                     </div>
                     <div class="prices">
                         <label class="underline">Band Prices </label>
                         <p *ngFor="let band of Band">{{band.name}}  {{band.price}}</p>  
-                    </div>
+                    </div> -->
         </div>
         
     

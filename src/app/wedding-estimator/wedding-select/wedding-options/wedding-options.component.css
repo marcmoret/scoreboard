@@ -28,3 +28,9 @@
     float: left;
     margin:5%;
 }
+.form-control{
+    width: 99%;
+}
+::placeholder{
+    font-weight: bold;
+}
