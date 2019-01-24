@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
     <form (ngSubmit)="onSubmit(f)" #f=ngForm class="pure-form pure-form-aligned">
         <fieldset>
             <div *ngIf="isHall" class="pure-control-group">
@@ -30,17 +30,40 @@
             </div>
             <button type="submit" class="btn btn-primary">Calculate</button>
             <button type="button" style="margin-left:1%" (click)="onReset()" class="btn btn-danger">Reset</button>
+            <div id="result" *ngIf="showBudget">
+                    <label>Estimated Total Costs: <span>{{this.expectedCost | currency}}</span> </label>
+                    <br>
+                    <label>Budget: <span>{{this.budget | currency}}</span> </label>
+                    <br>
+                    <label>Balance: <span *ngIf="this.balance >= 0" style="color:green">{{this.balance | currency}} - You should be fine.</span>
+                        <span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span>
+                    </label>
+                </div>
         </fieldset>
     </form>
-    <div *ngIf="showBudget">
+    
+    <div>
         <hr>
-        <label>Estimated Total Costs: <span>{{this.expectedCost | currency}}</span> </label>
-        <br>
-        <label>Budget: <span *ngFor="let x of test">{{x.budget | currency}}</span> </label>
-        <br>
-        <label>Balance: <span *ngIf="this.balance >= 0" style="color:green">{{this.balance | currency}} - You should be fine.</span>
-            <span *ngIf="this.balance < 0" style="color:red">{{this.balance | currency}} - You Broke.</span>
-        </label>
-    </div>  
+        <div id="legend">
+        <label class="underline">Legend</label><br>
+        </div>
+        <div class="container">
+                <div class="prices">
+                        <label class="underline">DJ Prices </label>
+                        <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price}}</p>  
+                    </div>
+                    <div class="prices">
+                        <label class="underline">Hall Prices per Person </label>
+                        <p *ngFor="let hall of Hall">{{hall.name}}  {{hall.price}}</p>  
+                    </div>
+                    <div class="prices">
+                        <label class="underline">Band Prices </label>
+                        <p *ngFor="let band of Band">{{band.name}}  {{band.price}}</p>  
+                    </div>
+        </div>
+        
+    
+        
+    </div>
 </div>
 <!-- <p *ngFor="let x of DJ">{{x.name}} and {{x.rice}}</p> -->

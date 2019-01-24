@@ -1,5 +1,5 @@
 <div class="container" [hidden]="isSubmitted"> 
-<div class="row">
+
 <form (ngSubmit)="onSubmit(y)" #y="ngForm" class="form-group">
   <div class="container">
     <div id="form" class="row">
@@ -57,10 +57,9 @@
   </div>
 </form>
 </div>
-</div>
 <app-wedding-options (hopefully)="ngOnInit()" 
 [(hidden)]="!this.isSubmitted" 
-[test]="currentForm"
+[personInfo]="currentForm"
 [isHall]="isHall"
 [isBand]="isBand"
 [isMusic]="isMusic">

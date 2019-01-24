@@ -13,7 +13,7 @@ body{
 }
 
 ul{
-    height: (auto - 100px);
+    height: calc(100% - 555px);
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 5%;

@@ -1,8 +1,30 @@
 .row{
-    max-width: 50%;
-    margin-left: 20%;
+    max-width: 55%;
+    margin-left: 25%;
+    margin-right: auto;
     align-content: center;
 }
 #showBudget{
     max-width: 300px;
+}
+#result
+{
+    width: 60%;
+    float: right;
+    margin-right: 3px;
+}
+#legend{
+    width: auto;
+    text-align: center;
+    align-items: center;
+}
+.underline{
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.prices{
+    width: auto;
+    float: left;
+    margin:5%;
 }
