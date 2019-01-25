@@ -5,14 +5,16 @@
     <div id="form" class="row">
         <!-- First column, budget, guests and limo-->
         <div class="column">
-            <label for="guests">Number of Guests</label>
-            <input [ngModel] min="0" type="number" name="guests" class="form-control" id="test">
-            <hr>
-            <label for="budget">Budget</label>
-            <input [ngModel] min="0" type="number" name="budget" class="form-control" id="test2">
-            <hr>
-            <label for="limo">Limousines:  </label>
-            <input [ngModel] min="0" type="number" name="limo" class="form-control" id="test">
+            <div class="inside" id="firstInside">
+                    <label for="guests">Number of Guests</label>
+                    <input [ngModel] min="0" type="number" name="guests" class="form-control" id="test">
+                    <hr>
+                    <label for="budget">Budget</label>
+                    <input [ngModel] min="0" type="number" name="budget" class="form-control" id="test2">
+                    <hr>
+                    <label for="limo">Limousines:  </label>
+                    <input [ngModel] min="0" type="number" name="limo" class="form-control" id="test">
+            </div>
         </div>
         <!-- Second column, music, hall, flowers-->
         <div class="column" id="secondColumn">
@@ -38,14 +40,14 @@
             </div>
         
         </div>
-    <div class="column" id="thirdColumn">
-        <label>Hall?</label>
-        <div class="radio" name="radio">
-            <label><input type="radio" value="1" ngModel name="radiohall">Yes</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" value="0" ngModel name="radiohall">No</label>
-        </div>
+        <div class="column" id="thirdColumn">
+                <label>Hall?</label>
+                <div class="radio" name="radio">
+                    <label><input type="radio" value="1" ngModel name="radiohall">Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" value="0" ngModel name="radiohall">No</label>
+                </div>
         </div>
     </div>
     <div id="showSubmit">
