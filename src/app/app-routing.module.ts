@@ -1,3 +1,4 @@
+import { IdeasComponent } from './ideas/ideas.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
   { path: 'scoreboard', component: ScoreComponent },
   { path: 'wedding-estimator', component: WeddingEstimatorComponent},
   { path: 'countdown', component:CountdownComponent},
-  { path: 'testing', component:TestingComponent}
+  { path: 'testing', component:TestingComponent},
+  { path: 'ideas', component: IdeasComponent}
 
 
 ];

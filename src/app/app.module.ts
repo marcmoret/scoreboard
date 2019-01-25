@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
 import { TestingComponent } from './testing/testing.component';
+import { HttpModule } from '@angular/http';
+import { IdeasComponent } from './ideas/ideas.component';
+import { ServerService } from './ideas/ideas.service';
 
 
 @NgModule({
@@ -30,15 +33,17 @@ import { TestingComponent } from './testing/testing.component';
     HomeComponent,
     CountdownComponent,
     TestingComponent,
+    IdeasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CountdownTimerModule.forRoot(),
-    NgbModule    
+    NgbModule,
+    HttpModule    
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
