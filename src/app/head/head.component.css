@@ -8,7 +8,7 @@
         display: grid;
     }
 }
-@media (min-width: 375px){
+@media (min-width: 992px){
     #main-menu > ul{
         margin-left: 19%;
     }
