@@ -157,13 +157,12 @@ export class WeddingOptionsComponent implements OnInit {
   
   
   console.log(this.edit.form.value);
-  console.log(this.obj);
-
   
   for(let x in this.edit.form.value){
     this.testArray.push(x);
   }
   console.log(this.testArray);
+  
   
   //resets the page to normal
   this.isSet = true;

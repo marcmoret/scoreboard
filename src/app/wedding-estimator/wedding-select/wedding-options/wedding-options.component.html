@@ -60,7 +60,7 @@
                     <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
                     <div *ngFor="let dj of DJ; let i = index">
                         <label class="form-group"> {{dj.name}} <br> </label>
-                        <input (ngModel)="DJ[i].price" type="number" name="newPrice{{i}}" class="form-control"> <hr>
+                        <input ngModel type="number" name="newPrice{{i}}" class="form-control"> <hr>
                     </div>
                     <button class="btn btn-primary" (click)="getIndex(DJ)" type="submit">Done</button> 
                     </form>
