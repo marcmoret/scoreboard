@@ -23,16 +23,19 @@ export class WeddingSelectComponent implements OnInit {
 
   onSubmit(form: NgForm){
     
-    
+    //pushes values to array
     this.currentForm.push(this.form.value);
+
+    console.log(this.currentForm)
+    
     //Validates if Dj is selected
     if(this.form.value.radiomusic === 'none'){
         this.isMusic = false;
-    }else if(this.form.value.radiomusic === 'band'){
+      }else if(this.form.value.radiomusic === 'band'){
       this.isBand = true;
-  }else{
+        }else{
     this.isMusic = true;
-  }
+      }
 
     //Validates if Band is selected
     
@@ -42,10 +45,10 @@ export class WeddingSelectComponent implements OnInit {
     if(this.form.value.radiohall === '0'){
       
       this.isHall = false;
-    }else{
-      this.isHall = true;
+      }else{
+        this.isHall = true;
+      }
     }
-  }
 
   onClick(){
     this.isSubmitted = true;
@@ -57,7 +60,6 @@ export class WeddingSelectComponent implements OnInit {
 
   ngOnInit() {
     this.isSubmitted = false;
-    this.form.reset();
     this.currentForm = [];
     this.isMusic = false;
     this.isHall = false;

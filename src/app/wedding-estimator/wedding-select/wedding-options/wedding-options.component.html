@@ -49,17 +49,20 @@
         </div>
         <div class="container">
                 <div class="prices" *ngIf="isSet">
-                    <label class="underline">DJ Prices </label> <button id="Edit" (click)="onEdit()">  Edit</button>
+                    <label class="underline">DJ Prices </label> <a (click)="onEdit()">Edit</a>
                     <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price}}</p>  
                 </div>
+
+                <!-- Hidden form to take new values -->
+
                 <div class="prices" *ngIf="!isSet">
                 <label class="underline">DJ Prices </label>
                     <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
                     <div *ngFor="let dj of DJ; let i = index">
                         <label class="form-group"> {{dj.name}} <br> </label>
-                        <input (ngModel)="DJ[i].price" type="number" name="newPrice" class="form-control"> <hr>
+                        <input (ngModel)="DJ[i].price" type="number" name="newPrice{{i}}" class="form-control"> <hr>
                     </div>
-                    <button class="btn btn-primary" type="submit">Done</button> 
+                    <button class="btn btn-primary" (click)="getIndex(DJ)" type="submit">Done</button> 
                     </form>
                 </div>
                     <!-- <div class="prices">

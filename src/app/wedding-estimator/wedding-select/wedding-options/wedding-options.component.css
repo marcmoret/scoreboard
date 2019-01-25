@@ -34,3 +34,9 @@
 ::placeholder{
     font-weight: bold;
 }
+a{
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input, Injectable, EventEmitter, Output } from '@angular/core';
-import { NgForm, Form } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { toArray } from 'rxjs/operators';
 
 @Component({
   selector: 'app-wedding-options',
@@ -49,6 +50,8 @@ export class WeddingOptionsComponent implements OnInit {
   budget = 0;
   limo = 0;
   showBudget:boolean = false;
+  testArray = [];
+  obj;
  
   
 
@@ -96,11 +99,7 @@ export class WeddingOptionsComponent implements OnInit {
   onEdit(){
     this.isSet = false;
     console.log('fired');
-  }
-  onEdit1(){
-    this.isSet = true;
-  }
-  
+  }  
   onSubmit(form:NgForm){
     //sets null and undefined values to 0
      this.verifyNull(this.form);
@@ -152,7 +151,28 @@ export class WeddingOptionsComponent implements OnInit {
     console.log(this.budget);
     this.showBudget = true;
   }
+
+
   onEditSubmit(edit: NgForm){
-    this.isSet = true;
+  
+  
+  console.log(this.edit.form.value);
+  console.log(this.obj);
+
+  
+  for(let x in this.edit.form.value){
+    this.testArray.push(x);
+  }
+  console.log(this.testArray);
+  
+  //resets the page to normal
+  this.isSet = true;
+  }
+
+
+
+
+  getIndex(i:any){
+    console.log(i);
   }
 }
