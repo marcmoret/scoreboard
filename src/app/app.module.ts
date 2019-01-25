@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,7 +18,6 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
 import { TestingComponent } from './testing/testing.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +29,14 @@ import { TestingComponent } from './testing/testing.component';
     WeddingSelectComponent,
     HomeComponent,
     CountdownComponent,
-    TestingComponent
+    TestingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CountdownTimerModule.forRoot(),    
+    CountdownTimerModule.forRoot(),
+    NgbModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

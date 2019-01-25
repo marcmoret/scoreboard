@@ -3,10 +3,9 @@
     margin-left: 5%;
 
 }
-#test{
-    max-width: 20%;
+#test, #test2{
+    max-width: 40%;
 }
-
 .form-control-group{
 
     max-width: 20%;
@@ -18,9 +17,12 @@
   /* Create two equal columns that floats next to each other */
   .column {
     float: left;
-    width: 50%;
+    width: 33%;
     padding: 10px;
    
+  }
+  #thirdColumn{
+      width: auto;
   }
   
   /* Clear floats after the columns */
@@ -33,4 +35,7 @@
     #test, #test2{
         max-width: 100%;
     }
+  }
+  .inside{
+      float: right;
   }

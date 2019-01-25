@@ -1,15 +1,29 @@
-<nav class="navbar navbar-default">
-  <div id="jumbotron" class="jumbotron">
+<div id="jumbotron" class="jumbotron">
     <h1 class="display-4">This is our Playground website! </h1>
-    <div style="display:flex;justify-content:center;align-items:center;">
-        <div>
-            <a  routerLink="/" class="navbar-brand"> Home</a>
-            <a  routerLink="/scoreboard" class="navbar-brand">Scoreboard</a>
-            <a  routerLink="/wedding-estimator" class="navbar-brand"> Wedding Estimator</a>
-            <a  routerLink="/" class="navbar-brand"> Project 3</a>
-            <a  routerLink="/testing" class="navbar-brand"> Testing Area </a>
-            <a  routerLink="/countdown" class="navbar-brand"> Countdown</a>
+</div>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" 
+          data-toggle="collapse" data-target="#main-menu"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a routerLink="/" class="navbar-brand">Home</a>
+          </div>
+          <div id="main-menu" class="collapse navbar-collapse">
+            <ul #nav class="nav navbar-nav">
+              <li><a  routerLink="/scoreboard" class="navbar-brand">Scoreboard</a></li>
+              <li><a  routerLink="/wedding-estimator" class="navbar-brand"> Wedding Estimator</a></li>
+              <li><a  routerLink="/" class="navbar-brand"> Project 3</a></li>
+              <li><a  routerLink="/testing" class="navbar-brand"> Testing Area </a></li>
+              <li><a  routerLink="/countdown" class="navbar-brand"> Countdown</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
-  </div>
-</nav>
+    </nav>
+</div>

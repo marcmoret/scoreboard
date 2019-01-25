@@ -15,26 +15,30 @@
             <input [ngModel] min="0" type="number" name="limo" class="form-control" id="test">
         </div>
         <!-- Second column, music, hall, flowers-->
-        <div class="column">
-        <label>Music?</label>
-        <div class="radio" name="radio">
-            <label><input type="radio" value="dj" ngModel name="radiomusic">DJ</label>
+        <div class="column" id="secondColumn">
+            <div class="inside" id="secondInside">
+                    <label>Music?</label>
+                    <div class="radio" name="radio">
+                        <label><input type="radio" value="dj" ngModel name="radiomusic">DJ</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="band" ngModel name="radiomusic">Band</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="none" ngModel name="radiomusic">None</label>
+                    </div>
+                    <hr>
+                    <label>Flowers?</label>
+                    <div class="radio" name="radio">
+                        <label><input type="radio" value="200" ngModel name="radioflowers">Yes</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="0" ngModel name="radioflowers">No</label>
+                    </div>
+            </div>
+        
         </div>
-        <div class="radio">
-            <label><input type="radio" value="band" ngModel name="radiomusic">Band</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" value="none" ngModel name="radiomusic">None</label>
-        </div>
-        <hr>
-        <label>Flowers?</label>
-        <div class="radio" name="radio">
-            <label><input type="radio" value="200" ngModel name="radioflowers">Yes</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" value="0" ngModel name="radioflowers">No</label>
-        </div>
-        <hr>
+    <div class="column" id="thirdColumn">
         <label>Hall?</label>
         <div class="radio" name="radio">
             <label><input type="radio" value="1" ngModel name="radiohall">Yes</label>
