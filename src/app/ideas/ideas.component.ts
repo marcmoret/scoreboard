@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ServerService } from './ideas.service';
 
+
 @Component({
   selector: 'app-ideas',
   templateUrl: './ideas.component.html',
@@ -11,22 +12,12 @@ export class IdeasComponent implements OnInit {
     return Math.round(Math.random() * 10000);
   }
 
-  servers = [{
-    name: 'Testserver',
-    capacity: 10,
-    id:this.generateId()
-  },
-  {
-    name: 'Liveserver',
-    capacity: 100,
-    id:this.generateId()
-  }
-];
+  servers = [];
 
-onAddServer(name:string){
+onAddServer(name:string, idea: string){
 this.servers.push({
   name: name,
-  capacity: 50,
+  idea: idea,
   id: this.generateId()
 });
 
@@ -52,9 +43,14 @@ onGet(){
 }
 
 
-  constructor(private serverService: ServerService) { }
+  constructor(private serverService: ServerService) {}
+   
+
+  
   
   ngOnInit() {
   }
+
+  
 
 }

@@ -13,7 +13,7 @@
       </div>
     </div>
     <button class="btn btn-primary" 
-    (click)="onAddServer(personName.value)">Add Idea</button>
+    (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
     <br><br>
     <button class="btn btn-primary" 
     (click)="onSave()">Save Server</button>
@@ -22,11 +22,14 @@
     <hr>
   </div>
 
-  <ul class="list-group" *ngFor="let server of servers">
-    <li class="list-item">
-          {{server.name }} (ID: {{server.id}})
-          
-    </li>
-  </ul>    
+  <div *ngIf="servers">
+      <ul class="list-group" *ngFor="let server of servers">
+          <li class="list-item">
+              <p> {{server.name }} (ID: {{server.id}}) </p>   {{server.idea}}
+                
+          </li>
+        </ul>   
+  </div>
+   
 
-  <!-- , personIdea.value -->
+  <!-- -->

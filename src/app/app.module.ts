@@ -22,6 +22,9 @@ import { ServerService } from './ideas/ideas.service';
 import { IdeasResultComponent } from './ideas/ideas-result/ideas-result.component';
 
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
