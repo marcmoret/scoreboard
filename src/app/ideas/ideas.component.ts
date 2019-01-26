@@ -11,7 +11,7 @@ export class IdeasComponent implements OnInit {
     return Math.round(Math.random() * 10000);
   }
 
-  @Output() servers = [{
+  servers = [{
     name: 'Testserver',
     capacity: 10,
     id:this.generateId()

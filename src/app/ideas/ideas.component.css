@@ -4,3 +4,13 @@
 button{
     margin: 2%;
 }
+#idea{
+    width: 28%;
+    height: 15%;
+}
+input{
+    border: 1px solid lightblue;
+}
+textarea{
+    border: 1px solid lightblue;
+}

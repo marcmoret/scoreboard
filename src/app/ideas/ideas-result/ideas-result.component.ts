@@ -7,12 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IdeasResultComponent implements OnInit {
 
-  @Input() results = [];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.results);
+    //this.results = this.results.json();
+   // console.log(this.results);
   }
 
 }

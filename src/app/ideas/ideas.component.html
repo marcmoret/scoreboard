@@ -2,9 +2,18 @@
 
 
   <div class="container">
-    <input placeholder="Enter Name" type="text" #serverName>
+    <div class="row">
+      <div class="col-xs-12">
+          <input placeholder="Name" type="text" #personName>
+          <br> <br>
+      </div>
+      <div class="col-xs-12">
+          <textarea id="idea" placeholder="Enter Your Idea Here" 
+          type="text" #personIdea></textarea>
+      </div>
+    </div>
     <button class="btn btn-primary" 
-    (click)="onAddServer(serverName.value)">Add Server</button>
+    (click)="onAddServer(personName.value)">Add Idea</button>
     <br><br>
     <button class="btn btn-primary" 
     (click)="onSave()">Save Server</button>
@@ -13,7 +22,11 @@
     <hr>
   </div>
 
+  <ul class="list-group" *ngFor="let server of servers">
+    <li class="list-item">
+          {{server.name }} (ID: {{server.id}})
+          
+    </li>
+  </ul>    
 
-  
-  
-  <app-ideas-result [results]="servers" ></app-ideas-result>
+  <!-- , personIdea.value -->
