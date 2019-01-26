@@ -10,8 +10,8 @@ constructor(private http: Http){}
 
 storeServers(servers: any[]){
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.put('https://scoreboard-ffd72.firebaseio.com/data.json', servers);
-   // return this.http.post('https://scoreboard-ffd72.firebaseio.com/data.json', servers);
+    //return this.http.put('https://scoreboard-ffd72.firebaseio.com/data.json', servers);
+    return this.http.post('https://scoreboard-ffd72.firebaseio.com/data.json', servers);
 }
 
 
@@ -21,7 +21,7 @@ getServers(){
         (response: Response) => {
             const data = response.json();
             for (const server of data){
-                server.name = server.id;
+                server.name = server.name;
             }
             return data;
         }

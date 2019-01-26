@@ -19,6 +19,7 @@ import { TestingComponent } from './testing/testing.component';
 import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
+import { IdeasResultComponent } from './ideas/ideas-result/ideas-result.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ServerService } from './ideas/ideas.service';
     CountdownComponent,
     TestingComponent,
     IdeasComponent,
+    IdeasResultComponent,
   ],
   imports: [
     BrowserModule,

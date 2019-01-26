@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ServerService } from './ideas.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class IdeasComponent implements OnInit {
     return Math.round(Math.random() * 10000);
   }
 
-  servers = [{
+  @Output() servers = [{
     name: 'Testserver',
     capacity: 10,
     id:this.generateId()
@@ -48,7 +48,7 @@ onGet(){
     (servers: any[] )=> this.servers = servers,
     (error) => console.log(error),
   );
-  console.log(this.servers);
+  console.log('service console: ' + this.servers);
 }
 
 
