@@ -25,11 +25,8 @@
   <div *ngIf="servers">
       <ul class="list-group" *ngFor="let server of servers">
           <li class="list-item">
-              <p> {{server.name }} (ID: {{server.id}}) </p>   {{server.idea}}
+              <p> {{server.name }}  {{today | date}} </p>   {{server.idea}}
                 
           </li>
         </ul>   
   </div>
-   
-
-  <!-- -->
