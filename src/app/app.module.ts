@@ -19,11 +19,7 @@ import { TestingComponent } from './testing/testing.component';
 import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
-import { IdeasResultComponent } from './ideas/ideas-result/ideas-result.component';
 
-
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +34,6 @@ import { environment } from '../environments/environment';
     CountdownComponent,
     TestingComponent,
     IdeasComponent,
-    IdeasResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +41,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     CountdownTimerModule.forRoot(),
     NgbModule,
-    HttpModule    
+    HttpModule,    
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]

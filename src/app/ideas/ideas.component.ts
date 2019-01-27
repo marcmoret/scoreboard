@@ -14,14 +14,21 @@ export class IdeasComponent implements OnInit {
   private generateId(){
     return Math.round(Math.random() * 10000);
   }
-  today: number = Date.now();
+
+
+today: number = Date.now();
 
 
 
-servers = [];
+servers = [{
+  name: '',
+  idea: '',
+  time: 0,
+}];
 
 
 onAddServer(name:string, idea: string){
+  console.log(name, idea);
 this.servers.push({
   name: name,
   idea: idea,
@@ -50,6 +57,7 @@ onGet(){
   ngOnInit() {
 
     console.log(this.today);
+    this.onGet();
     
   }
 }
