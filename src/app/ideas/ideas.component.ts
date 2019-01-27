@@ -9,6 +9,7 @@ import { ServerService } from './ideas.service';
 })
 export class IdeasComponent implements OnInit {
 
+
   constructor(private serverService: ServerService) {}
 
   private generateId(){
@@ -17,6 +18,7 @@ export class IdeasComponent implements OnInit {
 
 
 today: number = Date.now();
+
 
 
 
@@ -54,10 +56,14 @@ onGet(){
   console.log('service console: ' + this.servers);
 }
 
+
   ngOnInit() {
 
     console.log(this.today);
     this.onGet();
     
   }
+
+ 
+
 }

@@ -22,11 +22,16 @@
     <hr>
   </div>
 
-  <div *ngIf="servers">
+  <div class="container">
+     <h3>
+        {{today | date}}
+     </h3> 
+  </div>
+
+  <div class="flex-container" *ngIf="servers">
       <ul class="list-group" *ngFor="let server of servers">
-          <li class="list-item">
-              <p> {{server.name }}  {{today | date}} </p>   {{server.idea}}
-                
-          </li>
-        </ul>   
+          <div>
+              <p> {{server.name }}  {{server.time | date}} </p>   {{server.idea}}
+          </div>
+        </ul>
   </div>
