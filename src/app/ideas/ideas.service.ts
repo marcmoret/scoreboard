@@ -6,27 +6,41 @@ import 'rxjs/Rx';
 @Injectable()
 export class ServerService {
 
+readonly ROOT_URL = 'https://scoreboard-ffd72.firebaseio.com';
+
 constructor(private http: Http){}
 
 storeServers(servers: any[]){
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.put('https://scoreboard-ffd72.firebaseio.com/test.json', servers);
+    return this.http.put('https://scoreboard-ffd72.firebaseio.com/test.json', servers, {headers: headers});
    // return this.http.post('https://scoreboard-ffd72.firebaseio.com/test/-LXC3m518tx5vEsOQidE.json', servers)
 }
 
 
-
 getServers(){
-    return this.http.get('https://scoreboard-ffd72.firebaseio.com/test.json').map(
+    return this.http.get( this.ROOT_URL + '/test.json').map(
         (response: Response) => {
             const data = response.json();
-            // for (const server of data){
-            //     server.name = 'new shit: ' + server.name;
-                
-            // }
             console.log('new data crap: ' + data);
             return data;
         }
     );
 }
+
+storeDates(servers: any[]){
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put('https://scoreboard-ffd72.firebaseio.com/dates.json', servers, {headers: headers});
+   // return this.http.post('https://scoreboard-ffd72.firebaseio.com/test/-LXC3m518tx5vEsOQidE.json', servers)
+}
+
+getDates(){
+    return this.http.get( this.ROOT_URL + '/date.json').map(
+        (response: Response) => {
+            const data = response.json();
+            console.log('new data crap: ' + data);
+            return data;
+        }
+    );
+}
+
 }

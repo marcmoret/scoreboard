@@ -12,7 +12,6 @@
           </div>
         </div>
         <button mat-button (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
-    <br><br>
     <hr>
 </div>
 
@@ -22,24 +21,19 @@
     </h3> 
 </div>
 
-<mat-accordion *ngIf="servers">
-
-    <mat-expansion-panel *ngFor="let server of servers">
+<div *ngIf="servers">
+    <mat-accordion  *ngFor="let server of servers ">
+        <mat-expansion-panel >
             <mat-expansion-panel-header>
                     {{server.time | date}}
-            </mat-expansion-panel-header>
-                    {{server.idea}}
-    </mat-expansion-panel>
-</mat-accordion>
-  <div class="container">
-    <div class="flex-container" >
-            <ul class="list-group" >
-                <div>
-                    <p>  </p>   
-                    <hr>
-                </div>
-            </ul>
-        </div> 
-  </div>
+                </mat-expansion-panel-header>
+                <span id="name">{{server.name }}:</span>{{server.idea }}
+            </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+<div *ngFor="let date of dates">
+    {{date.date | date}}
+</div>
 
  

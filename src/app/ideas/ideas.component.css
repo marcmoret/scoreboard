@@ -8,6 +8,9 @@ button{
     width: 28%;
     height: 15%;
 }
+#name{
+    font-weight: bold;
+}
 input{
     border: 1px solid lightblue;
 }
