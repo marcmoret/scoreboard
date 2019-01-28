@@ -14,24 +14,11 @@ input{
 textarea{
     border: 1px solid lightblue;
 }
-p{
-    font-weight: bold;
+
+mat-accordian{
+    flex-direction: column-reverse;
 }
-table, th, td {
-    border: 1px;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 5px;
-    text-align: left;    
-}
-.flex-container {
-    display: flex;
-    justify-content: center;
-  }
-ul{
-    margin-right: 5%;
-}
+
 h3{
     margin-bottom: 6%;
 }

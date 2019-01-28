@@ -1,10 +1,9 @@
 <fieldset>
 <div class="row">
     <div id="score" class="col-xs-12" >
-        <span id="playerName"> {{ this.playerName }}: </span>
-        <br>
-        <span id="scoreSpan" >{{ this.x }}</span>
+        <span id="playerName"> {{ this.playerName }} </span>
         
+
         <input 
         id="delete"
         type="image" 
@@ -14,6 +13,11 @@
         src="../../../assets/img/minus-player.png">
     
     </div>   
+</div>
+<div class="row">
+    <div class="col-xs-12" id="score">
+        <span id="scoreSpan" >{{ this.x }}</span>
+    </div>
 </div>
 <!-- Add/minus buttons plus addscore and reset -->
 <div class="" id="increment">
@@ -45,7 +49,7 @@
     
     
     <input class="btn btn-danger" id="reset" type="image"
-    style="margin: 1%" (click)="reset()"
+    (click)="reset()"
     src="../../../assets/img/Reset.png">
 
 </div>

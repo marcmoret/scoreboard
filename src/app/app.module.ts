@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -5,6 +6,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { HeadComponent } from './head/head.component';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +22,9 @@ import { TestingComponent } from './testing/testing.component';
 import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule} from '@angular/material';
+import { TableTestComponent } from './table-test/table-test.component';
 
 
 @NgModule({
@@ -34,6 +40,7 @@ import { ServerService } from './ideas/ideas.service';
     CountdownComponent,
     TestingComponent,
     IdeasComponent,
+    TableTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,12 @@ import { ServerService } from './ideas/ideas.service';
     FormsModule,
     CountdownTimerModule.forRoot(),
     NgbModule,
-    HttpModule,    
+    HttpModule,
+    AngularFireDatabaseModule,
+    //AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule,MatButtonModule
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]

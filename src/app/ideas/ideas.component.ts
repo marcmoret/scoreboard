@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServerService } from './ideas.service';
 
 
@@ -12,15 +12,12 @@ export class IdeasComponent implements OnInit {
 
   constructor(private serverService: ServerService) {}
 
-  private generateId(){
-    return Math.round(Math.random() * 10000);
-  }
 
 
 today: number = Date.now();
 
 
-
+dates = [];
 
 servers = [{
   name: '',
@@ -36,6 +33,9 @@ this.servers.push({
   idea: idea,
   time: this.today
 });
+ 
+this.onSave();
+this.onGet();
 
 }
 
@@ -53,15 +53,15 @@ onGet(){
     (servers: any[] )=> this.servers = servers,
     (error) => console.log(error),
   );
+    
   console.log('service console: ' + this.servers);
 }
 
 
   ngOnInit() {
-
+   
     console.log(this.today);
     this.onGet();
-    
   }
 
  

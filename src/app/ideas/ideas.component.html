@@ -1,37 +1,45 @@
 <app-head></app-head>
 
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-          <input placeholder="Name" type="text" #personName>
-          <br> <br>
-      </div>
-      <div class="col-xs-12">
-          <textarea id="idea" placeholder="Enter Your Idea Here" 
-          type="text" #personIdea></textarea>
-      </div>
-    </div>
-    <button class="btn btn-primary" 
-    (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
-    <br><br>
-    <button class="btn btn-primary" 
-    (click)="onSave()">Save Server</button>
-    <button class="btn btn-primary" 
-    (click)="onGet()">Get Server</button>
-    <hr>
-  </div>
-
-  <div class="container">
-     <h3>
-        {{today | date}}
-     </h3> 
-  </div>
-
-  <div class="flex-container" *ngIf="servers">
-      <ul class="list-group" *ngFor="let server of servers">
-          <div>
-              <p> {{server.name }}  {{server.time | date}} </p>   {{server.idea}}
+<div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+              <input placeholder="Name" type="text" #personName>
+              <br> <br>
           </div>
-        </ul>
+          <div class="col-xs-12">
+              <textarea id="idea" placeholder="Enter Your Idea Here" 
+              type="text" #personIdea></textarea>
+          </div>
+        </div>
+        <button mat-button (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
+    <br><br>
+    <hr>
+</div>
+
+<div class="container">
+    <h3>
+        {{today | date}}
+    </h3> 
+</div>
+
+<mat-accordion *ngIf="servers">
+
+    <mat-expansion-panel *ngFor="let server of servers">
+            <mat-expansion-panel-header>
+                    {{server.time | date}}
+            </mat-expansion-panel-header>
+                    {{server.idea}}
+    </mat-expansion-panel>
+</mat-accordion>
+  <div class="container">
+    <div class="flex-container" >
+            <ul class="list-group" >
+                <div>
+                    <p>  </p>   
+                    <hr>
+                </div>
+            </ul>
+        </div> 
   </div>
+
+ 
