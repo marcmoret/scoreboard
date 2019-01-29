@@ -1,4 +1,7 @@
-
+<app-head></app-head>
   
-
-
+<ul>
+    <li *ngFor="let user of users">
+        <pre>{{ user.date | date }}</pre>
+    </li>
+</ul>

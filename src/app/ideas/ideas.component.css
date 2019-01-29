@@ -11,12 +11,12 @@ button{
 #name{
     font-weight: bold;
 }
-input{
+/* input{
     border: 1px solid lightblue;
 }
 textarea{
     border: 1px solid lightblue;
-}
+} */
 
 mat-accordian{
     flex-direction: column-reverse;
@@ -24,4 +24,7 @@ mat-accordian{
 
 h3{
     margin-bottom: 6%;
+}
+button.mat-button{
+    background: #dddddd !important;
 }

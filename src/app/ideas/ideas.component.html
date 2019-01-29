@@ -2,15 +2,23 @@
 
 <div class="container">
         <div class="row">
-          <div class="col-xs-12">
+          <!-- <div class="col-xs-12">
               <input placeholder="Name" type="text" #personName>
               <br> <br>
           </div>
           <div class="col-xs-12">
               <textarea id="idea" placeholder="Enter Your Idea Here" 
               type="text" #personIdea></textarea>
-          </div>
+          </div> -->
+          <mat-form-field class="example-full-width">
+                <input matInput placeholder="Your Name" type="text" #personName>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Your Idea" type="text" #personIdea></textarea>
+              </mat-form-field>
         </div>
+       
         <button mat-button (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
     <hr>
 </div>
@@ -30,10 +38,6 @@
                 <span id="name">{{server.name }}:</span>{{server.idea }}
             </mat-expansion-panel>
     </mat-accordion>
-</div>
-
-<div *ngFor="let date of dates">
-    {{date.date | date}}
 </div>
 
  

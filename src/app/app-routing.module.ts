@@ -6,6 +6,7 @@ import { ScoreComponent } from './score/score.component';
 import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { TestingComponent } from './testing/testing.component';
+import { TableTestComponent } from './table-test/table-test.component';
 
 const appRoutes: Routes = [
   { path: '', component:HomeComponent},
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   { path: 'wedding-estimator', component: WeddingEstimatorComponent},
   { path: 'countdown', component:CountdownComponent},
   { path: 'testing', component:TestingComponent},
-  { path: 'ideas', component: IdeasComponent}
+  { path: 'ideas', component: IdeasComponent},
+  { path: 'testdb', component: TableTestComponent},
 
 
 ];

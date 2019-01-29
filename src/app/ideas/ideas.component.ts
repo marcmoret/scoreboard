@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from './ideas.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -10,18 +11,14 @@ import { ServerService } from './ideas.service';
 export class IdeasComponent implements OnInit {
 
 
-  constructor(private serverService: ServerService) {}
+  constructor(private serverService: ServerService, private snackBar: MatSnackBar) {}
 
 
 
 today: number = Date.now();
+message = 'Successfully stole idea';
+action = 'hahahahaha';
 
-
-dates = [
-  {
-    date: 0,
-  }
-];
 
 servers = [{
   name: '',
@@ -30,35 +27,6 @@ servers = [{
 }];
 
 
-
-onAddDates(date:number){
-  this.dates.push({
-    date : date
-  });
-   
-  this.onSaveDate();
-  this.onGet();
-  
-  }
-
-onSaveDate(){
-  this.serverService.storeDates(this.dates)
-  .subscribe(
-    (response)=> console.log(response),
-    (error) => console.log(error)
-  )
-}
-
-onGetDate(){
-  this.serverService.getDates()
-  .subscribe(
-    (dates: any[] )=> this.dates = dates.reverse(),
-    (error) => console.log(error),
-  );
-  console.log('service console: ' + this.dates);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -82,7 +50,7 @@ onGet(){
       console.log('array of time: ' + element.time);
     });
   console.log('service console: ' + this.servers);
-  this.onGetDate();
+  
 }
 
 
@@ -96,8 +64,8 @@ onAddServer(name:string, idea: string){
  
 this.onSave();
 this.onGet();
+this.openSnackBar();
 
-this.onAddDates(this.today);
 
 }
 
@@ -105,8 +73,13 @@ this.onAddDates(this.today);
    
     console.log(this.today);
     this.onGet();
+    
   }
 
- 
+  openSnackBar() {
+    this.snackBar.open(this.message, this.action, {
+      duration: 2000,
+    });
 
+}
 }

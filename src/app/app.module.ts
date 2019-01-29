@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
 
 import { HeadComponent } from './head/head.component';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +24,10 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FirebaseService } from './table-test/firebase.service';
 
 
 @NgModule({
@@ -49,13 +52,17 @@ import { TableTestComponent } from './table-test/table-test.component';
     CountdownTimerModule.forRoot(),
     NgbModule,
     HttpModule,
+    HttpClientModule,
     AngularFireDatabaseModule,
-    //AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule,MatButtonModule
+    MatCheckboxModule, MatTableModule, 
+    MatPaginatorModule, MatSortModule, MatExpansionModule,
+    MatButtonModule, MatInputModule, MatSnackBarModule
   ],
-  providers: [ServerService],
+  providers: [ServerService, FirebaseService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
