@@ -2,40 +2,32 @@
 
 <div class="container">
         <div class="row">
-          <!-- <div class="col-xs-12">
-              <input placeholder="Name" type="text" #personName>
-              <br> <br>
-          </div>
-          <div class="col-xs-12">
-              <textarea id="idea" placeholder="Enter Your Idea Here" 
-              type="text" #personIdea></textarea>
-          </div> -->
           <mat-form-field class="example-full-width">
-                <input matInput placeholder="Your Name" type="text" #personName>
-              </mat-form-field>
-              <br>
-              <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Your Idea" type="text" #personIdea></textarea>
-              </mat-form-field>
+                <input matInput type="text" [(ngModel)]="title" name="title" placeholder="Name">
+            </mat-form-field>
+                <br>
+            <mat-form-field class="example-full-width">
+                <textarea matInput [(ngModel)]="content" name="content" placeholder="Idea" id=""></textarea>
+            </mat-form-field> <br>
+            <button mat-button type="submit" (click)="addPost()">Add Idea</button>
         </div>
        
-        <button mat-button (click)="onAddServer(personName.value, personIdea.value )">Add Idea</button>
     <hr>
 </div>
 
 <div class="container">
     <h3>
         {{today | date}}
-    </h3> 
+    </h3>
 </div>
 
-<div *ngIf="servers">
-    <mat-accordion  *ngFor="let server of servers ">
-        <mat-expansion-panel >
+<div *ngIf="posts">
+    <mat-accordion  >
+        <mat-expansion-panel  *ngFor="let x of posts | async">
             <mat-expansion-panel-header>
-                    {{server.time | date}}
+                    {{x.data.date | date}}
                 </mat-expansion-panel-header>
-                <span id="name">{{server.name }}:</span>{{server.idea }}
+                <span id="name">{{x.data.fullName }}:</span>{{x.data.idea }}
             </mat-expansion-panel>
     </mat-accordion>
 </div>

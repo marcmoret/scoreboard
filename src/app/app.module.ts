@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import { HeadComponent } from './head/head.component';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +29,8 @@ import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, 
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './table-test/firebase.service';
+import { Ideas } from './ideas/ideas.model';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -49,12 +52,13 @@ import { FirebaseService } from './table-test/firebase.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CountdownTimerModule.forRoot(),
+    CountdownTimerModule.forRoot(), // for countdown component
     NgbModule,
     HttpModule,
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatButtonModule, 
@@ -62,7 +66,7 @@ import { FirebaseService } from './table-test/firebase.service';
     MatPaginatorModule, MatSortModule, MatExpansionModule,
     MatButtonModule, MatInputModule, MatSnackBarModule
   ],
-  providers: [ServerService, FirebaseService ],
+  providers: [ServerService, FirebaseService, Ideas ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
