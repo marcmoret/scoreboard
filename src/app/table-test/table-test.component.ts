@@ -59,7 +59,6 @@ constructor(private afs: AngularFirestore){
       })
     })
     //this.postCol = this.afs.collection('ideas', ref => ref.where('date' , '==', this.today));
-    console.log(this.posts.id.async);
   }
 
   getPost(postId){

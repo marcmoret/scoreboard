@@ -24,7 +24,6 @@ export class IdeasComponent implements OnInit {
   
   postCol: AngularFirestoreCollection<Post>;
   posts: any;
-  //dates = [this.posts.data.date];
   
   postCol2: AngularFirestoreCollection<Post>;
   
@@ -38,7 +37,7 @@ export class IdeasComponent implements OnInit {
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
 
   today: number = Date.now();
-  message = 'Successfully stole idea';
+  message = 'Successfully stole idea >:~D';
   action = 'hahahahaha';
   secondMessage = '...but seriously thanks for adding info'
   secondAction = '<3'
@@ -58,8 +57,6 @@ export class IdeasComponent implements OnInit {
       })
     })
     //this.postCol = this.afs.collection('ideas', ref => ref.where('date' , '==', this.today));
-
-  
 
   }
 
@@ -83,9 +80,17 @@ export class IdeasComponent implements OnInit {
 
 
   openSnackBar() {
+    const wait = (ms) => new Promise(res => setTimeout(res, ms));
     this.snackBar.open(this.message, this.action, {
-      duration: 4000, 
+      duration: 5000, 
     });
+    const startAsync = async callback => {
+      await wait(3000);
+      callback(this.snackBar.open(this.secondMessage, this.secondAction, {
+        duration: 7000, 
+      }));
+    };
+    startAsync(text => console.log(text));
 }
 }
 
