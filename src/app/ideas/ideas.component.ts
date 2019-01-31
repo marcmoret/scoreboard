@@ -30,6 +30,7 @@ export class IdeasComponent implements OnInit {
   
   postCol2: AngularFirestoreCollection<Ideas>;
   posts2:any;
+  postDoc2: AngularFirestoreDocument;
   
   postDoc: AngularFirestoreDocument<Post>;
   post: Observable<Post>;
@@ -62,6 +63,8 @@ export class IdeasComponent implements OnInit {
     });
     
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
+    this.postDoc2 = this.afs.collection('profiles').doc(this.name);
+    this.posts2 = this.postDoc2.valueChanges();
 
   }
 
@@ -70,24 +73,15 @@ export class IdeasComponent implements OnInit {
     //capitlizes first name no matter how they enter it//
     this.name = this.name.toLowerCase();
     this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
-  
+    //capitlizes first name no matter how they enter it//
+
+    
 
     this.testArray.push(this.testArray + this.idea, this.today);
-
-    //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
     this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray});
 
     this.openSnackBar();
- 
-    
   }
-
-  // deletePost(postId){
-  //   this.afs.doc('ideas/' + postId).update({'fullName': this.title, 'idea': this.content, 'date': this.today})
-  // }
-  // deleteAll(){
-  //   this.afs.doc('ideas/').delete();
-  // }
 
   openSnackBar() {
     const wait = (ms) => new Promise(res => setTimeout(res, ms));
@@ -103,16 +97,13 @@ export class IdeasComponent implements OnInit {
     startAsync(text => console.log());
 }
 
-  capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 }
 
 
 /* old unused code
 
- 
+     //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
+
   Adds a collection   
   this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
 
