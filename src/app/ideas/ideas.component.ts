@@ -9,6 +9,9 @@ interface Post{
   date: number;
 
 }
+interface Ideas{
+  idea:string;
+}
 
 interface PostId extends Post{
   id: string;
@@ -25,8 +28,8 @@ export class IdeasComponent implements OnInit {
   postCol: AngularFirestoreCollection<Post>;
   posts: any;
   
-  postCol2: AngularFirestoreCollection<Post>;
-  
+  postCol2: AngularFirestoreCollection<Ideas>;
+  posts2:any;
   
   postDoc: AngularFirestoreDocument<Post>;
   post: Observable<Post>;
@@ -48,7 +51,6 @@ export class IdeasComponent implements OnInit {
   ngOnInit() {
     this.postCol = this.afs.collection('profiles');
    // this.posts = this.postCol.valueChanges();
-
   
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
@@ -57,29 +59,26 @@ export class IdeasComponent implements OnInit {
         const id = a.payload.doc.id;
         return { id, data};
       })
-    })
+    });
     
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
 
   }
 
-  getPost(postId){
-    this.postDoc = this.afs.doc('profiles/' + postId);
-    this.post = this.postDoc.valueChanges();
-  }
-
   addPost(){
    
-    this.testArray.push(this.idea);
+    //capitlizes first name no matter how they enter it//
+    this.name = this.name.toLowerCase();
+    this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
+  
 
-    this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
+    this.testArray.push(this.testArray + this.idea, this.today);
+
+    //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
     this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray});
-   // this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
 
-  // this.afs.collection('profiles').doc(this.name).collection('results').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
     this.openSnackBar();
-   //this.afs.collection('profiles').doc(this.name).collection('/ideas/').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
-   //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+ 
     
   }
 
@@ -103,6 +102,11 @@ export class IdeasComponent implements OnInit {
     };
     startAsync(text => console.log());
 }
+
+  capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 }
 
 

@@ -40,19 +40,19 @@
 <div class="container" *ngIf="posts">
     <div id="card">
         <div *ngFor="let x of posts | async" class="flex">
-        <mat-card >
+            <mat-card >
                 <mat-card-title>
-                        <span id="name">{{x.data.fullName }} </span>
+                        <span id="name">{{x.id }} </span>
                 </mat-card-title>
                 <mat-card-content>
                     <ul>
                         <li>
-                            {{x.data.idea}}
+                            {{x.data.ideas[0]}}
                         </li>
                     </ul>
                 </mat-card-content>
                 <mat-card-footer>
-                    {{x.data.date | date}}
+                Last modified: {{x.data.ideas[1] | date}}
                 </mat-card-footer>
             </mat-card>
         </div>

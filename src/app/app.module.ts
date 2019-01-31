@@ -29,7 +29,6 @@ import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, 
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './table-test/firebase.service';
-import { Ideas } from './ideas/ideas.model';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
@@ -66,7 +65,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatPaginatorModule, MatSortModule, MatExpansionModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule,
   ],
-  providers: [ServerService, FirebaseService, Ideas ],
+  providers: [ServerService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
