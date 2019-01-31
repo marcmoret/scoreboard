@@ -57,8 +57,10 @@ constructor(private afs: AngularFirestore){
         const id = a.payload.doc.id;
         return { id, data};
       })
-    })
-    //this.postCol = this.afs.collection('ideas', ref => ref.where('date' , '==', this.today));
+    });
+
+    
+
   }
 
   getPost(postId){

@@ -8,8 +8,9 @@
     
     <ul *ngFor="let post of posts | async">
         <li (click)="getPost(post.id)">
-            {{post.data.fullName}} ( <a (click)="deletePost(post.id)">Delete</a> ) <br>
-            {{post.data.idea}}
+         key:   {{post.id}} <br>
+         name: {{post.data.fullName}} ( <a (click)="deletePost(post.id)">Delete</a> ) <br>
+         idea:    {{post.data.idea}} {{post.data.ideas }}
         </li>
     </ul>  
  </div> 

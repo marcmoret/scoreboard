@@ -21,10 +21,9 @@ interface PostId extends Post{
 })
 @Injectable()
 export class IdeasComponent implements OnInit {
-  
+  //declare variables
   postCol: AngularFirestoreCollection<Post>;
   posts: any;
-  dates:any;
   
   postCol2: AngularFirestoreCollection<Post>;
   
@@ -35,19 +34,21 @@ export class IdeasComponent implements OnInit {
   name: string;
   idea: string;
 
-  constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
-
   today: number = Date.now();
   message = 'Successfully stole idea >:~D';
   action = 'hahahahaha';
   secondMessage = '...but seriously thanks for adding info'
   secondAction = '<3'
   dbToday = this.today.toString();
+  testArray = []
+
+  constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
+
 
   ngOnInit() {
     this.postCol = this.afs.collection('profiles');
-    // this.posts = this.postCol.valueChanges();
-    
+   // this.posts = this.postCol.valueChanges();
+
   
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
@@ -57,7 +58,7 @@ export class IdeasComponent implements OnInit {
         return { id, data};
       })
     })
-
+    
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
 
   }
@@ -69,13 +70,16 @@ export class IdeasComponent implements OnInit {
 
   addPost(){
    
-    this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+    this.testArray.push(this.idea);
+
+    this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
+    this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray});
+   // this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
 
   // this.afs.collection('profiles').doc(this.name).collection('results').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
     this.openSnackBar();
    //this.afs.collection('profiles').doc(this.name).collection('/ideas/').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
    //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
-    this.afs.collection('profiles').doc(this.name).set({'fullName': this.name, 'idea': this.idea, 'date': this.today})
     
   }
 
@@ -97,7 +101,7 @@ export class IdeasComponent implements OnInit {
         duration: 7000, 
       }));
     };
-    startAsync(text => console.log(text));
+    startAsync(text => console.log());
 }
 }
 
