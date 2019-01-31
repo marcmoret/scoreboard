@@ -25,7 +25,7 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './table-test/firebase.service';
@@ -64,7 +64,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatButtonModule, 
     MatCheckboxModule, MatTableModule, 
     MatPaginatorModule, MatSortModule, MatExpansionModule,
-    MatButtonModule, MatInputModule, MatSnackBarModule
+    MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule,
   ],
   providers: [ServerService, FirebaseService, Ideas ],
   bootstrap: [AppComponent]

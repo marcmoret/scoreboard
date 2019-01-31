@@ -24,6 +24,7 @@ export class IdeasComponent implements OnInit {
   
   postCol: AngularFirestoreCollection<Post>;
   posts: any;
+  dates:any;
   
   postCol2: AngularFirestoreCollection<Post>;
   
@@ -31,8 +32,8 @@ export class IdeasComponent implements OnInit {
   postDoc: AngularFirestoreDocument<Post>;
   post: Observable<Post>;
   
-  title: string;
-  content: string;
+  name: string;
+  idea: string;
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
 
@@ -41,13 +42,13 @@ export class IdeasComponent implements OnInit {
   action = 'hahahahaha';
   secondMessage = '...but seriously thanks for adding info'
   secondAction = '<3'
-
+  dbToday = this.today.toString();
 
   ngOnInit() {
-    this.postCol = this.afs.collection('ideas');
+    this.postCol = this.afs.collection('profiles');
     // this.posts = this.postCol.valueChanges();
     
-
+  
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
       return actions.map(a => {
@@ -56,28 +57,34 @@ export class IdeasComponent implements OnInit {
         return { id, data};
       })
     })
-    //this.postCol = this.afs.collection('ideas', ref => ref.where('date' , '==', this.today));
+
+    //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
 
   }
 
   getPost(postId){
-    this.postDoc = this.afs.doc('ideas/' + postId);
+    this.postDoc = this.afs.doc('profiles/' + postId);
     this.post = this.postDoc.valueChanges();
   }
 
   addPost(){
-   this.afs.collection('ideas').add({'fullName': this.title, 'idea': this.content, 'date': this.today});
-   this.openSnackBar();
-  // this.afs.collection('ideas').doc(this.today).set({'fullName': this.title, 'idea': this.content, 'date': this.today});
+   
+    this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+
+  // this.afs.collection('profiles').doc(this.name).collection('results').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
+    this.openSnackBar();
+   //this.afs.collection('profiles').doc(this.name).collection('/ideas/').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+   //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+    this.afs.collection('profiles').doc(this.name).set({'fullName': this.name, 'idea': this.idea, 'date': this.today})
+    
   }
 
-  deletePost(postId){
-    this.afs.doc('ideas/' + postId).delete();
-  }
-  deleteAll(){
-    this.afs.doc('ideas/').delete();
-  }
-
+  // deletePost(postId){
+  //   this.afs.doc('ideas/' + postId).update({'fullName': this.title, 'idea': this.content, 'date': this.today})
+  // }
+  // deleteAll(){
+  //   this.afs.doc('ideas/').delete();
+  // }
 
   openSnackBar() {
     const wait = (ms) => new Promise(res => setTimeout(res, ms));
@@ -85,7 +92,7 @@ export class IdeasComponent implements OnInit {
       duration: 5000, 
     });
     const startAsync = async callback => {
-      await wait(3000);
+      await wait(4000);
       callback(this.snackBar.open(this.secondMessage, this.secondAction, {
         duration: 7000, 
       }));
@@ -96,6 +103,11 @@ export class IdeasComponent implements OnInit {
 
 
 /* old unused code
+
+ 
+  Adds a collection   
+  this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
+
 
 private serverService: ServerService,
 

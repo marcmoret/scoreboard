@@ -1,4 +1,4 @@
-.container{
+#container{
     text-align: center;
 }
 button{
@@ -11,12 +11,6 @@ button{
 #name{
     font-weight: bold;
 }
-/* input{
-    border: 1px solid lightblue;
-}
-textarea{
-    border: 1px solid lightblue;
-} */
 
 mat-accordian{
     flex-direction: column-reverse;
@@ -27,4 +21,19 @@ h3{
 }
 button.mat-button{
     background: #dddddd !important;
+}
+#card{
+    display: flex !important;
+    
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+}
+mat-card{
+    width: 100%;
+    padding-right: 82px;
+    padding-bottom: 39px;
+    padding-left: 33px;
+}
+.flex{
+    margin:2%;
 }

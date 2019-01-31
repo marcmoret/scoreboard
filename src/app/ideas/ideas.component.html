@@ -1,34 +1,61 @@
 <app-head></app-head>
 
-<div class="container">
+<div class="container" id="container">
         <div class="row">
           <mat-form-field class="example-full-width">
-                <input matInput type="text" [(ngModel)]="title" name="title" placeholder="Name">
+                <input matInput type="text" [(ngModel)]="name" name="name" placeholder="Name">
             </mat-form-field>
                 <br>
             <mat-form-field class="example-full-width">
-                <textarea matInput [(ngModel)]="content" name="content" placeholder="Idea" id=""></textarea>
+                <textarea matInput [(ngModel)]="idea" name="idea" placeholder="Idea" id=""></textarea>
             </mat-form-field> <br>
             <button mat-button type="submit" (click)="addPost()">Add Idea</button>
+            <!-- <button mat-button type="submit" (click)="deletePost()">update Idea</button> -->
         </div>
     <hr>
 </div>
 
-<div class="container">
+<div class="container" id="container">
     <h3>
         {{today | date}}
     </h3>
 </div>
 
-<div *ngIf="posts">
+<!-- <div *ngIf="posts">
     <mat-accordion >
-        <mat-expansion-panel  *ngFor="let x of posts | async">
+        <mat-expansion-panel >
             <mat-expansion-panel-header>
-                    {{x.data.date | date}}
+               This where it should be the date by idea.
                 </mat-expansion-panel-header>
-                <span id="name">{{x.data.fullName }}:</span>{{x.data.idea }}
+              <ul *ngFor="let x of posts | async">
+                  <li>
+                    <span id="name">{{x.data.fullName }} <br> </span>{{x.data.idea }}
+                  </li>
+              </ul>  
             </mat-expansion-panel>
     </mat-accordion>
+</div> -->
+
+<div class="container" *ngIf="posts">
+    <div id="card">
+        <div *ngFor="let x of posts | async" class="flex">
+        <mat-card >
+                <mat-card-title>
+                        <span id="name">{{x.data.fullName }} </span>
+                </mat-card-title>
+                <mat-card-content>
+                    <ul>
+                        <li>
+                            {{x.data.idea}}
+                        </li>
+                    </ul>
+                </mat-card-content>
+                <mat-card-footer>
+                    {{x.data.date | date}}
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
 </div>
 
  

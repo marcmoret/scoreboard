@@ -46,7 +46,7 @@ constructor(private afs: AngularFirestore){
 }
 
   ngOnInit() {
-    this.postCol = this.afs.collection('ideas');
+    this.postCol = this.afs.collection('profiles');
     // this.posts = this.postCol.valueChanges();
     
 
@@ -66,16 +66,13 @@ constructor(private afs: AngularFirestore){
     this.post = this.postDoc.valueChanges();
   }
 
-  addPost(){
-   this.afs.collection('ideas').add({'fullName': this.title, 'idea': this.content, 'date': this.today});
-  // this.afs.collection('ideas').doc(this.today).set({'fullName': this.title, 'idea': this.content, 'date': this.today});
-  }
+ 
 
   deletePost(postId){
-    this.afs.doc('ideas/' + postId).delete();
+    this.afs.doc('profiles/' + postId).delete();
   }
   deleteAll(){
-    this.afs.doc('ideas/').delete();
+    this.afs.doc('profiles/').delete();
   }
 
 }
