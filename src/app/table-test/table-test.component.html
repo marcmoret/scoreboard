@@ -3,6 +3,6 @@
      <h3>Password</h3>
      <input type="text" #name>
     <button type="button" (click)="passwordCheck(name.value)">Submit</button> <br>
-    <p ngModel="error">{{error}}</p>
+    <p [(ngModel)]="error" ngDefaultControl >{{error}}</p>
  </div> 
  <app-database *ngIf="AccessGranted"></app-database>
