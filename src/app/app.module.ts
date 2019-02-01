@@ -30,6 +30,7 @@ import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './table-test/firebase.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DatabaseComponent } from './table-test/database/database.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     TestingComponent,
     IdeasComponent,
     TableTestComponent,
+    DatabaseComponent,
   ],
   imports: [
     BrowserModule,

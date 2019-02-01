@@ -1,16 +1,8 @@
 <app-head></app-head>
- <div class="container">
-    <h1 class="display-4">
-            Backend
-    </h1>
-        
-   
-    
-    <ul *ngFor="let post of posts | async">
-        <li (click)="getPost(post.id)">
-         key:   {{post.id}} <br>
-         name: {{post.data.fullName}} ( <a (click)="deletePost(post.id)">Delete</a> ) <br>
-         idea:    {{post.data.idea}} {{post.data.ideas }}
-        </li>
-    </ul>  
+ <div class="container" *ngIf="!AccessGranted">
+     <h3>Password</h3>
+     <input type="text" #name>
+    <button type="button" (click)="passwordCheck(name.value)">Submit</button> <br>
+    <p ngModel="error">{{error}}</p>
  </div> 
+ <app-database *ngIf="AccessGranted"></app-database>

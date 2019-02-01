@@ -3,17 +3,11 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs';
 
-interface Post{
-  fullName: string;
-  idea:string;
-  date: number;
-
-}
-interface Ideas{
+interface Idea{
   idea:string;
 }
 
-interface PostId extends Post{
+interface profileName extends Idea{
   id: string;
 }
 
@@ -25,15 +19,15 @@ interface PostId extends Post{
 @Injectable()
 export class IdeasComponent implements OnInit {
   //declare variables
-  postCol: AngularFirestoreCollection<Post>;
+  postCol: AngularFirestoreCollection<Idea>;
   posts: any;
   
-  postCol2: AngularFirestoreCollection<Ideas>;
+  postCol2: AngularFirestoreCollection<Idea>;
   posts2:any;
   postDoc2: AngularFirestoreDocument;
   
-  postDoc: AngularFirestoreDocument<Post>;
-  post: Observable<Post>;
+  postDoc: AngularFirestoreDocument<Idea>;
+  post: Observable<Idea>;
   
   name: string;
   idea: string;
@@ -56,15 +50,15 @@ export class IdeasComponent implements OnInit {
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
       return actions.map(a => {
-        const data = a.payload.doc.data() as Post;
+        const data = a.payload.doc.data() as Idea;
         const id = a.payload.doc.id;
         return { id, data};
       })
     });
     
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
-    this.postDoc2 = this.afs.collection('profiles').doc(this.name);
-    this.posts2 = this.postDoc2.valueChanges();
+    
+   //this.testArray.push(this.posts.data);
 
   }
 
@@ -75,10 +69,9 @@ export class IdeasComponent implements OnInit {
     this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
     //capitlizes first name no matter how they enter it//
 
-    
 
-    this.testArray.push(this.testArray + this.idea, this.today);
-    this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray});
+    this.testArray.push(this.testArray + this.idea);
+    this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray, 'date': this.today});
 
     this.openSnackBar();
   }
