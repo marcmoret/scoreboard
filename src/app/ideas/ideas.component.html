@@ -48,8 +48,8 @@
                 </mat-card-title>
                 <mat-card-content>
                     <ul>
-                        <li>
-                            {{x.data.ideas}}
+                        <li *ngFor="let y of posts2 | async">
+                            {{y.data.ideas}} <br>
                         </li>
                     </ul>
                 </mat-card-content>

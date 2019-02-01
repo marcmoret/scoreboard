@@ -21,14 +21,15 @@ export class IdeasComponent implements OnInit {
   //declare variables
   postCol: AngularFirestoreCollection<Idea>;
   posts: any;
+
+  postDoc: AngularFirestoreDocument<Idea>;
+  post: Observable<Idea>;
   
   postCol2: AngularFirestoreCollection<Idea>;
   posts2:any;
   postDoc2: AngularFirestoreDocument;
   
-  postDoc: AngularFirestoreDocument<Idea>;
-  post: Observable<Idea>;
-  
+
   name: string;
   idea: string;
 
@@ -55,23 +56,36 @@ export class IdeasComponent implements OnInit {
         return { id, data};
       })
     });
-    
+   
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
     
-   //this.testArray.push(this.posts.data);
+    
 
+    
   }
 
   addPost(){
-   
+
+
     //capitlizes first name no matter how they enter it//
     this.name = this.name.toLowerCase();
     this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
     //capitlizes first name no matter how they enter it//
 
+    this.postCol2 = this.afs.collection('profiles').doc(this.name).collection('results');
+   
+     this.posts2 = this.postCol2.snapshotChanges()
+     .map(actions =>{
+       return actions.map(a => {
+         const data = a.payload.doc.data();
+         const id = a.payload.doc.id;
+         return { id, data};
+       })
+     });
 
-    this.testArray.push(this.testArray + this.idea);
-    this.afs.collection('profiles').doc(this.name).set({'ideas':this.testArray, 'date': this.today});
+   // this.testArray.push(this.testArray + this.idea);
+    this.afs.collection('profiles').doc(this.name).collection('results').add({'ideas':this.idea, 'date': this.today});
+    this.afs.collection('profiles').doc(this.name).set({'date': this.today});
 
     this.openSnackBar();
   }
