@@ -12,6 +12,7 @@ export class TableTestComponent implements OnInit {
 
   error=" ";
   count = 0;
+  ip;
 
 ngOnInit(){
  
@@ -46,16 +47,23 @@ passwordCheck(pass){
           break; 
       }    
       default: { 
-        this.error = "Thats it, calling the cops."
-          break;              
-      } 
+        this.error = "Thats it, calling the cops. Tracing your IP..."
+        const wait = (ms) => new Promise(res => setTimeout(res, ms));
+        const startAsync = async callback => {
+          await wait(4000);
+          callback( this.ip = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0));
+          this.error= this.error + "Located. Sending them to this location: " + this.ip;
+        };
+        startAsync(text => console.log());
+              break;              
+          } 
     }
   }
   
   
   
+  
 }
-
 
 }
 
