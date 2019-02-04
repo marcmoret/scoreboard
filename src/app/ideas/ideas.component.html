@@ -41,11 +41,12 @@
         <div *ngFor="let x of posts | async" class="flex">
             <mat-card >
                 <mat-card-title>
-                        <span id="name">{{x.id }} </span>
+                        <span  id="name">{{x.id}} </span>
                 </mat-card-title>
                 <mat-card-content>
-                    <ul>
-                        <li *ngFor="let y of posts2 | async">
+                    <a (click)="onGet(x.id)">Get</a>
+                    <ul *ngIf="x.id === this.name" >
+                        <li *ngFor="let y of posts2 | async" >
                             {{y.data.ideas}} <br>
                         </li>
                     </ul>
