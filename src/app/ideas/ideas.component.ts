@@ -1,5 +1,5 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, AfterViewInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs';
 
@@ -17,7 +17,7 @@ interface profileName extends Idea{
   styleUrls: ['./ideas.component.css']
 })
 @Injectable()
-export class IdeasComponent implements OnInit {
+export class IdeasComponent implements OnInit, AfterViewInit {
   //declare variables
   postCol: AngularFirestoreCollection<Idea>;
   posts: any;
@@ -46,7 +46,12 @@ export class IdeasComponent implements OnInit {
   testArray = []
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
+  ngAfterViewInit(){
 
+    console.log("eureka");
+
+
+  }
 
   ngOnInit() {
     this.postCol = this.afs.collection('profiles');
@@ -115,7 +120,7 @@ onGet(e:any){
 
   console.log(e);
   this.name = e;
-  this.postCol2 = this.afs.collection('profiles').doc(e).collection('results');
+  this.postCol2 = this.afs.collection('profiles').doc(this.name).collection('results');
 
   this.posts2 = this.postCol2.snapshotChanges()
      .map(actions =>{

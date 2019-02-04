@@ -45,8 +45,8 @@
                 </mat-card-title>
                 <mat-card-content>
                     <a (click)="onGet(x.id)">Get</a>
-                    <ul *ngIf="x.id === this.name" >
-                        <li *ngFor="let y of posts2 | async" >
+                    <ul *ngFor="let y of posts2 | async" >
+                        <li *ngIf="x.id === this.name">
                             {{y.data.ideas}} <br>
                         </li>
                     </ul>
