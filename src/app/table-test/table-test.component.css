@@ -6,3 +6,9 @@ agm-map {
     height: 300px;
     width: 600px;
   }
+@media (max-width: 375px){
+    agm-map {
+        height: 300px;
+        width: auto;
+      }
+}

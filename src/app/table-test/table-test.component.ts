@@ -65,12 +65,24 @@ passwordCheck(pass){
       }    
       default: { 
         this.hackz = false;
-        this.error = "Thats it, calling the cops. Tracing your IP and Position..."
+        this.error = "Thats it, calling the cops. Tracing your IP and location..."
         const wait = (ms) => new Promise(res => setTimeout(res, ms));
         const startAsync = async callback => {
-          await wait(4000);
+          await wait(1000);
+          callback(this.error = this.error + ' ...');
+          
+          await wait(1000);
+          callback(this.error = this.error + ' ...');
+
+          await wait(1000);
+          callback(this.error = this.error + ' ...');
+          
+          await wait(1000);
+          callback(this.error = this.error + ' LOCATED.');
+
+          await wait(1000);
           callback( this.ip = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0));
-          this.error= this.error + "LOCATED. Sending police to this location: " + this.ip;
+          this.error= this.error + " Traced IP: " + this.ip + " Sending police to this location: ";
           this.AccessFailed = true;
 
         };
