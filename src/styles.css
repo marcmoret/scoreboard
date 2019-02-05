@@ -8,7 +8,11 @@ body{
 
     border-top: 16px solid #777167;
     border-bottom: 16px solid #777167;
+    height: auto;
+    min-height: 800px !important;
+
 }
+
 }
 html, body { min-height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

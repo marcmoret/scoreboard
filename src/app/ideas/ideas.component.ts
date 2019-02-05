@@ -17,7 +17,7 @@ interface profileName extends Idea{
   styleUrls: ['./ideas.component.css']
 })
 @Injectable()
-export class IdeasComponent implements OnInit, AfterViewInit {
+export class IdeasComponent implements OnInit {
   //declare variables
   postCol: AngularFirestoreCollection<Idea>;
   posts: any;
@@ -46,12 +46,7 @@ export class IdeasComponent implements OnInit, AfterViewInit {
   testArray = []
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore) {}
-  ngAfterViewInit(){
-
-    console.log("eureka");
-
-
-  }
+  
 
   ngOnInit() {
     this.postCol = this.afs.collection('profiles');
@@ -69,9 +64,6 @@ export class IdeasComponent implements OnInit, AfterViewInit {
     });
    
     //this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
-    
-    
-
     
   }
 

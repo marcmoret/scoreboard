@@ -1,0 +1,6 @@
+@media (max-width: 375px) {
+    body{
+        height: auto;
+        min-height: 800px !important;
+    }
+}
