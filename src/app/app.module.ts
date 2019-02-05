@@ -31,6 +31,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './table-test/firebase.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { DatabaseComponent } from './table-test/database/database.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -53,6 +54,9 @@ import { DatabaseComponent } from './table-test/database/database.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'
+    }),
     CountdownTimerModule.forRoot(), // for countdown component
     NgbModule,
     HttpModule,

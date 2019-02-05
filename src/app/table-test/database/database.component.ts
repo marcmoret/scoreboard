@@ -10,6 +10,8 @@ interface Post{
 
 }
 
+
+
 interface PostId extends Post{
   id: string;
 }

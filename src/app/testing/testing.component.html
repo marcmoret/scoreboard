@@ -1,5 +1,14 @@
 <app-head></app-head>
 
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+  <agm-map [zoom]="18" [latitude]="lat" [longitude]="lng" (mapClick)="setPosition($event)" >
+    <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+  </agm-map>
+</div>
 
 
 <h1>Testing Sticky Headers ↓ </h1>
