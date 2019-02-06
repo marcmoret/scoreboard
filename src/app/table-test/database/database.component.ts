@@ -54,7 +54,7 @@ export class DatabaseComponent implements OnInit {
         this.posts = this.postCol.snapshotChanges()
         .map(actions =>{
           return actions.map(a => {
-            const data = a.payload.doc.data() as Post;
+            const data = a.payload.doc.data();
             const id = a.payload.doc.id;
             return { id, data};
           })
@@ -73,6 +73,7 @@ export class DatabaseComponent implements OnInit {
     
       deletePost(postId){
         this.afs.doc('profiles/' + postId).delete();
+        this.afs.doc('profiles/' + postId + '/results/' + '').delete();
       }
       deleteAll(){
         this.afs.doc('profiles/').delete();

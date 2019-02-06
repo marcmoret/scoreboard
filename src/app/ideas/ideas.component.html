@@ -4,7 +4,7 @@
     <h2>Submit Your Idea</h2>
         <div class="row">
           <mat-form-field class="example-full-width">
-                <input matInput type="text" [(ngModel)]="name" name="name" placeholder="Name">
+                <input matInput type="text" [(ngModel)]="name" name="name" value="" placeholder="Name">
             </mat-form-field>
                 <br>
             <mat-form-field class="example-full-width">
@@ -44,8 +44,7 @@
                         <span  id="name">{{x.id}} </span>
                 </mat-card-title>
                 <mat-card-content>
-                    <a (click)="onGet(x.id)">Get</a>
-                    <ul *ngFor="let y of this.testArray4" >
+                    <ul *ngFor="let y of testArray4">
                         <li *ngIf="x.id === y.data.name">
                                 {{y.data.ideas}} <br>
                         </li>

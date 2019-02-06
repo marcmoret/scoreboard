@@ -52,10 +52,17 @@ export class IdeasComponent implements OnInit {
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {}
   
+  resetValues(){
+    this.testArray = [];
+    this.testArray2 = [];
+    this.testArray3 = [];
+    this.testArray4 = [];
+    this.testArray5 = [];
+  }
 
   ngOnInit() {
+
     this.postCol = this.afs.collection('profiles');
-   // this.posts = this.postCol.valueChanges();
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
       return actions.map(a => {
@@ -64,27 +71,13 @@ export class IdeasComponent implements OnInit {
         return { id, data};
       })
     });
-    //this.onGet(this.posts.id);
     this.posts.subscribe((res:[])=>{
       this.testArray = res;
       for(let x of this.testArray){
-        this.testArray2.push(x.id);
+        this.onGet(x.id);
       }
-      console.log(this.testArray2);
-      for(let z of this.testArray2){
-        //console.log(z);
-       this.onGet(z);
-      }
-    });
-    
-    
-    
-   
-   // this.postCol = this.afs.collection('profiles', ref => ref.where('date' , '==', this.today));
-   
-  // this.postCol = this.afs.collection('profiles').doc(this.name).collection('results', ref => ref.where('name', '==',''));
-
-
+    }); 
+    this.resetValues();
   }
 
   addPost(){
@@ -96,23 +89,13 @@ export class IdeasComponent implements OnInit {
     //capitlizes first name no matter how they enter it//
 
 
-    this.postCol2 = this.afs.collection('profiles').doc(this.name).collection('results');
-   
-     this.posts2 = this.postCol2.snapshotChanges()
-     .map(actions =>{
-       return actions.map(a => {
-         const data = a.payload.doc.data();
-         const id = a.payload.doc.id;
-         return { id, data};
-       })
-     });
-
-    // this.testArray.push(this.testArray + this.idea);
     this.afs.collection('profiles').doc(this.name).collection('results').add({'ideas':this.idea, 'date': this.today, 'name': this.name});
     this.afs.collection('profiles').doc(this.name).set({'date': this.today});
 
     this.openSnackBar();
-    this.onGet(this.name);
+
+    //this.resetValues();
+
   }
 
   openSnackBar() {
@@ -130,13 +113,15 @@ export class IdeasComponent implements OnInit {
 }
 
 onGet(e){
-  
+
 
   console.log(e);
-  //this.postCol2 = this.afs.collection('profiles').doc(e).collection('results');
-  this.postCol2 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
+  console.log(this.testArray3);
+  console.log('this is the array');
+  console.log(this.testArray4);
+  this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
 
-    this.posts2 = this.postCol2.snapshotChanges()
+    this.posts3 = this.postCol3.snapshotChanges()
      .map(actions =>{
        return actions.map(a => {
          const data = a.payload.doc.data();
@@ -144,26 +129,16 @@ onGet(e){
          return { id, data};
        })
      });
-      this.posts2.subscribe((res:[])=>{
+      this.posts3.subscribe((res:[])=>{
       this.testArray3 = res;
       for(let x of this.testArray3){
         this.testArray4.push(x);
       }
-     // console.log(this.testArray4);
-      for(let z of this.testArray4){
-       //this.testArray5.push(z.data);
-        console.log(z.data);
-       // console.log(this.testArray5);
-       //this.onGet(z);
-      }
     });
 
-
+   this.resetValues();
 
   }
-
-
-
 
 }
 
