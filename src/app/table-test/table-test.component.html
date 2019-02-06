@@ -1,9 +1,11 @@
 <app-head></app-head>
  <div class="container" *ngIf="!AccessGranted">
-     <h3>Password</h3>
-     <input type="text" #name (keyup.enter)="passwordCheck(name.value)" [disabled]="!hackz">
-    <button type="button" (click)="passwordCheck(name.value)" [disabled]="!hackz">Submit</button> <br>
-    <p [(ngModel)]="error" ngDefaultControl >{{error}}</p>
+    <div class="test">
+      <h3>Password</h3>
+      <input type="text" #name (keyup.enter)="passwordCheck(name.value)" [disabled]="!hackz">
+      <button type="button" (click)="passwordCheck(name.value)" [disabled]="!hackz">Submit</button> <br>
+      <p [(ngModel)]="error" ngDefaultControl >{{error}}</p>
+    </div>
  </div>
  <div class="container" *ngIf="AccessFailed">
     <agm-map [zoom]="18" [latitude]="lat" [longitude]="lng" (mapClick)="setPosition($event)" >

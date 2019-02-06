@@ -10,13 +10,14 @@ export class TableTestComponent implements OnInit {
 
   AccessGranted = false;
   AccessFailed = false;
+  NoLocation = false;
+  ip = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0)
 
   lat: number;
   lng: number;
 
   error=" ";
   count = 0;
-  ip;
 
   hackz = true;
 
@@ -25,16 +26,26 @@ ngOnInit(){
 this.AccessGranted = false;
 
 if(window.navigator.geolocation){
-  window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
+  window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this), this.showError);
   };
-
 }
+
+showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:{
+      console.log( "User denied the request for Geolocation.");
+      break;
+    }
+  }
+}
+
 
 setPosition(event){
   this.lat = event.coords.latitude;
   this.lng = event.coords.longitude;
   console.log( "Latitude: " +event.coords.latitude +
   "Longitude: " + event.coords.longitude );
+  this.NoLocation = true;
 }
 
 passwordCheck(pass){
@@ -62,6 +73,10 @@ passwordCheck(pass){
       case 5: { 
         this.error = "stop trying to hack me."
           break; 
+      }  
+      case 11: { 
+        this.error = "stop trying to hack me."
+          break; 
       }    
       default: { 
         this.hackz = false;
@@ -76,15 +91,22 @@ passwordCheck(pass){
 
           await wait(1000);
           callback(this.error = this.error + ' ...');
-          
-          await wait(1000);
-          callback(this.error = this.error + ' LOCATED.');
 
-          await wait(1000);
-          callback( this.ip = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0)+"."+(Math.floor(Math.random() * 255) + 0));
-          this.error= this.error + " Traced IP: " + this.ip + " Sending police to this location: ";
-          this.AccessFailed = true;
 
+          await wait(2000)
+          if(!this.NoLocation){
+            this.error = this.error + "ahhh, didn't allow me your location eh... well at least I got your IP address so HA:   " + this.ip
+          }else{
+
+            await wait(1000);
+            callback(this.error = this.error + ' LOCATED.');
+  
+            await wait(1000);
+            callback( );
+            this.error= this.error + " Traced IP: " + this.ip + " Sending police to this location: ";
+            this.AccessFailed = true;
+
+          }
         };
         startAsync(text => console.log());
               break;              
