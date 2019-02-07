@@ -2,6 +2,7 @@
 
 <div class="container" id="container">
     <h2>Submit Your Idea</h2>
+    <h4>(beta)</h4>
         <div class="row">
           <mat-form-field class="example-full-width">
                 <input matInput type="text" [(ngModel)]="name" name="name"  placeholder="Name" minlength="1">
@@ -11,7 +12,6 @@
                 <input matInput [(ngModel)]="idea" name="idea" (keydown.enter)="addPost()" placeholder="Idea" id="">
             </mat-form-field> <br>
             <button mat-button type="submit" (click)="addPost()">Add Idea</button>
-            <!-- <button mat-button type="submit" (click)="deletePost()">update Idea</button> -->
         </div>
     <hr>
 </div>
@@ -36,7 +36,7 @@
             </mat-expansion-panel>
     </mat-accordion>
 </div> -->
-<div class="container" *ngIf="posts">
+<div class="container" *ngIf="posts" id="ideas">
     <div id="card">
         <div *ngFor="let x of posts | async" class="flex">
             <mat-card >
@@ -45,10 +45,15 @@
                 </mat-card-title>
                 <mat-card-content>
                     <ul *ngFor="let y of testArray4">
-                        <li *ngIf="x.id === y.data.name">
-                                {{y.data.ideas}} <br>
+                        <li *ngIf="x.id === y.name">
+                                {{y.ideas}} <br>
                         </li>
                     </ul>
+                    <!-- <ul *ngFor="let y of this.posts3 | async" >
+                         <li *ngFor="let ideas of y | keys"  >
+                                {{y.ideas}} <br>
+                        </li>
+                    </ul> -->
                 </mat-card-content>
                 <mat-card-footer>
                 Last modified: {{x.data.date | date }}
@@ -57,5 +62,6 @@
         </div>
     </div>
 </div>
-v0.9
+<footer>v0.9</footer>
+
  

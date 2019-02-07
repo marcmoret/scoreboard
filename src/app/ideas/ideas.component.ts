@@ -44,11 +44,12 @@ export class IdeasComponent implements OnInit {
   secondMessage = '...but seriously thanks for adding info'
   secondAction = '<3'
   dbToday = this.today.toString();
-  testArray = []
-  testArray3 = []
-  testArray4 = []
-  testArray5 = []
+  testArray: any[] = new Array;
+  testArray3:  any[] = new Array;
+  testArray4: any[] = new Array;
+  testArray5: any[] = new Array;
   count=0;
+  counter=0;
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {}
   
@@ -56,7 +57,6 @@ export class IdeasComponent implements OnInit {
     this.testArray = [];
     this.testArray3 = [];
     this.testArray4 = [];
-    this.testArray5 = [];
   }
 
   ngOnInit() {
@@ -65,25 +65,41 @@ export class IdeasComponent implements OnInit {
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
       return actions.map(a => {
-        const data = a.payload.doc.data() as Idea;
+        const data = a.payload.doc.data();
         const id = a.payload.doc.id;
         return { id, data};
       })
     });
-    this.posts.subscribe((res:[])=>{
+  // debugger;
+    this.posts.subscribe((res:any)=>{
       this.testArray = res;
-      res = null;
       for(let x of this.testArray){
-       this.onGet(x.id);
+    this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results', ref => ref.where('name', '==',x.id));
+
+    this.posts3 = this.postCol3.valueChanges();
+    // this.posts3.subscribe((res:any)=>{
+    //   this.testArray3 = res;
+    //   this.testArray4 = []; 
+
+    //   for(let x of this.testArray3){
+    //     this.testArray4.push(x);
+    //   }
+    //   //debugger;
+    //  // this.testArray4 = this.testArray4.shift();
+    //   console.log('double time' + this.count);
+    //   console.log(this.testArray4);
+    //   this.count++;
+    //  });  
       }
-    }); 
-    this.resetValues();
+      this.resetValues();
+     
+    });
   }
 
   addPost(){
 
 
-    //capitlizes first name no matter how they enter it//
+    //capitlizes first name no matter how they enter it, removes whitespace//
     this.name = this.name.toLowerCase().trim();
     this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
     //capitlizes first name no matter how they enter it//
@@ -92,7 +108,11 @@ export class IdeasComponent implements OnInit {
     this.afs.collection('profiles').doc(this.name).collection('results').add({'ideas':this.idea, 'date': this.today, 'name': this.name});
     this.afs.collection('profiles').doc(this.name).set({'date': this.today});
 
-    this.openSnackBar();
+    if(this.counter === 0){
+      this.openSnackBar();
+      this.counter++;
+    }
+    
   }
 
   openSnackBar() {
@@ -109,40 +129,30 @@ export class IdeasComponent implements OnInit {
     startAsync(text => console.log());
 }
 
-onGet(e){
-  console.log(e);
- //  console.log(this.testArray3);
- // console.log('this is the array');
- // console.log(this.testArray4);
-  this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
+// onGet(e){
+  
+//   console.log(e);
+//  //  console.log(this.testArray3);
+//  // console.log('this is the array');
+//  // console.log(this.testArray4);
+//   this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
 
-    this.posts3 = this.postCol3.snapshotChanges()
-     .map(actions =>{
-       return actions.map(a => {
-         const data = a.payload.doc.data();
-         const id = a.payload.doc.id;
-         return { id, data};
-       })
-     });
-      this.posts3.subscribe((res:[])=>{
-      this.testArray3 = res;
-     // console.log('this is number three');
-    //  console.log( this.testArray3);
-     // this.testArray4 = [];
-      for(let x of this.testArray3){
-      //  this.testArray3 = [];
-        this.testArray4.push(x);
-        
-      }
-      //debugger;
-      console.log('double time' + this.count);
-      console.log(this.testArray4);
-      this.count++;
-      e = null;
-     });  
+//     this.posts3 = this.postCol3.valueChanges();
+      
+//     this.posts3.subscribe((res:[])=>{
+//       this.testArray3 = res;
+//       for(let x of this.testArray3){
+//         this.testArray4.push(x);
+//       }
+//       //debugger;
+//       this.testArray4 = this.testArray4.slice(0);
+//       console.log('double time' + this.count);
+//       console.log(this.testArray4);
+//       this.count++;
+//      });  
 
-     this.resetValues();
+//      this.resetValues();
 
-  }
+//   }
 
 }

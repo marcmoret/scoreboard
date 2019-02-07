@@ -116,6 +116,8 @@ export class DatabaseComponent implements OnInit {
       for(let x of this.testArray3){
        
         this.afs.collection('profiles').doc(postId).collection('results').doc(x.id).delete();
+      //  this.afs.collection('profiles').doc(postId).collection('results').add({'': this.today});
+
         
       }
     }); 
