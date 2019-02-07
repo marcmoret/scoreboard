@@ -45,16 +45,15 @@ export class IdeasComponent implements OnInit {
   secondAction = '<3'
   dbToday = this.today.toString();
   testArray = []
-  testArray2 = []
   testArray3 = []
   testArray4 = []
   testArray5 = []
+  count=0;
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {}
   
   resetValues(){
     this.testArray = [];
-    this.testArray2 = [];
     this.testArray3 = [];
     this.testArray4 = [];
     this.testArray5 = [];
@@ -73,8 +72,9 @@ export class IdeasComponent implements OnInit {
     });
     this.posts.subscribe((res:[])=>{
       this.testArray = res;
+      res = null;
       for(let x of this.testArray){
-        this.onGet(x.id);
+       this.onGet(x.id);
       }
     }); 
     this.resetValues();
@@ -84,7 +84,7 @@ export class IdeasComponent implements OnInit {
 
 
     //capitlizes first name no matter how they enter it//
-    this.name = this.name.toLowerCase();
+    this.name = this.name.toLowerCase().trim();
     this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1);
     //capitlizes first name no matter how they enter it//
 
@@ -93,9 +93,6 @@ export class IdeasComponent implements OnInit {
     this.afs.collection('profiles').doc(this.name).set({'date': this.today});
 
     this.openSnackBar();
-
-    //this.resetValues();
-
   }
 
   openSnackBar() {
@@ -113,12 +110,10 @@ export class IdeasComponent implements OnInit {
 }
 
 onGet(e){
-
-
   console.log(e);
-  console.log(this.testArray3);
-  console.log('this is the array');
-  console.log(this.testArray4);
+ //  console.log(this.testArray3);
+ // console.log('this is the array');
+ // console.log(this.testArray4);
   this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
 
     this.posts3 = this.postCol3.snapshotChanges()
@@ -131,76 +126,23 @@ onGet(e){
      });
       this.posts3.subscribe((res:[])=>{
       this.testArray3 = res;
+     // console.log('this is number three');
+    //  console.log( this.testArray3);
+     // this.testArray4 = [];
       for(let x of this.testArray3){
+      //  this.testArray3 = [];
         this.testArray4.push(x);
+        
       }
-    });
+      //debugger;
+      console.log('double time' + this.count);
+      console.log(this.testArray4);
+      this.count++;
+      e = null;
+     });  
 
-   this.resetValues();
+     this.resetValues();
 
   }
 
 }
-
-
-/* old unused code
-
-     //this.afs.collection('profiles').add({'fullName': this.name, 'idea': this.idea, 'date': this.today})
-
-  Adds a collection   
-  this.afs.collection(this.name).add({'fullName': this.name, 'idea': this.idea, 'date': this.today});
-
-
-private serverService: ServerService,
-
-servers = [{
-  name: '',
-  idea: '',
-  time: 0,
-}];
-
-
-onSave(){
-  this.serverService.storeServers(this.servers)
-  .subscribe(
-    (response)=> console.log(response),
-    (error) => console.log(error)
-  )
-}
-
-onGet(){
-  this.serverService.getServers()
-  .subscribe(
-    (servers: any[] )=> this.servers = servers.reverse(),
-    (error) => console.log(error),
-  );
-    this.servers.forEach(element => {
-      console.log('array of time: ' + element.time);
-    });
-  console.log('service console: ' + this.servers);
-
-}
-
-onAddServer(name:string, idea: string){
-  console.log(name, idea);
-  this.servers.push({
-  name: name,
-  idea: idea,
-  time: this.today
-});
- 
-this.onSave();
-this.onGet();
-this.openSnackBar();
-}
-
-/// test method
-
-onTest(){
-  this.serverService.getTest()
-  console.log(this.ideasArray);
-  // console.log(this.serverService);
-  // console.log(this.serverService.aliasI);
-}
-
-*/

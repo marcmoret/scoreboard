@@ -4,11 +4,11 @@
     <h2>Submit Your Idea</h2>
         <div class="row">
           <mat-form-field class="example-full-width">
-                <input matInput type="text" [(ngModel)]="name" name="name" value="" placeholder="Name">
+                <input matInput type="text" [(ngModel)]="name" name="name"  placeholder="Name" minlength="1">
             </mat-form-field>
                 <br>
             <mat-form-field class="example-full-width">
-                <textarea matInput [(ngModel)]="idea" name="idea" placeholder="Idea" id=""></textarea>
+                <input matInput [(ngModel)]="idea" name="idea" (keydown.enter)="addPost()" placeholder="Idea" id="">
             </mat-form-field> <br>
             <button mat-button type="submit" (click)="addPost()">Add Idea</button>
             <!-- <button mat-button type="submit" (click)="deletePost()">update Idea</button> -->

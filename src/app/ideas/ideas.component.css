@@ -29,11 +29,14 @@ button.mat-button{
     flex-direction: row !important;
 }
 mat-card{
-    width: 100%;
-    padding-right: 82px;
+    max-width: 100%;
+    padding-right: 74px;
     padding-bottom: 39px;
     padding-left: 33px;
 }
 .flex{
     margin:2%;
+}
+li{
+    word-wrap: break-word;
 }

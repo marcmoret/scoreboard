@@ -7,9 +7,9 @@
     
     <ul *ngFor="let post of posts | async">
         <li (click)="getPost(post.id)">
-         key:   {{post.id}} <br>
-         name: {{post.data.fullName}} ( <a (click)="deletePost(post.id)">Delete</a> ) <br>
-         idea:    {{post.data.idea}} {{post.data.ideas }}
+         Name:   {{post.id}} <br>
+          ( <a (click)="deletePost(post.id)">Delete Profile</a> ) <br>
+          ( <a (click)="deleteIdeas(post.id)">Delete Ideas</a> ) <br>
         </li>
     </ul>
       
