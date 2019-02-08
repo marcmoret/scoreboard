@@ -2,9 +2,18 @@
 
 
 
-<h1>Testing Sticky Headers ↓ </h1>
+<h1>Testing Sorting </h1>
 
 <div class="container">
+<button (click)="onSort()">Sort Values</button>
+<div *ngFor="let x of votes">
+    {{x.title}} <br>
+    {{x.votes}}
+</div>
+
+<h1>Testing Sticky Headers ↓ </h1>
+
+ 
   <div class="heading">A</div>
   
 
@@ -65,5 +74,5 @@
   <div>Dog</div>
   <div>Donkey</div>
   <div>Dave</div>  
-  <div>Duck</div>      
+  <div>Duck</div>  
 </div>

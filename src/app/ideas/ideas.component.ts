@@ -50,6 +50,7 @@ export class IdeasComponent implements OnInit {
   testArray5: any[] = new Array;
   count=0;
   counter=0;
+  counterer=0;
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {}
   
@@ -57,7 +58,9 @@ export class IdeasComponent implements OnInit {
     this.testArray = [];
     this.testArray3 = [];
     this.testArray4 = [];
+    
   }
+  
 
   ngOnInit() {
 
@@ -71,28 +74,30 @@ export class IdeasComponent implements OnInit {
       })
     });
   // debugger;
-    this.posts.subscribe((res:any)=>{
+  this.testArray4 = [];
+    this.posts.subscribe((res)=>{
       this.testArray = res;
       for(let x of this.testArray){
-    this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results', ref => ref.where('name', '==',x.id));
+    // this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results', ref => ref.where('name', '==',x.id));
+    this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results');
 
     this.posts3 = this.postCol3.valueChanges();
-    // this.posts3.subscribe((res:any)=>{
-    //   this.testArray3 = res;
-    //   this.testArray4 = []; 
+    this.posts3.subscribe((res:any)=>{
+     this.testArray3 = res;
+    
+      for(let x of this.testArray3){
 
-    //   for(let x of this.testArray3){
-    //     this.testArray4.push(x);
-    //   }
-    //   //debugger;
-    //  // this.testArray4 = this.testArray4.shift();
-    //   console.log('double time' + this.count);
-    //   console.log(this.testArray4);
-    //   this.count++;
-    //  });  
+        console.log('testarray3' + x);
+        this.testArray4.push(x);
+      }
+      
+      //debugger;
+      console.log('double time' + this.count);
+      console.log(this.testArray5);
+      this.count++;
+     });  
       }
       this.resetValues();
-     
     });
   }
 
@@ -112,6 +117,7 @@ export class IdeasComponent implements OnInit {
       this.openSnackBar();
       this.counter++;
     }
+   // this.resetValues();
     
   }
 
