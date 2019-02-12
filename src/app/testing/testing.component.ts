@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import 'rxjs';
 
 @Component({
@@ -9,62 +9,55 @@ import 'rxjs';
 
 
 export class TestingComponent implements OnInit {
+   level1On = false;
+   level2On = false;
+   level3On = false;
+   level4On = false;
+   level5On = false;
+   level6On = false;
 
-   votes = [
-    { title: 'Dog', votes: 1 },
-    { title: 'Donkey', votes: 2 },
-    { title: 'Dave', votes: 3 },
-    { title: 'Duck', votes: 2 },
-    { title: 'Baboon', votes: 1 },
-    { title: 'Bat', votes: 2 },
-    { title: 'Blue', votes: 3 },
-    { title: 'Banana', votes: 2 },
-    { title: 'Cat', votes: 1 },
-    { title: 'Camel', votes: 2 },
-    { title: 'Chicken', votes: 3 },
-    { title: 'Chimpmunk', votes: 2 },
-    
-    
-  ];
+   
 
   ngOnInit() {
+  }
 
-    
+resetValues(){
+  this.level1On = false;
+   this.level2On = false;
+   this.level3On = false;
+   this.level4On = false;
+   this.level5On = false;
+   this.level6On = false;
+}
+
+  onLevel1(){
+    this.resetValues();
+    this.level1On = true;
+  }
+
+  onLevel2(){
+    this.resetValues();
+    this.level2On = true;
 
   }
-  onSort(){
-    
-      this.votes.sort(function(vote1, vote2){
-     
-      
-      ///////////
 
-      if (vote1.title > vote2.title) return 1;
-      if (vote1.title < vote2.title) return -1;
-      
-      ////////
-
-      if (vote1.votes < vote2.votes) return -1;
-      if (vote1.votes > vote2.votes) return 1;
-
-    });
+  onLevel3(){
+    this.resetValues();
+    this.level3On = true;
   }
+
+  onLevel4(){
+    this.resetValues();
+    this.level4On = true;
+  }
+
+  onLevel5(){
+  }
+
   
 }
 /*     
 
-<div>Baboon</div>
-  <div>Bat</div>
-  <div>Blue Bird</div>
 
-  <div>Cat</div>
-  <div>Camel</div>
-  <div>Chicken</div>  
-  <div>Chipmunk</div>    
-
-  <div>Dog</div>
-  <div>Donkey</div>
-  <div>Dave</div>  
-  <div>Duck</div>
 
 */

@@ -1,5 +1,5 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Component, OnInit, Injectable, AfterViewInit, Output } from '@angular/core';
+import { Component, OnInit, Injectable, AfterViewInit, Output, AfterContentChecked } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs';
 
@@ -18,26 +18,21 @@ interface profileName extends Idea{
   styleUrls: ['./ideas.component.css']
 })
 @Injectable()
-export class IdeasComponent implements OnInit {
+export class IdeasComponent implements OnInit,AfterContentChecked {
+  
   //declare variables
   postCol: AngularFirestoreCollection<Idea>;
   posts: any;
-
   postDoc: AngularFirestoreDocument<Idea>;
   post: Observable<Idea>;
-
   postCol2: AngularFirestoreCollection<Idea>;
   posts2:any;
   postDoc2: AngularFirestoreDocument;
-
-
   postCol3: AngularFirestoreCollection<Idea>;
   posts3:any;
   postDoc3: AngularFirestoreDocument<any>;
-
   name='';
   idea: string;
-
   @Output()showDirection = false;
   today: number = Date.now();
   message = 'Successfully stole idea >:~D';
@@ -55,6 +50,13 @@ export class IdeasComponent implements OnInit {
   counterer=0;
 
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {  }
+
+
+  
+  ngAfterContentChecked(){
+   // console.log('after checked fired');
+   
+  }
 
   resetValues(){
     this.testArray = [];

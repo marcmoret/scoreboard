@@ -25,12 +25,16 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { DatabaseComponent } from './table-test/database/database.component';
 import { AgmCoreModule } from '@agm/core';
+import { Lvl2Component } from './testing/lvl2/lvl2.component';
+import { Lvl1Component } from './testing/lvl1/lvl1.component';
+import { Lvl3Component } from './testing/lvl3/lvl3.component';
+import { Lvl4Component } from './testing/lvl4/lvl4.component';
 
 
 @NgModule({
@@ -48,9 +52,14 @@ import { AgmCoreModule } from '@agm/core';
     IdeasComponent,
     TableTestComponent,
     DatabaseComponent,
+    Lvl2Component,
+    Lvl1Component,
+    Lvl3Component,
+    Lvl4Component,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     AgmCoreModule.forRoot({
@@ -67,7 +76,7 @@ import { AgmCoreModule } from '@agm/core';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule, MatTableModule, 
-    MatPaginatorModule, MatSortModule, MatExpansionModule,
+    MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule,
   ],
   providers: [ServerService],

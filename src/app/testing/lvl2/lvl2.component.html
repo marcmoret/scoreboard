@@ -1,0 +1,43 @@
+<div class="overlay" [@showOverlay]="showOverlay"></div>
+ 
+<div class="openDrawer"  (mouseover)="navigationDrawer()">
+<span class="glyphicon glyphicon-menu-hamburger"></span>
+</div>
+ 
+<div class="page container" (mouseover)="navigationDrawer()">
+<div class="row">
+<div class="col-md-12">
+<h2 class="text-center span6"> Navigation drawer using angular 2 animation</h2>
+</div>
+</div>
+</div>
+ 
+<div class="navigation" [@navigation]="navigation">
+<div class="close-nav" (click)="navigationDrawer()">
+<span class="glyphicon glyphicon-menu-left"></span>
+</div>
+<ul>
+<li>Home</li>
+<li>Posts</li>
+<li>Ideas</li>
+<li>Contacts</li>
+<li>About</li>
+</ul>
+</div>
+<!-- 
+<h2> Test Side Bar</h2>
+<mat-sidenav-container class="example-container" (mouseover)="sidenav.toggle()">
+  <mat-sidenav #sidenav mode="side">
+      <button (click)="onLevel1()">Test Area 1</button> <br>
+      <button (click)="onLevel2()">Test Area 2</button> <br>
+      <button (click)="onLevel3()">Test Area 3</button> <br>
+      <button (click)="onLevel4()">Test Area 4</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <button mat-button >sidenav.toggle()</button>
+    
+      <p>test</p>
+    
+  </mat-sidenav-content> 
+ </mat-sidenav-container>  -->
