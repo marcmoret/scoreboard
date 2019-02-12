@@ -38,26 +38,26 @@
 </div> -->
 <div class="container" *ngIf="posts" id="ideas">
     <div id="card">
-        <div *ngFor="let x of posts | async" class="flex">
-            <mat-card >
+        <div *ngFor="let x of testArray3; let i = index;" class="flex">
+            <mat-card (mouseover)="onGet(x.id)">
                 <mat-card-title>
-                        <span  id="name">{{x.id}} </span>
+                        <span  id="name">{{x.id}}</span>
                 </mat-card-title>
                 <mat-card-content>
-                    <ul *ngFor="let y of testArray4">
-                        <li *ngIf="x.id === y.name">
-                                {{y.ideas}} <br>
+                    <!-- <ul *ngFor="let y of posts3 | async">
+                        <li  >
+                            {{y.ideas}} <br>
                         </li>
-                    </ul>
-                    <!-- <ul *ngFor="let y of of testArray3" >
-                        {{y[0]}}
-                        <div *ngFor="let z of this.y">
-                            <li >
-                                {{z.ideas}} <br>
+                    </ul> -->
+                    
+                    
+                    <ul *ngFor="let y of this.testArray4">
+                        <div>
+                            <li *ngIf="x.id === y.name">
+                              {{y.ideas}} <br>
                             </li>
                         </div> 
-                        
-                    </ul> -->
+                    </ul>
                 </mat-card-content>
                 <mat-card-footer>
                 Last modified: {{x.data.date | date }}

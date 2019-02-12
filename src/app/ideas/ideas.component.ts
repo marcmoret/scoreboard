@@ -25,11 +25,11 @@ export class IdeasComponent implements OnInit {
 
   postDoc: AngularFirestoreDocument<Idea>;
   post: Observable<Idea>;
-  
+
   postCol2: AngularFirestoreCollection<Idea>;
   posts2:any;
   postDoc2: AngularFirestoreDocument;
-  
+
 
   postCol3: AngularFirestoreCollection<Idea>;
   posts3:any;
@@ -48,19 +48,20 @@ export class IdeasComponent implements OnInit {
   testArray3:  any[] = new Array;
   testArray4: any[] = new Array;
   testArray5: any[] = new Array;
+  test;
   count=0;
   counter=0;
   counterer=0;
 
-  constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {}
-  
+  constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {  }
+
   resetValues(){
     this.testArray = [];
     this.testArray3 = [];
     this.testArray4 = [];
-    
+
   }
-  
+
 
   ngOnInit() {
 
@@ -71,34 +72,63 @@ export class IdeasComponent implements OnInit {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
         return { id, data};
-      })
-    });
-  // debugger;
-  this.testArray4 = [];
+      })});
+
     this.posts.subscribe((res)=>{
       this.testArray = res;
-      for(let x of this.testArray){
-    // this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results', ref => ref.where('name', '==',x.id));
-    this.postCol3 = this.afs.collection('profiles').doc(x.id).collection('results');
-
-    this.posts3 = this.postCol3.valueChanges();
-    this.posts3.subscribe((res:any)=>{
-     this.testArray3 = res;
-    
-      for(let x of this.testArray3){
-
-        console.log('testarray3' + x);
-        this.testArray4.push(x);
-      }
-      
-      //debugger;
-      console.log('double time' + this.count);
-      console.log(this.testArray5);
-      this.count++;
-     });  
-      }
-      this.resetValues();
+      this.processNames(this.testArray);
     });
+
+
+
+      // for(let x of this.testArray3){
+
+      //   this.testArray4.push(x);
+      // }
+
+      // //debugger;
+      // console.log('double time' + this.count);
+      // console.log(this.testArray5);
+      // this.count++;
+
+
+     this.resetValues();
+
+  }
+
+  onGet(z){
+
+    this.postCol3 = this.afs.collection('profiles').doc(z).collection('results'); //, ref => ref.where('name', '==',z)
+    
+     this.posts3 = this.postCol3.valueChanges()
+      
+     this.posts3.subscribe((res:[])=>{
+      // debugger;
+        this.testArray4 = res;
+        // this.processIdeas(this.testArray4);
+        console.log(this.testArray4);
+      });
+
+        console.log(this.testArray4);
+    this.test = z;
+
+  }
+
+  processNames(mhm:any){
+
+    this.testArray3 = mhm;
+    console.log(mhm);
+
+  }
+
+  processIdeas(ok:any){
+
+
+    this.testArray5.push(ok);
+    console.log("this.testArray5 below");
+    console.log(this.testArray5);
+    console.log('and above');
+
   }
 
   addPost(){
@@ -118,25 +148,28 @@ export class IdeasComponent implements OnInit {
       this.counter++;
     }
    // this.resetValues();
-    
+
   }
 
   openSnackBar() {
     const wait = (ms) => new Promise(res => setTimeout(res, ms));
     this.snackBar.open(this.message, this.action, {
-      duration: 5000, 
+      duration: 5000,
     });
     const startAsync = async callback => {
       await wait(4000);
       callback(this.snackBar.open(this.secondMessage, this.secondAction, {
-        duration: 7000, 
+        duration: 7000,
       }));
     };
     startAsync(text => console.log());
 }
 
+
+
+
 // onGet(e){
-  
+
 //   console.log(e);
 //  //  console.log(this.testArray3);
 //  // console.log('this is the array');
@@ -144,7 +177,14 @@ export class IdeasComponent implements OnInit {
 //   this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
 
 //     this.posts3 = this.postCol3.valueChanges();
-      
+
+ // .map(actions =>{
+      //   return actions.map(a => {
+      //     const data = a.payload.doc.data();
+      //     const id = a.payload.doc.id;
+      //     return { id, data};
+      //   })});
+
 //     this.posts3.subscribe((res:[])=>{
 //       this.testArray3 = res;
 //       for(let x of this.testArray3){
@@ -155,7 +195,7 @@ export class IdeasComponent implements OnInit {
 //       console.log('double time' + this.count);
 //       console.log(this.testArray4);
 //       this.count++;
-//      });  
+//      });
 
 //      this.resetValues();
 
