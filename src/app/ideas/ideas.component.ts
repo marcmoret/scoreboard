@@ -1,5 +1,5 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Component, OnInit, Injectable, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Injectable, AfterViewInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs';
 
@@ -38,6 +38,7 @@ export class IdeasComponent implements OnInit {
   name='';
   idea: string;
 
+  @Output()showDirection = false;
   today: number = Date.now();
   message = 'Successfully stole idea >:~D';
   action = 'hahahahaha';
@@ -97,6 +98,8 @@ export class IdeasComponent implements OnInit {
   }
 
   onGet(z){
+
+    this.showDirection = true;
 
     this.postCol3 = this.afs.collection('profiles').doc(z).collection('results'); //, ref => ref.where('name', '==',z)
     
