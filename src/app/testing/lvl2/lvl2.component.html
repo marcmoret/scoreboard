@@ -13,7 +13,7 @@
     <span class="glyphicon glyphicon-menu-hamburger"></span>
 </div>  -->
  
-<div class="navigation" [@navigation]="navigation" (mouseenter)="navigationDrawer()" (mouseleave)="navigationDrawer2()">
+<div class="navigation" [@navigation]="navigation" (mouseover)="navigation = false" (mouseleave)="navigation=true">
 <ul>
   <li>
 <img id="sidebar-logo" src="../../../assets/img/logo_white.png" alt="">
