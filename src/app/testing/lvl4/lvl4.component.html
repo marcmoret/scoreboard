@@ -1,3 +1,5 @@
-<p>
-  lvl4 works!
-</p>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+  </div>
+
+  <button (click)="toggle()" >click</button>

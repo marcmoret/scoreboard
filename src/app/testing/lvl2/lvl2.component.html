@@ -1,43 +1,57 @@
-<div class="overlay" [@showOverlay]="showOverlay"></div>
- 
-<div class="openDrawer"  (mouseover)="navigationDrawer()">
-<span class="glyphicon glyphicon-menu-hamburger"></span>
-</div>
- 
-<div class="page container" (mouseover)="navigationDrawer()">
+<div class="page container" >
 <div class="row">
 <div class="col-md-12">
 <h2 class="text-center span6"> Navigation drawer using angular 2 animation</h2>
 </div>
+<button (click)="toggle()">yeee</button> <br>
+
 </div>
-</div>
+
+
+
+<!-- <div class="openDrawer"  (mouseenter)="navigationDrawer()">
+    <span class="glyphicon glyphicon-menu-hamburger"></span>
+</div> -->
  
-<div class="navigation" [@navigation]="navigation">
-<div class="close-nav" (click)="navigationDrawer()">
-<span class="glyphicon glyphicon-menu-left"></span>
-</div>
+<div class="navigation" [@navigation]="navigation" (mouseenter)="navigationDrawer()" (mouseleave)="navigationDrawer2()">
 <ul>
-<li>Home</li>
-<li>Posts</li>
-<li>Ideas</li>
-<li>Contacts</li>
-<li>About</li>
+  <li>
+<img id="sidebar-logo" src="../../../assets/img/logo_white.png" alt="">
+  </li>
+<li> <span class="sidebar-title"><p>Home</p></span>       
+  <span class="sidebar-img"><img src="../../../assets/img/avatar.png" alt="error"></span> 
+
+</li>
+<li> <span class="sidebar-title">Posts</span>        
+  <span class="sidebar-img"><img src="../../../assets/img/envelope.png" alt="error"></span>
+
+</li>
+<li> <span class="sidebar-title">Ideas</span>        
+  <span class="sidebar-img"><img src="../../../assets/img/smartphone.png" alt="error"></span>
+
+</li>
+<li> <span class="sidebar-title">Contact</span>  
+  <span class="sidebar-img"><img src="../../../assets/img/instagram.png" alt="error"></span>
+</li>
+<li><a (click)="toggle()"><span class="sidebar-title">Settings</span> 
+      <span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
+    </a>
+<div>
+  <ul style="margin-left:9px" [@openClose]="isOpen ? 'open' : 'closed'">
+    <li>
+      <span class="sidebar-title">Setting 1</span><span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
+    </li> 
+    <li>
+      <span class="sidebar-title">Setting 2 </span><span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
+    </li> 
+    <li>
+      <span class="sidebar-title">Setting 3</span><span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
+    </li>
+  </ul>
+</div>
+</li>
+<li>
+  test
+</li>
 </ul>
 </div>
-<!-- 
-<h2> Test Side Bar</h2>
-<mat-sidenav-container class="example-container" (mouseover)="sidenav.toggle()">
-  <mat-sidenav #sidenav mode="side">
-      <button (click)="onLevel1()">Test Area 1</button> <br>
-      <button (click)="onLevel2()">Test Area 2</button> <br>
-      <button (click)="onLevel3()">Test Area 3</button> <br>
-      <button (click)="onLevel4()">Test Area 4</button>
-  </mat-sidenav>
-
-  <mat-sidenav-content >
-    <button mat-button >sidenav.toggle()</button>
-    
-      <p>test</p>
-    
-  </mat-sidenav-content> 
- </mat-sidenav-container>  -->
