@@ -11,7 +11,7 @@
 
 <!-- <div class="openDrawer"  (mouseenter)="navigationDrawer()">
     <span class="glyphicon glyphicon-menu-hamburger"></span>
-</div> -->
+</div>  -->
  
 <div class="navigation" [@navigation]="navigation" (mouseenter)="navigationDrawer()" (mouseleave)="navigationDrawer2()">
 <ul>
@@ -33,11 +33,14 @@
 <li> <span class="sidebar-title">Contact</span>  
   <span class="sidebar-img"><img src="../../../assets/img/instagram.png" alt="error"></span>
 </li>
-<li><a (click)="toggle()"><span class="sidebar-title">Settings</span> 
-      <span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
-    </a>
+<li>
+  <a (click)="toggle()">
+    <span class="sidebar-title">Settings</span> 
+    <span [ngClass]="(isOpen)?'arrow-active':'arrow'"> ▶ </span>
+    <span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
+  </a><br>
 <div>
-  <ul style="margin-left:9px" [@openClose]="isOpen ? 'open' : 'closed'">
+  <ul  class="sub-menu" [@openClose]="isOpen ? 'open' : 'closed'" >
     <li>
       <span class="sidebar-title">Setting 1</span><span class="sidebar-img"><img src="../../../assets/img/settings.png" alt="error"></span>
     </li> 
@@ -50,8 +53,8 @@
   </ul>
 </div>
 </li>
-<li>
-  test
-</li>
+<!-- <li class="sidebar-title">
+  <p style="font-size:10px; color: black;">test</p>
+</li> -->
 </ul>
 </div>

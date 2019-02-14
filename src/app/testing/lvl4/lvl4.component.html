@@ -1,5 +1,33 @@
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
     <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
   </div>
 
-  <button (click)="toggle()" >click</button>
+  <div>
+    <button (click)="toggle1()" >click</button>
+  </div>
+
+
+
+
+  <div>
+    <button (click)="toggle()">Toggle</button>  
+    
+    <div [class.expanded]="expandedChange | async" [@bodyExpansion]="getExpandedState()">
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+      Hidden content <br>
+    </div>
+  </div>

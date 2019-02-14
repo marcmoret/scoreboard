@@ -14,25 +14,16 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
         transition('1 => 0', animate('.3s'))
 
     ]),
+    // sub-menu settings animation       
+    //state('open', style({transform: 'translateY(0%)'})),
+      //state('closed', style({transform: 'translateY(-100%)', display:'none'})),
+
     trigger('openClose', [
       
-      state('open', style({
-        
-        opacity: 1,
-        backgroundColor: '#f9f9ee'
-      })),
-      state('closed', style({
-        height: '100px',
-        opacity: 0.5,
-        display:'none',
-        backgroundColor: '#f9f9ee'
-      })),
-      transition('open => closed', [
-        animate('.5s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
+      state('open', style({height: '150px'})),
+      state('closed', style({height: '0px', overflow:'hidden'})),
+      transition('open => closed',animate('.5s ease-out' )),
+      transition('closed => open', animate('.5s ease-in')),
     ]),
   ]
 })
@@ -62,6 +53,7 @@ export class Lvl2Component implements OnInit {
  
   toggle() {
     this.isOpen = !this.isOpen;
+    console.log(this.isOpen);
   }
   
   constructor() { }
