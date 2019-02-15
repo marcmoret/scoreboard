@@ -39,7 +39,7 @@
 <div class="container" *ngIf="posts" id="ideas">
     <div id="card">
         <div *ngFor="let x of testArray3; let i = index;" class="flex">
-            <mat-card (mouseover)="onGet(x.id)">
+            <mat-card (mouseenter)="onGet(x.id)">
                 <mat-card-title>
                         <span  id="name">{{x.id}}</span>
                 </mat-card-title>
