@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, transition, style, animate, stagger } from '@angular/animations';
+import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
 
 @Component({
   selector: 'app-lvl4',
   templateUrl: './lvl4.component.html',
   styleUrls: ['./lvl4.component.css'],
   animations: [
-    trigger('slideInOut', [
-      transition(':enter', [
-        style({transform: 'translateY(-100%)'}),
-        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        (animate('.9s 1000ms ease-in', style({transform: 'translateY(-100%)'})))
+    trigger('test', [
+      transition('* => 1', [
+        query('p',style({ transform: 'translateX(-100%)'})),
+        query('p',
+          [
+            animate('500ms', style({ transform: 'translateX(0)'}))
+        ])
       ])
     ])
   ]
@@ -22,6 +22,7 @@ export class Lvl4Component implements OnInit {
 
   ngOnInit() {
   }
+
   toggle(){
     this.visible = !this.visible;
   }

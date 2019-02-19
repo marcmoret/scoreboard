@@ -1,15 +1,17 @@
 <div class="container">
   <p>
-    Hi
+    Hi this is a test.
+    Hi this is a test.
+    Hi this is a test.
+    Hi this is a test.
+    Hi this is a test.
+    Hi this is a test.
   </p>      
-  <button (click)="toggle()">clicks</button>
+</div>
+<div class="box" [class.test1]="visible">
+    <img src="../../../assets/img/crest_white.png" alt="">
 </div>
 
-<div (mouseover)="hover=true" (mouseleave)="hover=false">
-    <span [ngStyle]="{backgroundColor: hover==true  ? 'lightgrey' : 'grey' }">hello {{ hover }}</span>
-</div>
+<br>
 
-
-<div *ngIf="visible" [@slideInOut]>This element will slide up and down when the value of 'visible' changes from true to false and vice versa.</div>
-
-
+<button (click)="toggle()">click</button>

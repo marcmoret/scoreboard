@@ -153,7 +153,7 @@ export class IdeasComponent implements OnInit,AfterContentChecked {
       this.counter++;
     }
    // this.resetValues();
-
+    this.idea = '';
   }
 
   openSnackBar() {
