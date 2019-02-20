@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ServiceTestService } from './../service-test.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 
 
@@ -35,13 +36,25 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
     ]),
   ]
 })
-export class Lvl2Component implements OnInit {
+export class Lvl2Component implements OnInit, AfterViewInit {
+
 
   slideInOut:boolean = false;
 
   navigation:boolean = true;
   showOverlay:boolean = false;
   state:boolean =true;
+  message:string;
+
+  constructor(private service: ServiceTestService){}
+
+  
+  ngAfterViewInit(){
+
+  }
+
+  ngOnInit() {
+  }
   
   
   navigationDrawer(){
@@ -64,9 +77,6 @@ export class Lvl2Component implements OnInit {
     console.log(this.isOpen);
   }
   
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }

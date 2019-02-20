@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
 
 @Component({
@@ -8,17 +8,19 @@ import { trigger, transition, style, animate, stagger, query } from '@angular/an
   animations: [
     trigger('test', [
       transition('* => 1', [
-        query('p',style({ transform: 'translateX(-100%)'})),
+        query('p',style({ transform: 'translateX(0%)'})),
         query('p',
-          [
-            animate('500ms', style({ transform: 'translateX(0)'}))
-        ])
+          stagger('600ms', [
+            animate('900ms', style({ transform: 'translateX(50%)'}))
+        ]))
       ])
     ])
   ]
 })
 export class Lvl4Component implements OnInit {
-  visible: boolean = false;
+  @Output() visible: boolean = false;
+
+  constructor() {}
 
   ngOnInit() {
   }
@@ -26,5 +28,5 @@ export class Lvl4Component implements OnInit {
   toggle(){
     this.visible = !this.visible;
   }
-
+ 
 }
