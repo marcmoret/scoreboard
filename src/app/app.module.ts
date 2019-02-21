@@ -77,7 +77,7 @@ import { Lvl4Component } from './testing/lvl4/lvl4.component';
     MatButtonModule, 
     MatCheckboxModule, MatTableModule, 
     MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule,
-    MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule,
+    MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]

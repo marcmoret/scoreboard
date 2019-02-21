@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
+import { trigger, transition, style, animate, stagger, query, keyframes } from '@angular/animations';
+import * as kf from 'src/app/testing/lvl4/keyframes';
 
 @Component({
   selector: 'app-lvl4',
@@ -7,13 +8,8 @@ import { trigger, transition, style, animate, stagger, query } from '@angular/an
   styleUrls: ['./lvl4.component.css'],
   animations: [
     trigger('test', [
-      transition('* => 1', [
-        query('p',style({ transform: 'translateX(0%)'})),
-        query('p',
-          stagger('600ms', [
-            animate('900ms', style({ transform: 'translateX(50%)'}))
-        ]))
-      ])
+      transition('* => 1', animate('1s', keyframes(kf.string))),
+      transition('* => 0', animate('1s', keyframes(kf.string)))
     ])
   ]
 })
