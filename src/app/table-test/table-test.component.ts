@@ -93,12 +93,11 @@ passwordCheck(pass){
           callback(this.error = this.error + ' ...');
 
 
-          await wait(2000)
+          await wait(1000)
           if(!this.NoLocation){
             this.error = this.error + "ahhh, didn't allow me your location eh... well at least I got your IP address so HA:   " + this.ip
           }else{
 
-            await wait(1000);
             callback(this.error = this.error + ' LOCATED.');
   
             await wait(1000);
