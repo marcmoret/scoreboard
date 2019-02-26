@@ -52,6 +52,8 @@ resetValues(){
   }
 
   onLevel5(){
+    this.resetValues();
+    this.level5On = true;
   }
 
   

@@ -15,6 +15,8 @@ import * as kf from 'src/app/testing/lvl4/keyframes';
 })
 export class Lvl4Component implements OnInit {
   @Output() visible: boolean = false;
+  count: number;
+  test: boolean = false;
 
   constructor() {}
 
@@ -23,6 +25,11 @@ export class Lvl4Component implements OnInit {
 
   toggle(){
     this.visible = !this.visible;
+  }
+  testChange(){
+    console.log('test')
+    this.count++;
+    this.test = !this.test;
   }
  
 }

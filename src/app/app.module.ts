@@ -25,7 +25,7 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule, MatDialogModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -35,6 +35,8 @@ import { Lvl2Component } from './testing/lvl2/lvl2.component';
 import { Lvl1Component } from './testing/lvl1/lvl1.component';
 import { Lvl3Component } from './testing/lvl3/lvl3.component';
 import { Lvl4Component } from './testing/lvl4/lvl4.component';
+import { Lvl5Component } from './testing/lvl5/lvl5.component';
+import { PopupComponent } from './testing/lvl5/popup/popup.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { Lvl4Component } from './testing/lvl4/lvl4.component';
     Lvl1Component,
     Lvl3Component,
     Lvl4Component,
+    Lvl5Component,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,10 @@ import { Lvl4Component } from './testing/lvl4/lvl4.component';
     MatButtonModule, 
     MatCheckboxModule, MatTableModule, 
     MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule,
-    MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule
+    MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule
+  ],
+  entryComponents: [
+    PopupComponent
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]

@@ -2,3 +2,9 @@
     height: 300px;
     width: 600px;
   }
+  .container{
+    margin: 20px auto;
+  }
+  button{
+    margin-right: 10px;
+  }
