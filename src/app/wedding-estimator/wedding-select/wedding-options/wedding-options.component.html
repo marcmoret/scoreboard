@@ -46,11 +46,21 @@
         <hr>
         <div id="legend">
         <label class="underline">Legend</label><br>
+        <a (click)="onEdit()">Edit</a>
         </div>
         <div class="container">
                 <div class="prices" *ngIf="isSet">
-                    <label class="underline">DJ Prices </label> <a (click)="onEdit()">Edit</a>
-                    <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price}}</p>  
+                    <label class="underline">DJ Prices </label>
+                    <p *ngFor="let dj of DJ">{{dj.name}}  {{dj.price | currency}}</p>  
+                </div>
+
+                <div class="prices" *ngIf="isSet">
+                    <label class="underline">Hall Prices per Person </label>
+                    <p *ngFor="let hall of Hall">{{hall.name}}:  {{hall.price | currency}}</p>  
+                </div>
+                <div class="prices" *ngIf="isSet">
+                    <label class="underline">Band Prices </label>
+                    <p *ngFor="let band of Band">{{band.name}}:  {{band.price | currency}}</p>  
                 </div>
 
                 <!-- Hidden form to take new values -->
@@ -59,20 +69,30 @@
                 <label class="underline">DJ Prices </label>
                     <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
                     <div *ngFor="let dj of DJ; let i = index">
-                        <label class="form-group"> {{dj.name}} <br> </label>
-                        <input ngModel type="number" name="newPrice{{i}}" class="form-control"> <hr>
+                        <label class="form-group"> {{dj.name }} <br> </label>
+                        <input [(ngModel)]="dj.price" type="number" name="newPrice{{i}}" class="form-control"> <hr>
                     </div>
                     <button class="btn btn-primary" (click)="getIndex(DJ)" type="submit">Done</button> 
                     </form>
-                </div>
-                    <!-- <div class="prices">
-                        <label class="underline">Hall Prices per Person </label>
-                        <p *ngFor="let hall of Hall">{{hall.name}}  {{hall.price}}</p>  
+                    <hr>
+                    <label class="underline">Hall Prices </label>
+                    <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
+                    <div *ngFor="let hall of Hall; let i = index">
+                        <label class="form-group"> {{hall.name }} <br> </label>
+                        <input [(ngModel)]="hall.price" type="number" name="newPrice{{i}}" class="form-control"> <hr>
                     </div>
-                    <div class="prices">
-                        <label class="underline">Band Prices </label>
-                        <p *ngFor="let band of Band">{{band.name}}  {{band.price}}</p>  
-                    </div> -->
+                    <button class="btn btn-primary" (click)="getIndex(Hall)" type="submit">Done</button> 
+                    </form>
+                    <hr>
+                    <label class="underline">Band Prices </label>
+                    <form (ngSubmit)="onEditSubmit(g)" #g=ngForm >
+                    <div *ngFor="let band of Band; let i = index">
+                        <label class="form-group"> {{band.name }} <br> </label>
+                        <input [(ngModel)]="band.price" type="number" name="newPrice{{i}}" class="form-control"> <hr>
+                    </div>
+                    <button class="btn btn-primary" (click)="getIndex(Band)" type="submit">Done</button> 
+                    </form>
+                </div>
         </div>
         
     

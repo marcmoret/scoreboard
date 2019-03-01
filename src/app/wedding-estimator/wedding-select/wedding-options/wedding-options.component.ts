@@ -78,8 +78,8 @@ export class WeddingOptionsComponent implements OnInit {
   }
 
   verifyNull(form){
-     //verifies if there are any null values
-     // fixes the dj/band/hall undefined.
+    //  verifies if there are any null values
+    //   fixes the dj/band/hall undefined.
      if(!form.value.dj ){
      console.log('caught null dj');
       this.form.value.dj = 0;
@@ -98,7 +98,6 @@ export class WeddingOptionsComponent implements OnInit {
   
   onEdit(){
     this.isSet = false;
-    console.log('fired');
   }  
   onSubmit(form:NgForm){
     //sets null and undefined values to 0
@@ -122,11 +121,6 @@ export class WeddingOptionsComponent implements OnInit {
       }
 
     }
-    console.log();
-    console.log();
-    console.log();
-    console.log();
-    console.log();
 
     // calculates the cost
     this.expectedCost = (this.guests * this.form.value.hall)
@@ -155,13 +149,14 @@ export class WeddingOptionsComponent implements OnInit {
 
   onEditSubmit(edit: NgForm){
   
-  
-  console.log(this.edit.form.value);
-  
+    const val = JSON.stringify(edit.value);
+    this.obj = parseInt(val);
+
   for(let x in this.edit.form.value){
     this.testArray.push(x);
-  }
-  console.log(this.testArray);
+  }  
+
+  console.log(this.obj);
   
   
   //resets the page to normal
