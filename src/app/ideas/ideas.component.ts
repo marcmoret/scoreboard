@@ -18,7 +18,7 @@ interface profileName extends Idea{
   styleUrls: ['./ideas.component.css']
 })
 @Injectable()
-export class IdeasComponent implements OnInit,AfterContentChecked {
+export class IdeasComponent implements OnInit {
   
   //declare variables
   postCol: AngularFirestoreCollection<Idea>;
@@ -52,11 +52,6 @@ export class IdeasComponent implements OnInit,AfterContentChecked {
   constructor(private snackBar: MatSnackBar,private afs: AngularFirestore,) {  }
 
 
-  
-  ngAfterContentChecked(){
-   // console.log('after checked fired');
-   
-  }
 
   resetValues(){
     this.testArray = [];
@@ -82,19 +77,6 @@ export class IdeasComponent implements OnInit,AfterContentChecked {
       this.processNames(this.testArray);
     });
 
-
-
-      // for(let x of this.testArray3){
-
-      //   this.testArray4.push(x);
-      // }
-
-      // //debugger;
-      // console.log('double time' + this.count);
-      // console.log(this.testArray5);
-      // this.count++;
-
-
      this.resetValues();
 
   }
@@ -110,13 +92,8 @@ export class IdeasComponent implements OnInit,AfterContentChecked {
      this.posts3.subscribe((res:[])=>{
       // debugger;
         this.testArray4 = res;
-        // this.processIdeas(this.testArray4);
         console.log(this.testArray4);
       });
-
-        console.log(this.testArray4);
-    this.test = z;
-
   }
 
   processNames(mhm:any){
@@ -169,41 +146,5 @@ export class IdeasComponent implements OnInit,AfterContentChecked {
     };
     startAsync(text => console.log());
 }
-
-
-
-
-// onGet(e){
-
-//   console.log(e);
-//  //  console.log(this.testArray3);
-//  // console.log('this is the array');
-//  // console.log(this.testArray4);
-//   this.postCol3 = this.afs.collection('profiles').doc(e).collection('results', ref => ref.where('name', '==',e));
-
-//     this.posts3 = this.postCol3.valueChanges();
-
- // .map(actions =>{
-      //   return actions.map(a => {
-      //     const data = a.payload.doc.data();
-      //     const id = a.payload.doc.id;
-      //     return { id, data};
-      //   })});
-
-//     this.posts3.subscribe((res:[])=>{
-//       this.testArray3 = res;
-//       for(let x of this.testArray3){
-//         this.testArray4.push(x);
-//       }
-//       //debugger;
-//       this.testArray4 = this.testArray4.slice(0);
-//       console.log('double time' + this.count);
-//       console.log(this.testArray4);
-//       this.count++;
-//      });
-
-//      this.resetValues();
-
-//   }
 
 }

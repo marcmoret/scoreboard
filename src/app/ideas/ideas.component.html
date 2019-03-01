@@ -22,20 +22,6 @@
     </h3>
 </div>
 
-<!-- <div *ngIf="posts">
-    <mat-accordion >
-        <mat-expansion-panel >
-            <mat-expansion-panel-header>
-               This where it should be the date by idea.
-                </mat-expansion-panel-header>
-              <ul *ngFor="let x of posts | async">
-                  <li>
-                    <span id="name">{{x.data.fullName }} <br> </span>{{x.data.idea }}
-                  </li>
-              </ul>  
-            </mat-expansion-panel>
-    </mat-accordion>
-</div> -->
 <div class="container" *ngIf="posts" id="ideas">
     <div id="card">
         <div *ngFor="let x of testArray3; let i = index;" class="flex">

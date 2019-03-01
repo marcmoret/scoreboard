@@ -25,7 +25,7 @@ export class WeddingOptionsComponent implements OnInit {
   @Output() DJ =[
     {name: 'Marco Ferri', price: 5000},
     {name: 'DJ Mario', price: 4000},
-    {name: 'Foo Fighters', price: 10000},
+    {name: 'Above and Beyond', price: 10000},
   ]
 
   @Output() Hall =[
@@ -148,17 +148,7 @@ export class WeddingOptionsComponent implements OnInit {
 
 
   onEditSubmit(edit: NgForm){
-  
-    const val = JSON.stringify(edit.value);
-    this.obj = parseInt(val);
 
-  for(let x in this.edit.form.value){
-    this.testArray.push(x);
-  }  
-
-  console.log(this.obj);
-  
-  
   //resets the page to normal
   this.isSet = true;
   }
