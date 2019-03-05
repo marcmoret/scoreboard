@@ -76,9 +76,7 @@ export class IdeasComponent implements OnInit {
       this.testArray = res;
       this.processNames(this.testArray);
     });
-
      this.resetValues();
-
   }
 
   onGet(z){
