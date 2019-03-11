@@ -38,6 +38,7 @@ import { Lvl4Component } from './testing/lvl4/lvl4.component';
 import { Lvl5Component } from './testing/lvl5/lvl5.component';
 import { PopupComponent } from './testing/lvl5/popup/popup.component';
 import { Lvl6Component } from './testing/lvl6/lvl6.component';
+import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { Lvl6Component } from './testing/lvl6/lvl6.component';
     Lvl5Component,
     PopupComponent,
     Lvl6Component,
+    SubIdeaComponent,
   ],
   imports: [
     BrowserModule,

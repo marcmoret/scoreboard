@@ -1,5 +1,5 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Component, OnInit, Injectable, AfterViewInit, Output, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, Injectable, AfterViewInit, Output, AfterContentChecked, Directive, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs';
 
@@ -42,7 +42,7 @@ export class IdeasComponent implements OnInit {
   dbToday = this.today.toString();
   testArray: any[] = new Array;
   testArray3:  any[] = new Array;
-  testArray4: any[] = new Array;
+  testArray4: any[];
   testArray5: any[] = new Array;
   test;
   count=0;
@@ -62,7 +62,6 @@ export class IdeasComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.postCol = this.afs.collection('profiles');
     this.posts = this.postCol.snapshotChanges()
     .map(actions =>{
@@ -79,38 +78,12 @@ export class IdeasComponent implements OnInit {
      this.resetValues();
   }
 
-  onGet(z){
-
-    this.showDirection = true;
-
-    this.postCol3 = this.afs.collection('profiles').doc(z).collection('results'); //, ref => ref.where('name', '==',z)
-    
-     this.posts3 = this.postCol3.valueChanges()
-      
-     this.posts3.subscribe((res:[])=>{
-      // debugger;
-        this.testArray4 = res;
-        console.log(this.testArray4);
-      });
-  }
-
   processNames(mhm:any){
 
     this.testArray3 = mhm;
     console.log(mhm);
 
   }
-
-  processIdeas(ok:any){
-
-
-    this.testArray5.push(ok);
-    console.log("this.testArray5 below");
-    console.log(this.testArray5);
-    console.log('and above');
-
-  }
-
   addPost(){
 
 

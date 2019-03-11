@@ -25,25 +25,12 @@
 <div class="container" *ngIf="posts" id="ideas">
     <div id="card">
         <div *ngFor="let x of testArray3; let i = index;" class="flex">
-            <mat-card (mouseenter)="onGet(x.id)">
+            <mat-card>
                 <mat-card-title>
                         <span  id="name">{{x.id}}</span>
                 </mat-card-title>
                 <mat-card-content>
-                    <!-- <ul *ngFor="let y of posts3 | async">
-                        <li  >
-                            {{y.ideas}} <br>
-                        </li>
-                    </ul> -->
-                    
-                    
-                    <ul *ngFor="let y of this.testArray4">
-                        <div>
-                            <li *ngIf="x.id === y.name">
-                              {{y.ideas}} <br>
-                            </li>
-                        </div> 
-                    </ul>
+                   <app-sub-idea [currentId]="x.id"></app-sub-idea> 
                 </mat-card-content>
                 <mat-card-footer>
                 Last modified: {{x.data.date | date }} <br>
@@ -52,7 +39,6 @@
             </mat-card>
         </div>
     </div>
-</div>
 <footer>v0.9</footer>
 
  

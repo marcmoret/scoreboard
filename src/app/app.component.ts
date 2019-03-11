@@ -1,5 +1,6 @@
 import { Component, Output } from '@angular/core';
 import 'hammerjs';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import 'hammerjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'keepScore';
+  title = 'keepScore'; 
 
 
 }
