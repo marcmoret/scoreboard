@@ -1,14 +1,16 @@
-<script>
-$(function(){
-  $("#test").click(function(){
-    console.log('test');
-  });
-});
-</script>
-  <div id="test">
-    <p (mouseover)="onHover()">If you click on me, I will disappear.</p>
+  <div class="container" id="test">
+    <p (click)="onHover()">If you click on me, I will disappear.</p>
     <p>Click me away!</p>
     <p></p>
-  </div>
+  
   <button type="button" (click)="onClick()" id="test">click</button>
+    <br>
+    <br>
+  <input type="text" [(ngModel)]="test" (ngModelChange)="calc()">
+
+
+  {{test}}
+
  
+</div>
+  
