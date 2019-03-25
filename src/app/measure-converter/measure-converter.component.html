@@ -1,0 +1,43 @@
+<app-head></app-head>
+<div class="container">
+
+  <div>
+    <h2>
+      Measurement Converter
+    </h2>
+  </div>
+
+  <div class="center">
+      <mat-form-field class="example-full-width">
+          <input matInput type="number" name="measureVal" [(ngModel)]="measureVal">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
+            <mat-option *ngFor="let item of units" value="">
+              <!-- {{item.viewValue}} -->
+              test
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  
+
+  <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-list id="list">
+              <mat-list-item> Pepper </mat-list-item>
+              <mat-list-item> Salt </mat-list-item>
+              <mat-list-item> Paprika </mat-list-item>
+            </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Action 1</button>
+        <button mat-button>Action 2</button>
+      </mat-card-actions>
+    </mat-card>
+  
+</div>

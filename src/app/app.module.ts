@@ -25,7 +25,7 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule, MatDialogModule, MatGridListModule, MatListModule, MatOptionModule, MatSelectModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -39,6 +39,7 @@ import { Lvl5Component } from './testing/lvl5/lvl5.component';
 import { PopupComponent } from './testing/lvl5/popup/popup.component';
 import { Lvl6Component } from './testing/lvl6/lvl6.component';
 import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
+import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
     PopupComponent,
     Lvl6Component,
     SubIdeaComponent,
+    MeasureConverterComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,8 +84,8 @@ import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
-    MatButtonModule, 
-    MatCheckboxModule, MatTableModule, 
+    MatButtonModule, MatOptionModule, MatSelectModule,
+    MatCheckboxModule, MatTableModule, MatGridListModule, MatListModule,
     MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule
   ],

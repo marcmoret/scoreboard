@@ -7,6 +7,7 @@ import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator
 import { CountdownComponent } from './countdown/countdown.component';
 import { TestingComponent } from './testing/testing.component';
 import { TableTestComponent } from './table-test/table-test.component';
+import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
 
 const appRoutes: Routes = [
   { path: '', component:HomeComponent},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'testing', component:TestingComponent},
   { path: 'ideas', component: IdeasComponent},
   { path: 'testdb', component: TableTestComponent},
+  { path: 'converter', component: MeasureConverterComponent},
 
 
 ];
