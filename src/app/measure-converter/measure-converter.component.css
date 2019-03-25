@@ -2,5 +2,18 @@ h2,.example-full-width, .center{
     text-align: center;
 }
 .example-card{
-    margin:125px;
+    max-width: 300px;
+    margin-left: 415px;
+    margin-right: auto;
+    margin-top: 51px;
+    margin-bottom: 20px;
+}
+.example-full-width{
+    margin: 10px;
+}
+#numberField{
+    max-width: 80px;
+}
+#dropdown{
+    max-width: 40%;
 }

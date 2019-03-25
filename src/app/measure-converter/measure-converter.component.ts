@@ -9,7 +9,13 @@ export class MeasureConverterComponent implements OnInit {
 
   measureVal: number;
   selectedValue: string;
-  units:[];
+  units = [
+    {"unit":"cups", "value": 0},
+    {"unit":"grams", "value": 1},
+    {"unit":"teaspoon", "value": 2},
+    {"unit":"litres", "value": 3},
+    {"unit":"tablespoon", "value": 4}
+ ];
 
   constructor() { }
 
