@@ -9,11 +9,11 @@
 
   <div class="center">
       <mat-form-field class="example-full-width" id="numberField">
-          <input matInput type="number" name="measureVal" [(ngModel)]="measureVal">
+          <input matInput type="number" name="measureVal" [(ngModel)]="measureVal" (ngModelChange)="calculate()">
         </mat-form-field>
         <mat-form-field class="example-full-width" id="dropdown">
-          <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
-            <mat-option *ngFor="let item of units; let i = index" value="item.value">
+          <mat-select placeholder="Units" [(ngModel)]="selectedUnit" (ngModelChange)="calculate()" name="item">
+            <mat-option *ngFor="let item of units; let i = index" [value]="item.value">
               {{item.unit}}
             </mat-option>
           </mat-select>
@@ -28,11 +28,12 @@
       </mat-card-header>
       <mat-card-content>
           <mat-list id="list">
-              <mat-list-item> Cups </mat-list-item>
-              <mat-list-item> Grams </mat-list-item>
-              <mat-list-item> Teaspoon </mat-list-item>
-              <mat-list-item> Tablespoon </mat-list-item>
-              <mat-list-item> Liters </mat-list-item>
+              <mat-list-item> Cups {{cups}}</mat-list-item>
+              <mat-list-item> Grams {{grams}}</mat-list-item>
+              <mat-list-item> Teaspoon {{teaspoon}}</mat-list-item>
+              <mat-list-item> Tablespoon {{tablespoon}}</mat-list-item>
+              <mat-list-item> Liters {{liters}}</mat-list-item>
+              <mat-list-item> Ounces {{ounces}}</mat-list-item>
               </mat-list>
       </mat-card-content>
       <mat-card-actions>

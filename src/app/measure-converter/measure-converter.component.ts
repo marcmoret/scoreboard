@@ -8,18 +8,30 @@ import { Component, OnInit } from '@angular/core';
 export class MeasureConverterComponent implements OnInit {
 
   measureVal: number;
-  selectedValue: string;
+  selectedUnit: number = 0;
+  cups:number = 0;
+  ounces:number = 0;
+  tablespoon:number = 0;
+  teaspoon:number = 0;
+  liters:number = 0;
+  grams:number = 0;
   units = [
-    {"unit":"cups", "value": 0},
-    {"unit":"grams", "value": 1},
-    {"unit":"teaspoon", "value": 2},
-    {"unit":"litres", "value": 3},
-    {"unit":"tablespoon", "value": 4}
+    {"unit":"Cups", "value": 0},
+    {"unit":"Grams", "value": 1},
+    {"unit":"Teaspoon", "value": 2},
+    {"unit":"Tablespoon", "value": 4},
+    {"unit":"Litres", "value": 3},
+    {"unit":"Ounce", "value": 4}
  ];
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  calculate(){
+   this.grams = this.selectedUnit * this.measureVal;
   }
 
 }

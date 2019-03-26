@@ -1,13 +1,16 @@
 h2,.example-full-width, .center{
     text-align: center;
 }
-.example-card{
-    max-width: 300px;
-    margin-left: 415px;
-    margin-right: auto;
-    margin-top: 51px;
-    margin-bottom: 20px;
+@media (min-width: 990px){
+    .example-card{
+        max-width: 300px;
+        margin-left: 415px;
+        margin-right: auto;
+        margin-top: 51px;
+        margin-bottom: 20px;
+    }
 }
+
 .example-full-width{
     margin: 10px;
 }
