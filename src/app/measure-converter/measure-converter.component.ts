@@ -26,7 +26,11 @@ export class MeasureConverterComponent implements OnInit {
  ];
 
 
-  constructor() { }
+  constructor() {
+    // var Fraction = require('fraction.js');
+    // var x = new Fraction(3 * .0066);
+    // console.log(x.toFraction(true));
+   }
 
   ngOnInit() {
   }
@@ -41,14 +45,14 @@ export class MeasureConverterComponent implements OnInit {
   //  this.ounces = this.selectedUnit * 1 * this.measureVal;
   }
   cupsCal(){
-    console.log('start')
     switch (this.selectedUnit) {
       case 1:{
         return this.cups = this.measureVal;
       }
       case 2:{
-        return this.cups = 0.0066 * this.measureVal;
-        console.log('fired', this.cups)
+        
+        return this.cups = Math.round((0.0066 * this.measureVal )*100)/100
+
       }
       case 3:{
         
