@@ -12,7 +12,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 import { HeadComponent } from './head/head.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChooseNameComponent } from './score/choose-name/choose-name.component';
 import { WeddingEstimatorComponent } from './wedding-estimator/wedding-estimator.component';
 import { WeddingSelectComponent } from './wedding-estimator/wedding-select/wedding-select.component';
@@ -25,7 +25,12 @@ import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
 import { ServerService } from './ideas/ideas.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatInputModule, MatSnackBarModule, MatCardModule, MatSidenavModule, MatDialogModule, MatGridListModule, MatListModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule,
+   MatCheckboxModule, MatTableModule, MatPaginatorModule, 
+   MatSortModule, MatExpansionModule, MatInputModule, 
+   MatSnackBarModule, MatCardModule, MatSidenavModule, 
+   MatDialogModule, MatGridListModule, MatListModule, 
+   MatOptionModule, MatSelectModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -40,6 +45,7 @@ import { PopupComponent } from './testing/lvl5/popup/popup.component';
 import { Lvl6Component } from './testing/lvl6/lvl6.component';
 import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
+
 
 
 @NgModule({
@@ -79,6 +85,7 @@ import { MeasureConverterComponent } from './measure-converter/measure-converter
     NgbModule,
     HttpModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,

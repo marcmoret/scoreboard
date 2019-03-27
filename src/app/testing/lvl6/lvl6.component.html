@@ -1,16 +1,15 @@
-  <div class="container" id="test">
-    <p (click)="onHover()">If you click on me, I will disappear.</p>
-    <p>Click me away!</p>
-    <p></p>
-  
-  <button type="button" (click)="onClick()" id="test">click</button>
-    <br>
-    <br>
-  <input type="text" [(ngModel)]="test" (ngModelChange)="calc()">
+<div class="container" id="test">
+    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+      
+      <label for="name">Name</label>
+      <input formControlName="name" id="name"/>
+      <div *ngIf="userForm.invalid && userForm.touched">Required</div>
 
+      <label for="password">Password</label>
+      <input formControlName="confirmPassword" [(ngModel)]="confirmPassword"/>
+      <div *ngIf="userForm.invalid && userForm.touched">Required</div>
 
-  {{test}}
-
- 
+      <button type="submit" [disabled]="!userForm.valid">Submit</button>
+    </form>
 </div>
   
