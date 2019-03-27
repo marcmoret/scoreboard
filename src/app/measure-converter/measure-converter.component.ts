@@ -37,7 +37,7 @@ export class MeasureConverterComponent implements OnInit {
 
   calculate(){
     this.cupsCal();
-  //  this.grams = this.selectedUnit * 1 * this.measureVal;
+    this.gramsCal(); 
   //  this.cups = this.selectedUnit * 1 * this.measureVal;
   //  this.teaspoon = this.selectedUnit * 1 * this.measureVal;
   //  this.tablespoon = this.selectedUnit * 1 * this.measureVal;
@@ -51,23 +51,50 @@ export class MeasureConverterComponent implements OnInit {
       }
       case 2:{
         
-        return this.cups = Math.round((0.0066 * this.measureVal )*100)/100
+        return this.cups = Math.round((0.0042267528198649 * this.measureVal )*100)/100
 
       }
       case 3:{
-        
+        return this.cups = Math.round((0.0208333 * this.measureVal )*100)/100
       } 
       case 4:{
-        
+        return this.cups = Math.round((0.0625 * this.measureVal )*100)/100        
       }
       case 5:{
-        
+        return this.cups = Math.round((4.22675 * this.measureVal )*100)/100                
       }
       case 6:{
-        
+        return this.cups = Math.round((0.125 * this.measureVal )*100)/100
       }
       default:{
         this.cups = 0;
+      }
+        break;
+    }
+  }
+
+  gramsCal(){
+    switch (this.selectedUnit) {
+      case 1:{
+        return this.grams = Math.round((0.0042267528198649 * this.measureVal )*100)/100
+      }
+      case 2:{
+        return this.grams = this.measureVal;
+      }
+      case 3:{
+        return this.grams = Math.round((0.0208333 * this.measureVal )*100)/100
+      } 
+      case 4:{
+        return this.grams = Math.round((0.0625 * this.measureVal )*100)/100        
+      }
+      case 5:{
+        return this.grams = Math.round((4.22675 * this.measureVal )*100)/100                
+      }
+      case 6:{
+        return this.grams = Math.round((0.125 * this.measureVal )*100)/100
+      }
+      default:{
+        this.grams = 0;
       }
         break;
     }
