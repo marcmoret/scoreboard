@@ -1,4 +1,9 @@
 <app-head></app-head>
+<!-- Red Cross woman:	Everyone, we need to pump at a pace of one hundred beats per minute.
+Michael Scott:	Ohhhkay that's, uh, hard to keep track. How many is that per hour?
+Jim Halpert:	How's that going to help you?
+Michael Scott:	I'll divide and then count to it.
+Jim Halpert:	Right. -->
 <div class="container">
 
   <div>
@@ -6,10 +11,10 @@
       Measurement Converter
     </h2>
   </div>
-
+<!-- Cups/Grams -->
   <div class="center">
       <mat-form-field class="example-full-width" id="numberField">
-          <input matInput type="number" name="measureVal" [(ngModel)]="measureVal" (ngModelChange)="calculate()">
+          <input matInput type="number" pattern="[0-9.]*" name="measureVal" [(ngModel)]="measureVal" (ngModelChange)="calculate()">
         </mat-form-field>
         <mat-form-field class="example-full-width" id="dropdown">
           <mat-select placeholder="Units" [(ngModel)]="selectedUnit" (ngModelChange)="calculate()" name="item">
@@ -19,28 +24,31 @@
           </mat-select>
         </mat-form-field>
   </div> 
-
+<div class="main">
   <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Results</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-          <mat-list id="list">
-              <mat-list-item> Cups: {{cups}}</mat-list-item>
-              <mat-list-item> Grams: {{grams}}</mat-list-item>
-              <mat-list-item> Teaspoons: {{teaspoon}}</mat-list-item>
-              <mat-list-item> Tablespoons: {{tablespoon}}</mat-list-item>
-              <mat-list-item> Liters: {{liters}}</mat-list-item>
-              <mat-list-item> Ounces: {{ounces}}</mat-list-item>
-              </mat-list>
-      </mat-card-content>
-      <mat-card-actions>
-      </mat-card-actions>
-    </mat-card>
+    <!-- <mat-card-header>
+      <mat-card-title>Results</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header> -->
+    <mat-card-content>
+        <mat-list id="list">
+            <mat-list-item> Cups: {{cups}} C</mat-list-item>
+            <mat-list-item> Grams: {{grams}}g</mat-list-item>
+            <mat-list-item> Teaspoons: {{teaspoon}} tsp</mat-list-item>
+            <mat-list-item> Tablespoons: {{tablespoon}} Tbsp</mat-list-item>
+            <mat-list-item> Liters: {{liters}}L</mat-list-item>
+            <mat-list-item> Ounces: {{ounces}} oz</mat-list-item>
+            </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>
+  
 
     <hr>
     <br>
+<!-- Degrees -->
 
     <div class="center">
       <mat-form-field class="example-full-width" id="numberField">
@@ -70,5 +78,39 @@
     <mat-card-actions>
     </mat-card-actions>
   </mat-card>    
+
+
+  <hr>
+  <br>
+<!-- Distance -->
+
+  <div class="center">
+    <mat-form-field class="example-full-width" id="numberField">
+      <input matInput type="number" pattern="[0-9.]*" name="measureVal" [(ngModel)]="selectDist" (ngModelChange)="calDistance()">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" id="dropdown">
+      <mat-select placeholder="Distance" [(ngModel)]="selectDistUnit" (ngModelChange)="calDistance()" name="item">
+        <mat-option *ngFor="let item of distance" [value]="item.value">
+          {{item.unit}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> 
+
+<mat-card class="example-card">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-list id="list">
+          <mat-list-item> Miles: {{mile}}</mat-list-item>
+          <mat-list-item> Feet: {{foot}}</mat-list-item>
+          <mat-list-item> Inches: {{inch}}</mat-list-item>
+          <mat-list-item> Kilometre: {{km}}</mat-list-item>
+          <mat-list-item> Metres: {{mm}}</mat-list-item>
+      </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>   
   
 </div>

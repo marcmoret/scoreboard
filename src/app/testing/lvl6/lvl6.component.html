@@ -1,14 +1,28 @@
 <div class="container" id="test">
     <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+      <div>
+        <label for="name">Name: </label>
+        <input formControlName="name" id="name"/>
+        <span *ngIf="this.userForm.controls.name.invalid">Required</span>
+      </div>
       
-      <label for="name">Name</label>
-      <input formControlName="name" id="name"/>
-      <div *ngIf="userForm.invalid && userForm.touched">Required</div>
+      <br>
+      <br>
+      
+      <div>
+        <label for="password">Password: </label>
+        <input formControlName="confirmPassword"/>
+        <span *ngIf="this.userForm.controls.confirmPassword.invalid">Required</span>  
+      </div>
 
-      <label for="password">Password</label>
-      <input formControlName="confirmPassword" [(ngModel)]="confirmPassword"/>
-      <div *ngIf="userForm.invalid && userForm.touched">Required</div>
-
+      <br>
+      <br>
+      
+      <div>
+        <label for="password">Email: </label>
+        <input formControlName="confirmEmail"/>
+        <span *ngIf="this.userForm.controls.confirmEmail.invalid">Required</span>  
+      </div>
       <button type="submit" [disabled]="!userForm.valid">Submit</button>
     </form>
 </div>

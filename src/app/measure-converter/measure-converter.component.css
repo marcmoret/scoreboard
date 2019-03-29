@@ -6,8 +6,14 @@ h2,.example-full-width, .center{
         max-width: 300px;
         margin-left: 415px;
         margin-right: auto;
-        margin-top: 51px;
+        margin-top: 20px;
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 989px){
+    body{
+        min-width: 100%;
     }
 }
 
@@ -19,4 +25,8 @@ h2,.example-full-width, .center{
 }
 #dropdown{
     max-width: 40%;
+}
+body > app-root > app-measure-converter > div > mat-card:nth-child(3) > mat-card-header{
+    text-align: center;
+    display: inherit;
 }
