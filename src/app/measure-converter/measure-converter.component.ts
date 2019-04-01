@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/share';
 
 @Component({
   selector: 'app-measure-converter',
@@ -20,6 +26,7 @@ export class MeasureConverterComponent implements OnInit {
   teaspoon:any = 0;
   liters:any = 0;
   grams:any = 0;
+  key = 'Item 1';
   units = [
     {"unit":"Cups", "value": 1},
     {"unit":"Grams", "value": 2},
@@ -28,15 +35,23 @@ export class MeasureConverterComponent implements OnInit {
     {"unit":"Litres", "value": 5},
     {"unit":"Ounces", "value": 6}
  ];
+ recentSearches: [];
+  test:string;
+  items;
+  num = 5;
 
-
-  constructor() {
-    // var Fraction = require('fraction.js');
-    // var x = new Fraction(3 * .0066);
-    // console.log(x.toFraction(true));
+  constructor(http: HttpClient) {
    }
 
   ngOnInit() {
+    if (localStorage.getItem(this.key)) {
+      this.items = JSON.parse(localStorage.getItem(this.key))
+    } else {
+      this.items = []
+    }
+    //console.log(localStorage.getItem(this.key));
+    console.log(this.recentSearches = JSON.parse(localStorage.getItem(this.key)));
+    
   }
 
   calculate(){
@@ -46,6 +61,13 @@ export class MeasureConverterComponent implements OnInit {
     this.tablespoonCal();
     this.literCal();
     this.ounceCal();
+    this.num++;
+    this.test = this.num.toString();
+    localStorage.setItem(this.key, this.test);
+    console.log(localStorage.getItem(this.key));
+    //this.recentSearches.push(this.test);
+    
+
   }
   cupsCal(){
     switch (this.selectedUnit) {
