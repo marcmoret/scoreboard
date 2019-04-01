@@ -17,6 +17,7 @@ export class MeasureConverterComponent implements OnInit {
   farenheit = 0;
   selectTemp;
   selectMeasure;
+  test;
 
   measureVal: number;
   selectedUnit: number = 0;
@@ -35,12 +36,32 @@ export class MeasureConverterComponent implements OnInit {
     {"unit":"Litres", "value": 5},
     {"unit":"Ounces", "value": 6}
  ];
- recentSearches: [];
-  test:string;
-  items;
-  num = 5;
+ distance = [
+  {"unit":"Mile", "value": 1},
+  {"unit":"Foot", "value": 2},
+  {"unit":"Inch", "value": 3},
+  {"unit":"KM", "value": 4},
+  {"unit":"Metre", "value": 5},
+ ];
 
-  constructor(http: HttpClient) {
+
+ items;
+ num;
+ recentSearches:[];
+
+ selectDistUnit;
+ selectDist;
+
+ mile = 0;
+ foot = 0;
+ inch = 0;
+ km = 0;
+ mm = 0;
+
+  constructor() {
+    // var Fraction = require('fraction.js');
+    // var x = new Fraction(3 * .0066);
+    // console.log(x.toFraction(true));
    }
 
   ngOnInit() {
@@ -245,6 +266,133 @@ export class MeasureConverterComponent implements OnInit {
     
     
     
+  }
+
+  calDistance(){
+    this.mileCal();
+    this.feetCal();
+    this.inchCal();
+    this.kmCal();
+    this.mmCal();
+  }
+
+  mileCal(){
+    switch (this.selectDistUnit) {
+      case 1:{
+        return this.mile = this.selectDist;
+      }
+      case 2:{
+        return  this.mile = Math.round((0.000189394 * this.selectDist )*100000)/100000
+      }
+      case 3:{
+        return this.mile = Math.round((this.selectDist / 63360 )*100000)/100000
+      } 
+      case 4:{        
+        return this.mile = Math.round((0.621371 * this.selectDist )*100000)/100000       
+      }
+      case 5:{
+        return this.mile = Math.round((0.000621371 * this.selectDist )*10000)/100000
+      }
+      default:{
+        this.mile = 0;
+      }
+        break;
+    }
+  }
+
+  feetCal(){
+    switch (this.selectDistUnit) {
+      case 1:{
+        return  this.foot = Math.round((5280 * this.selectDist )*100)/100
+      }
+      case 2:{
+        return this.foot = this.selectDist;
+      }
+      case 3:{
+        return this.foot = Math.round((0.0833333 * this.selectDist )*100)/100
+      } 
+      case 4:{        
+        return this.foot = Math.round((3280.84 * this.selectDist )*100)/100     
+      }
+      case 5:{
+        return this.foot = Math.round((3.28084 * this.selectDist )*100)/100
+      }
+      default:{
+        this.foot = 0;
+      }
+        break;
+    }
+  }
+
+  inchCal(){
+    switch (this.selectDistUnit) {
+      case 1:{
+        return  this.inch = Math.round((63360 * this.selectDist )*100)/100
+      }
+      case 2:{
+        return this.inch = Math.round((12 * this.selectDist )*100)/100
+      }
+      case 3:{
+        return this.inch = this.selectDist;
+      } 
+      case 4:{        
+        return this.inch = Math.round((39370.1 * this.selectDist )*100)/100     
+      }
+      case 5:{
+        return this.inch = Math.round((39.3701 * this.selectDist )*100)/100
+      }
+      default:{
+        this.inch = 0;
+      }
+        break;
+    }
+  }
+
+  kmCal(){
+    switch (this.selectDistUnit) {
+      case 1:{
+        return  this.km = Math.round((1.60934 * this.selectDist )*100)/100
+      }
+      case 2:{
+        return this.km = Math.round((0.0003048 * this.selectDist )*100000)/100000
+      }
+      case 3:{
+        return this.km = Math.round((this.selectDist / 39370.079)*100000)/100000
+      } 
+      case 4:{        
+        return this.km = this.selectDist;
+      }
+      case 5:{
+        return this.km = Math.round((0.001 * this.selectDist )*100)/100
+      }
+      default:{
+        this.km = 0;
+      }
+        break;
+    }
+  }
+  mmCal(){
+    switch (this.selectDistUnit) {
+      case 1:{
+        return  this.mm = Math.round((1609.34 * this.selectDist )*100)/100
+      }
+      case 2:{
+        return this.mm = Math.round((0.3048 * this.selectDist )*100000)/100000
+      }
+      case 3:{
+        return this.mm = Math.round((0.0254 * this.selectDist )*100000)/100000
+      } 
+      case 4:{        
+        return this.mm = Math.round((1000 * this.selectDist )*100)/100
+      }
+      case 5:{
+        return this.mm = this.selectDist;
+      }
+      default:{
+        this.mm = 0;
+      }
+        break;
+    }
   }
   
 }
