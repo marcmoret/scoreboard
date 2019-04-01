@@ -26,29 +26,10 @@ Jim Halpert:	Right. -->
   </div> 
 <div class="main">
   <mat-card class="example-card">
-<<<<<<< HEAD
-      <mat-card-header>
-        <mat-card-title>Results</mat-card-title>
-        <mat-card-subtitle>{{items}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-          <mat-list id="list">
-              <mat-list-item> Cups: {{cups}}</mat-list-item>
-              <mat-list-item> Grams: {{grams}}</mat-list-item>
-              <mat-list-item> Teaspoons: {{teaspoon}}</mat-list-item>
-              <mat-list-item> Tablespoons: {{tablespoon}}</mat-list-item>
-              <mat-list-item> Liters: {{liters}}</mat-list-item>
-              <mat-list-item> Ounces: {{ounces}}</mat-list-item>
-              </mat-list>
-      </mat-card-content>
-      <mat-card-actions>
-      </mat-card-actions>
-    </mat-card>
-=======
-    <!-- <mat-card-header>
+     <mat-card-header>
       <mat-card-title>Results</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header> -->
+      <mat-card-subtitle>{{items}}</mat-card-subtitle>
+    </mat-card-header> 
     <mat-card-content>
         <mat-list id="list">
             <mat-list-item> Cups: {{cups}} C</mat-list-item>
@@ -60,11 +41,11 @@ Jim Halpert:	Right. -->
             </mat-list>
     </mat-card-content>
     <mat-card-actions>
+      <button (click)="clearCache()" >Clear Cache</button>
     </mat-card-actions>
   </mat-card>
 </div>
   
->>>>>>> db4ec41fd8b44b1d4422141d5f2ddc8d255ed718
 
     <hr>
     <br>

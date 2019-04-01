@@ -46,7 +46,7 @@ export class MeasureConverterComponent implements OnInit {
 
 
  items;
- num;
+ num = 0;
  recentSearches:[];
 
  selectDistUnit;
@@ -70,7 +70,7 @@ export class MeasureConverterComponent implements OnInit {
     } else {
       this.items = []
     }
-    //console.log(localStorage.getItem(this.key));
+    console.log(localStorage.getItem(this.key));
     console.log(this.recentSearches = JSON.parse(localStorage.getItem(this.key)));
     
   }
@@ -90,6 +90,11 @@ export class MeasureConverterComponent implements OnInit {
     
 
   }
+
+  clearCache(){
+    localStorage.clear();
+  }
+
   cupsCal(){
     switch (this.selectedUnit) {
       case 1:{
