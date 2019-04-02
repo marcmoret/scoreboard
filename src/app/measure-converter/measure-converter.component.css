@@ -16,6 +16,9 @@ h2,.example-full-width, .center{
         min-width: 100%;
     }
 }
+a{
+    cursor: pointer;
+}
 
 .example-full-width{
     margin: 10px;

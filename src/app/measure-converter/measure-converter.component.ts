@@ -72,11 +72,7 @@ export class MeasureConverterComponent implements OnInit {
  mm = 0;
   data: any;
 
-  constructor() {
-    // var Fraction = require('fraction.js');
-    // var x = new Fraction(3 * .0066);
-    // console.log(x.toFraction(true));
-   }
+  constructor() {}
 
   ngOnInit() {    
 
@@ -85,10 +81,10 @@ export class MeasureConverterComponent implements OnInit {
       this.items2 = localStorage.getItem(this.key2)
       this.items3 = localStorage.getItem(this.key3)
     } else {
-      this.items = []
+      this.items = [''];
     }
-    //console.log(localStorage.getItem(this.key));
-    //console.log(this.recentSearches.push(JSON.parse(localStorage.getItem(this.key))));
+    
+    console.log(this.items);
     
   }
 
@@ -99,21 +95,19 @@ export class MeasureConverterComponent implements OnInit {
     this.tablespoonCal();
     this.literCal();
     this.ounceCal();
-
+    
     this.test = this.measureVal;
     this.test2 = this.units[this.selectedUnit - 1].unit;
     this.test3 = this.selectedUnit
-    localStorage.setItem(this.key, this.test);
+    localStorage.setItem(this.key, JSON.stringify(this.test));
     localStorage.setItem(this.key2, this.test2);
     localStorage.setItem(this.key3, this.test3);
-    //console.log(localStorage.getItem(this.key));
-    this.test = localStorage.getItem(this.key)
-    //this.recentSearches.push(this.test);
-    console.log(this.test2)
   }
 
   clearCache(){
     localStorage.clear();
+    this.items = null;
+    this.items2 = null;
   }
 
   savedSearch(){
