@@ -27,8 +27,8 @@ Jim Halpert:	Right. -->
 <div class="main">
   <mat-card class="example-card">
      <mat-card-header>
-      <mat-card-title>Results</mat-card-title>
-      <mat-card-subtitle>{{items}}</mat-card-subtitle>
+      <mat-card-title>Recent Searches</mat-card-title>
+      <mat-card-subtitle> <a (click)="savedSearch()">{{items}} {{items2}} </a></mat-card-subtitle>
     </mat-card-header> 
     <mat-card-content>
         <mat-list id="list">
@@ -41,7 +41,7 @@ Jim Halpert:	Right. -->
             </mat-list>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="clearCache()" >Clear Cache</button>
+      <button mat-button (click)="clearCache()" >Clear Searches</button>
     </mat-card-actions>
   </mat-card>
 </div>

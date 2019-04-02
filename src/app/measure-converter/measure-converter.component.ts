@@ -17,7 +17,7 @@ export class MeasureConverterComponent implements OnInit {
   farenheit = 0;
   selectTemp;
   selectMeasure;
-  test;
+  
 
   measureVal: number;
   selectedUnit: number = 0;
@@ -28,6 +28,8 @@ export class MeasureConverterComponent implements OnInit {
   liters:any = 0;
   grams:any = 0;
   key = 'Item 1';
+  key2 = 'Item 2';
+  key3: 'Item 3';
   units = [
     {"unit":"Cups", "value": 1},
     {"unit":"Grams", "value": 2},
@@ -44,10 +46,21 @@ export class MeasureConverterComponent implements OnInit {
   {"unit":"Metre", "value": 5},
  ];
 
+ results = [{
+  measure: '',
+  selectMeasure: ''
+ }];
+
 
  items;
+ items2;
+ items3;
+
  num = 0;
- recentSearches:[];
+ recentSearches = [];
+ test;
+ test2;
+ test3;
 
  selectDistUnit;
  selectDist;
@@ -57,6 +70,7 @@ export class MeasureConverterComponent implements OnInit {
  inch = 0;
  km = 0;
  mm = 0;
+  data: any;
 
   constructor() {
     // var Fraction = require('fraction.js');
@@ -64,14 +78,17 @@ export class MeasureConverterComponent implements OnInit {
     // console.log(x.toFraction(true));
    }
 
-  ngOnInit() {
+  ngOnInit() {    
+
     if (localStorage.getItem(this.key)) {
       this.items = JSON.parse(localStorage.getItem(this.key))
+      this.items2 = localStorage.getItem(this.key2)
+      this.items3 = localStorage.getItem(this.key3)
     } else {
       this.items = []
     }
-    console.log(localStorage.getItem(this.key));
-    console.log(this.recentSearches = JSON.parse(localStorage.getItem(this.key)));
+    //console.log(localStorage.getItem(this.key));
+    //console.log(this.recentSearches.push(JSON.parse(localStorage.getItem(this.key))));
     
   }
 
@@ -82,17 +99,27 @@ export class MeasureConverterComponent implements OnInit {
     this.tablespoonCal();
     this.literCal();
     this.ounceCal();
-    this.num++;
-    this.test = this.num.toString();
-    localStorage.setItem(this.key, this.test);
-    console.log(localStorage.getItem(this.key));
-    //this.recentSearches.push(this.test);
-    
 
+    this.test = this.measureVal;
+    this.test2 = this.units[this.selectedUnit - 1].unit;
+    this.test3 = this.selectedUnit
+    localStorage.setItem(this.key, this.test);
+    localStorage.setItem(this.key2, this.test2);
+    localStorage.setItem(this.key3, this.test3);
+    //console.log(localStorage.getItem(this.key));
+    this.test = localStorage.getItem(this.key)
+    //this.recentSearches.push(this.test);
+    console.log(this.test2)
   }
 
   clearCache(){
     localStorage.clear();
+  }
+
+  savedSearch(){
+    this.measureVal = this.items;
+    this.selectedUnit = this.units[this.items3 - 1].value;
+    this.calculate();
   }
 
   cupsCal(){
