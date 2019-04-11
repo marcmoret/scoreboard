@@ -45,6 +45,7 @@ import { PopupComponent } from './testing/lvl5/popup/popup.component';
 import { Lvl6Component } from './testing/lvl6/lvl6.component';
 import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
+import { WeatherService } from './testing/lvl4/lvl4.service';
 
 
 
@@ -81,6 +82,7 @@ import { MeasureConverterComponent } from './measure-converter/measure-converter
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'
     }),
+
     CountdownTimerModule.forRoot(), // for countdown component
     NgbModule,
     HttpModule,
@@ -99,7 +101,7 @@ import { MeasureConverterComponent } from './measure-converter/measure-converter
   entryComponents: [
     PopupComponent
   ],
-  providers: [ServerService],
+  providers: [ServerService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

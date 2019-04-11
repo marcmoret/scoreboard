@@ -33,6 +33,7 @@
     "angular2-fractionize": "0.0.2",
     "angularfire2": "^5.1.1",
     "bootstrap": "^3.4.0",
+    "chart.js": "^2.8.0",
     "compressible": "^2.0.16",
     "core-js": "^2.5.4",
     "easycountdown": "^1.0.9",
