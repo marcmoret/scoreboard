@@ -85,20 +85,13 @@ passwordCheck(pass){
         const startAsync = async callback => {
           await wait(1000);
           callback(this.error = this.error + ' ...');
-          
-          await wait(1000);
-          callback(this.error = this.error + ' ...');
-
-          await wait(1000);
-          callback(this.error = this.error + ' ...');
-
 
           await wait(1000)
           if(!this.NoLocation){
             this.error = this.error + "ahhh, didn't allow me your location eh... well at least I got your IP address so HA:   " + this.ip
           }else{
 
-            callback(this.error = this.error + ' LOCATED.');
+            callback(this.error = this.error + ' FOUND YA.');
   
             await wait(1000);
             callback( );

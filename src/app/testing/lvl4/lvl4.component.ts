@@ -22,6 +22,7 @@ export class Lvl4Component implements OnInit {
   count: number;
   test: boolean = false;
   weatherData:any;
+  forecastData: any;
   city;
   today: number = Date.now();
   public ngOninit:number = 0;
@@ -29,20 +30,16 @@ export class Lvl4Component implements OnInit {
   public const:number = 0;
 
   constructor(private weatherService: WeatherService) {
-   console.log('constructor', this.const++);
   }
 
   ngOnInit() {
     this.location("Montreal");
-    console.log('oninint',this.ngOninit++);
-    
     }
 
   toggle(){
     this.visible = !this.visible;
   }
   testChange(){
-    console.log('test')
     this.count++;
     this.test = !this.test;
   }
@@ -50,6 +47,14 @@ export class Lvl4Component implements OnInit {
   location(citySelect){
     this.weatherService.searchWeatherData(citySelect).subscribe((result)=>{
       this.weatherData = result;
+    });
+    this.getforecast(citySelect)
+  }
+
+  getforecast(citySelect){
+    this.weatherService.searchForecastData(citySelect).subscribe((result)=>{
+      this.forecastData = result;
+      console.log(this.forecastData);
     });
   }
  

@@ -30,7 +30,7 @@
 
 <div class="container">
     <input type="text" [(ngModel)]="city">
-    <button (click)="location(city)">leggo</button>
+    <button (click)="location(city)">Search</button>
     
     <mat-card>
       <mat-card-content>
@@ -44,7 +44,7 @@
               </td>
               <td>
                 <div class="img">
-                  <img src="http://openweathermap.org/img/w/{{weatherData?.weather[0].icon}}.png" alt="">
+                  <img src="http://openweathermap.org/img/w/{{weatherData?.weather[0].icon}}.png" alt="loading..">
                 </div>
               </td>
               <td>
@@ -65,4 +65,53 @@
       <mat-card-actions>
       </mat-card-actions>
     </mat-card>
+
+    <!-- <mat-card>
+        <mat-card-content>
+            <table >
+              <tr>
+                <td> 
+                  <div class="date">
+                    <h3>{{forecast.dt | date:'EEEE'}}</h3>
+                    <h4>{{forecast.dt | date:'d MMMM yyyy'}}</h4>              
+                  </div>
+                </td>
+                <td>
+                  <div class="img">
+                    <img src="http://openweathermap.org/img/w/{{forecastData?.weather[0].icon}}.png" alt="loading..">
+                  </div>
+                </td>
+                <td>
+                  <div class="weather">
+                      <h3>
+                        {{weatherData?.name}}
+                      </h3>
+                      <h4>
+                        {{weatherData?.weather[0].description}}
+                      </h4>
+                      <span class="temperature">{{weatherData?.main.temp | number:'1.0-0'}}<span>&#176;</span>
+                      / {{weatherData?.main.temp_max | number:'1.0-0'}}C</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+      </mat-card> -->
+  
+  <mat-expansion-panel *ngFor="let forecast of forecastData?.list">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        This is the expansion title
+      </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p>This is the primary content of the panel.</p>
+
+  </mat-expansion-panel>
+
 </div>

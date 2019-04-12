@@ -131,6 +131,8 @@ export class MeasureConverterComponent implements OnInit {
     localStorage.clear();
     this.items = null;
     this.items2 = null;
+    this.items4 = null;
+    this.items6 = null;
   }
 
   savedSearchUnit(){
