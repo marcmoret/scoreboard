@@ -29,7 +29,10 @@ export class MeasureConverterComponent implements OnInit {
   grams:any = 0;
   key = 'Item 1';
   key2 = 'Item 2';
-  key3: 'Item 3';
+  key3 = 'Item 3';
+  key4 = 'Item 4'
+  key5 = 'Item 5'
+  key6 = 'Item 6'
   units = [
     {"unit":"Cups", "value": 1},
     {"unit":"Grams", "value": 2},
@@ -57,11 +60,19 @@ export class MeasureConverterComponent implements OnInit {
  items2;
  items3;
 
+ items4;
+ items5;
+ items6;
+
  num = 0;
  recentSearches = [];
- test;
- test2;
- test3;
+ storageMeasureVal;
+ storageSelectUnitVal;
+ storageSelectUnit;
+
+ storageDistance;
+ storageSelectDisVal
+ storageSelectDistance;
 
  selectDistUnit;
  selectDist;
@@ -70,9 +81,9 @@ export class MeasureConverterComponent implements OnInit {
  foot = 0;
  inch = 0;
  km = 0;
- mm = 0;
+ m = 0;
  cm = 0;
-  data: any;
+ data: any;
 
   constructor() {}
 
@@ -86,6 +97,15 @@ export class MeasureConverterComponent implements OnInit {
       this.items = [''];
     }
     
+    
+    if (localStorage.getItem(this.key4)) {
+      this.items4 = JSON.parse(localStorage.getItem(this.key4))
+      this.items5 = localStorage.getItem(this.key5)
+      this.items6 = localStorage.getItem(this.key6)
+    } else {
+      this.items4 = [''];
+    }
+
     console.log(this.items);
     
   }
@@ -98,12 +118,13 @@ export class MeasureConverterComponent implements OnInit {
     this.literCal();
     this.ounceCal();
     
-    this.test = this.measureVal;
-    this.test2 = this.units[this.selectedUnit - 1].unit;
-    this.test3 = this.selectedUnit
-    localStorage.setItem(this.key, JSON.stringify(this.test));
-    localStorage.setItem(this.key2, this.test2);
-    localStorage.setItem(this.key3, this.test3);
+    this.storageMeasureVal = this.measureVal;
+    this.storageSelectUnitVal = this.units[this.selectedUnit - 1].unit;
+    this.storageSelectUnit = this.selectedUnit
+    localStorage.setItem(this.key, JSON.stringify(this.storageMeasureVal));
+    localStorage.setItem(this.key2, this.storageSelectUnitVal);
+    localStorage.setItem(this.key3, this.storageSelectUnit);
+    
   }
 
   clearCache(){
@@ -112,7 +133,7 @@ export class MeasureConverterComponent implements OnInit {
     this.items2 = null;
   }
 
-  savedSearch(){
+  savedSearchUnit(){
     this.measureVal = this.items;
     this.selectedUnit = this.units[this.items3 - 1].value;
     this.calculate();
@@ -301,8 +322,23 @@ export class MeasureConverterComponent implements OnInit {
     this.feetCal();
     this.inchCal();
     this.kmCal();
-    this.mmCal();
+    this.mCal();
     this.cmCal();
+
+     
+    this.storageDistance = this.selectDist;
+    this.storageSelectDistance = this.distance[this.selectDistUnit - 1].unit;
+    this.storageSelectDisVal = this.selectDistUnit;
+    localStorage.setItem(this.key4, JSON.stringify(this.storageDistance));
+    localStorage.setItem(this.key5, this.storageSelectDisVal);
+    localStorage.setItem(this.key6, this.storageSelectDistance);
+
+  }
+
+  savedSearchDist(){
+    this.selectDist = this.items4;
+    this.selectDistUnit = this.units[this.items5 - 1].value;
+    this.calDistance();
   }
 
   mileCal(){
@@ -323,7 +359,7 @@ export class MeasureConverterComponent implements OnInit {
         return this.mile = Math.round((0.000621371 * this.selectDist )*10000)/100000
       }
       case 6:{
-        return this.mile = Math.round((this.selectDist / 160934.4)*10000)/100000
+        return this.mile = Math.round((this.selectDist / 160934.4)*1000000)/1000000
       }
       default:{
         this.mile = 0;
@@ -412,28 +448,28 @@ export class MeasureConverterComponent implements OnInit {
         break;
     }
   }
-  mmCal(){
+  mCal(){
     switch (this.selectDistUnit) {
       case 1:{
-        return  this.mm = Math.round((1609.34 * this.selectDist )*100)/100
+        return  this.m = Math.round((1609.34 * this.selectDist )*100)/100
       }
       case 2:{
-        return this.mm = Math.round((0.3048 * this.selectDist )*100000)/100000
+        return this.m = Math.round((0.3048 * this.selectDist )*100000)/100000
       }
       case 3:{
-        return this.mm = Math.round((0.0254 * this.selectDist )*100000)/100000
+        return this.m = Math.round((0.0254 * this.selectDist )*100000)/100000
       } 
       case 4:{        
-        return this.mm = Math.round((1000 * this.selectDist )*100)/100
+        return this.m = Math.round((1000 * this.selectDist )*100)/100
       }
       case 5:{
-        return this.mm = this.selectDist;
+        return this.m = this.selectDist;
       }
       case 6:{
-        return this.mm = Math.round(( 10 * this.selectDist)*10000)/100000
+        return this.m = Math.round(( .001 * this.selectDist)*1000)/1000
       }
       default:{
-        this.mm = 0;
+        this.m = 0;
       }
         break;
     }
