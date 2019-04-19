@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
 import { HeadComponent } from './head/head.component';
@@ -46,6 +47,7 @@ import { Lvl6Component } from './testing/lvl6/lvl6.component';
 import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
 import { WeatherService } from './testing/lvl4/lvl4.service';
+import { CollageWallComponent } from './countdown/collage-wall/collage-wall.component';
 
 
 
@@ -73,6 +75,7 @@ import { WeatherService } from './testing/lvl4/lvl4.service';
     Lvl6Component,
     SubIdeaComponent,
     MeasureConverterComponent,
+    CollageWallComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,6 +94,7 @@ import { WeatherService } from './testing/lvl4/lvl4.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatButtonModule, MatOptionModule, MatSelectModule,

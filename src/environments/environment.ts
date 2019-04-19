@@ -9,7 +9,7 @@ export const environment = {
     authDomain: "scoreboard-ffd72.firebaseapp.com",
     databaseURL: "https://scoreboard-ffd72.firebaseio.com",
     projectId: "scoreboard-ffd72",
-    storageBucket: "scoreboard-ffd72.appspot.com",
+    storageBucket: "gs://scoreboard-ffd72.appspot.com/",
     messagingSenderId: "215882356568"
   }
 };
