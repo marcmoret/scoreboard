@@ -28,7 +28,10 @@
 </div>
 <div class="container">
   <h3>Upload a File</h3>
-  <input type="file" (change)="upload($event)" accept=".png,.jpg">
+  <button type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
+  <input hidden style="display:none;" type="file" #imgFileInput (change)="upload($event)"/>
+  
+  <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"> -->
 
   <div *ngIf="uploading" class="progress">
     <div class="progress-bar progress-bar-striped bg-success"
@@ -41,7 +44,7 @@
 
   <div *ngIf="collageProfilePath">
     <div *ngFor="let image of namesList">
-        Image: <img [src]="image.data.path" style="width:300px; height:300px;">
+        Image: <img [src]="image.data.path" style="width:30%; height:auto;">
     </div>
   </div>
 </div>

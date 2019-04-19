@@ -31,7 +31,7 @@ import {MatButtonModule,
    MatSortModule, MatExpansionModule, MatInputModule, 
    MatSnackBarModule, MatCardModule, MatSidenavModule, 
    MatDialogModule, MatGridListModule, MatListModule, 
-   MatOptionModule, MatSelectModule} from '@angular/material';
+   MatOptionModule, MatSelectModule, MatIconModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -99,7 +99,7 @@ import { CollageWallComponent } from './countdown/collage-wall/collage-wall.comp
     BrowserAnimationsModule,
     MatButtonModule, MatOptionModule, MatSelectModule,
     MatCheckboxModule, MatTableModule, MatGridListModule, MatListModule,
-    MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule,
+    MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule, MatInputModule, MatIconModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule
   ],
   entryComponents: [
