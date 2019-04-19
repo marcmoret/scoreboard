@@ -32,14 +32,16 @@
 
   <div *ngIf="uploading" class="progress">
     <div class="progress-bar progress-bar-striped bg-success"
-     role="progressbar" 
+     role="progressbar"
      [style.width]="(uploadProgress | async) + '%'" 
-     [attr.aria-valuenow]="(uploadProgress | async) + '%'"
-     aria-valuemin="0" aria-valuemax="100">
-    </div>
+     [attr.aria-valuenow]="(uploadProgress | async)" 
+     aria-valuemin="0" 
+     aria-valuemax="100"></div>
   </div>
 
-  <div *ngIf="downloadSrc">
-    Image: <img [src]="downloadSrc" style="width:300px; height:300px;">
+  <div *ngIf="collageProfilePath">
+    <div *ngFor="let image of namesList">
+        Image: <img [src]="image.data.path" style="width:300px; height:300px;">
+    </div>
   </div>
 </div>

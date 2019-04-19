@@ -4,6 +4,7 @@ import { ValidationService } from './validation.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-lvl6',
@@ -23,11 +24,17 @@ export class Lvl6Component implements OnInit {
   public confirmPassword: AbstractControl;
   public name: AbstractControl;
   public confirmEmail: AbstractControl;
-  public downloadSrc: string ;
+  public downloadSrc: string;
+  public collageProfilePath: any;
+  collection: AngularFirestoreCollection;
+  tempData: any;
+  public names = [];
+  public namesList: any[];
 
   
   constructor(private formBuilder: FormBuilder,
-    private afsStorage:AngularFireStorage) {}
+    private afsStorage:AngularFireStorage,
+    private afs: AngularFirestore) {}
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
@@ -58,9 +65,34 @@ export class Lvl6Component implements OnInit {
       finalize(()=> {
         this.ref.getDownloadURL().subscribe(url => {
           this.downloadSrc = url;
+          this.afs.collection('collageProfiles').doc('Marco').set({'path':this.downloadSrc, 'date': 1, 'text': "big ol test"});
+          this.allDone();
         });
       })
     ).subscribe(); //end
+  }
+
+  allDone(){
+    this.collageProfilePath = this.afs.collection('collageProfiles').doc('Marco');
+
+    this.collection = this.afs.collection('collageProfiles');
+    this.tempData = this.collection.snapshotChanges()
+    .map(actions =>{
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, data};
+      })});
+
+    this.tempData.subscribe((res)=>{
+      this.names = res;
+      this.processNames(this.names);
+    });
+  }
+  processNames(names: any[]) {    
+    this.namesList = names;
+    console.log(this.namesList);
+    
   }
  
 }

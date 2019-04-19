@@ -42,8 +42,7 @@ export class IdeasComponent implements OnInit {
   dbToday = this.today.toString();
   testArray: any[] = new Array;
   testArray3:  any[] = new Array;
-  testArray4: any[];
-  testArray5: any[] = new Array;
+ 
   test;
   count=0;
   counter=0;
@@ -56,8 +55,6 @@ export class IdeasComponent implements OnInit {
   resetValues(){
     this.testArray = [];
     this.testArray3 = [];
-    this.testArray4 = [];
-
   }
 
 
