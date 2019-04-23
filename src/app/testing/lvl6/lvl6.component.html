@@ -28,22 +28,23 @@
 </div>
 <div class="container">
   <h3>Upload a File</h3>
-  <button type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
+  <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
   <input hidden style="display:none;" type="file" #imgFileInput  (change)="preview($event)" accept=".png,.jpg"/>
   
   <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"> -->
 
  
-  <div *ngIf="collageProfilePath">
-    <!-- <div *ngFor="let image of namesList">
+  <!-- <div *ngIf="collageProfilePath">
+    <div *ngFor="let image of namesList">
         Preview: <img [src]="image.data.path" style="width:30%; height:auto;">
-    </div> -->
-  </div>
+    </div>
+  </div> -->
   <div *ngIf="imgURL">
     <div>
-      <label>Preview</label>
+      <h4>Preview</h4>
      <img [src]="imgURL" style="width:30%; height:auto;">
     </div>
+    <button *ngIf="previewLoaded" [disabled]="collageProfilePath" type="button" mat-button (click)="imgFileInput.click()">Change</button>
     <button type="button" [disabled]="collageProfilePath" mat-button (click)="upload(imgURL)">Done</button>
   </div>
   <div *ngIf="uploading" class="progress">
