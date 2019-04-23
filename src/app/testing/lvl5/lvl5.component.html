@@ -9,5 +9,13 @@
     </li>
   </div>
   </div>
-  
+
+  <div id="timer" *ngIf="!active">
+    <span id="days"></span>days
+    <span id="hours"></span>hours
+    <span id="minutes"></span>minutes
+    <span id="seconds"></span>seconds
+  </div>
+  <p *ngIf="active">Time's up</p>
+
 </div>

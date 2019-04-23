@@ -17,10 +17,56 @@ export class Lvl5Component implements OnInit {
   animal: string;
   name: string;
 
+  public timer;
+  public compareDate = new Date("April 21, 2019 00:00:00");
+
+  active = false;
+
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(){
+  this.compareDate.setDate(this.compareDate.getDate());
+
+  this.timer = setInterval(() => {
+    this.timeBetweenDates(this.compareDate);
+  }, 1000);
+
+}
+
+  timeBetweenDates(toDate) {
+
+    var dateEntered = toDate;
+    var now = new Date();
+    var difference = dateEntered.getTime() - now.getTime();
     
+    if (difference <= 0) {
+
+      // Timer done
+      clearInterval(this.timer);
+      this.active = true;
+    
+    } else {
+      
+      var seconds = Math.floor(difference / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      hours %= 24;
+      minutes %= 60;
+      seconds %= 60;
+
+      document.getElementById("days").innerHTML = days.toString();
+      document.getElementById("hours").innerHTML = hours.toString();
+      document.getElementById("minutes").innerHTML = minutes.toString();
+      document.getElementById("seconds").innerHTML = seconds.toString();
+    }
+  }
+
+  callback(thing){
+    console.log(thing);
+    console.log('thing');
   }
 
   openDialog(): void {
@@ -34,5 +80,7 @@ export class Lvl5Component implements OnInit {
       this.animal = result;
     });
   }
+
+
 
 }

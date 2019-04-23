@@ -104,7 +104,7 @@ export class Lvl6Component implements OnInit {
     this.imagePath = files;
     reader.readAsDataURL(files.target.files[0]); 
     reader.onload = (_event) => { 
-    this.imgURL = reader.result;
+    this.imgURL = reader.result; 
     this.previewLoaded = true; 
   }
 }
