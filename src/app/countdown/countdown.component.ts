@@ -8,9 +8,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class CountdownComponent implements OnInit {
 
-  public active: boolean = false;
+  public effectOn: boolean;
   public timerFunction: any;
-  public countDownDate:any = new Date("April 21, 2019 00:00:00")
+  public countDownDate:any = new Date("April 21, 2019 00:00:00");
+  public timerOn: boolean;
  
   constructor() { }
 
@@ -36,22 +37,27 @@ export class CountdownComponent implements OnInit {
   // Output the result in an element with id="demo"
   if(document.getElementById("demo") != null){
     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
+    + minutes + "m " + seconds + "s " + "Until FU Vince Day!";
   } 
     
 
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(this.timerFunction);
-    this.active = true;
-    document.getElementById("demo").innerHTML = "TODAY IS THE DAMN DAY HOLY SHIT";
+    this.effectOn = true;
+    this.timerOn = false;
+  }else{
+    this.timerOn = true;
   }
 }, 1000);
-  }
 
-  setActive(){
-    this.active = true;
-    console.log('fired');
-  }
 
+const wait = (ms) => new Promise(res => setTimeout(res, ms));
+const startAsync = async callback => {
+  await wait(8000);
+  callback(this.effectOn = false, this.timerOn = true);
+};
+startAsync(text => console.log());
+
+  }
 }

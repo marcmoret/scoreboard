@@ -1,0 +1,10 @@
+@media (min-width:900px){
+    #previewImage{
+        width:30%; 
+        height:auto;
+    }
+}
+#previewImage{
+    width:100%; 
+    height:auto;
+}
