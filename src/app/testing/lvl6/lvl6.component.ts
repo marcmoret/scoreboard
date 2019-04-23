@@ -30,6 +30,8 @@ export class Lvl6Component implements OnInit {
   tempData: any;
   public names = [];
   public namesList: any[];
+  imagePath: any;
+  imgURL: any;
 
   
   constructor(private formBuilder: FormBuilder,
@@ -59,7 +61,7 @@ export class Lvl6Component implements OnInit {
     this.ref = this.afsStorage.ref(id);
 
     this.uploading = true;
-    this.task = this.ref.put(file.target.files[0])
+    this.task = this.ref.put(this.imagePath.target.files[0])
     this.uploadProgress = this.task.percentageChanges();
     this.task.snapshotChanges().pipe(
       finalize(()=> {
@@ -94,5 +96,15 @@ export class Lvl6Component implements OnInit {
     console.log(this.namesList);
     
   }
+
+  preview(files){
+    console.log(files, this.imgURL);
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files.target.files[0]); 
+    reader.onload = (_event) => { 
+    this.imgURL = reader.result; 
+  }
+}
  
 }
