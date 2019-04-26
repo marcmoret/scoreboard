@@ -1,4 +1,6 @@
+import { CollageModalComponent } from './collage-modal/collage-modal.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class CountdownComponent implements OnInit {
   public countDownDate:any = new Date("April 21, 2019 00:00:00");
   public timerOn: boolean;
  
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
     // Set the date we're counting down to
@@ -46,18 +48,35 @@ export class CountdownComponent implements OnInit {
     clearInterval(this.timerFunction);
     this.effectOn = true;
     this.timerOn = false;
-  }else{
-    this.timerOn = true;
+    const wait = (ms) => new Promise(res => setTimeout(res, ms));
+    const startAsync = async callback => {
+      await wait(6500);
+      callback(this.effectOn = false, this.timerOn = true, this.openDialog());
+    };
+    startAsync(text => console.log());
+    }else{
+      this.timerOn = true;
+    }
+  }, 1000);
+
+
+    
+
+  }// end onInit
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(
+      CollageModalComponent,{
+        width: '100%',
+        height: '100%',
+        data: {}
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
-}, 1000);
 
 
-const wait = (ms) => new Promise(res => setTimeout(res, ms));
-const startAsync = async callback => {
-  await wait(8000);
-  callback(this.effectOn = false, this.timerOn = true);
-};
-startAsync(text => console.log());
 
-  }
 }

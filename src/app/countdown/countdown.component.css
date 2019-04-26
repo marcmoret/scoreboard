@@ -13,7 +13,8 @@ body {
     padding: 0;
     background-color: #000;
     overflow: hidden;
-    min-height: 1000px;
+    height: 2000px;
+    max-width: 1500px;
   }
   .pyro > .before, .pyro > .after {
     position: absolute;

@@ -70,7 +70,8 @@ export class Lvl5Component implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PopupComponent, {
+    const dialogRef = this.dialog.open(
+      PopupComponent, {
       width: '250px',
       data: {name: this.name, animal: this.animal}
     });

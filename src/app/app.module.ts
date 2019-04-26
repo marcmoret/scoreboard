@@ -48,6 +48,7 @@ import { SubIdeaComponent } from './ideas/sub-idea/sub-idea.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
 import { WeatherService } from './testing/lvl4/lvl4.service';
 import { CollageWallComponent } from './countdown/collage-wall/collage-wall.component';
+import { CollageModalComponent } from './countdown/collage-modal/collage-modal.component';
 
 
 
@@ -76,6 +77,7 @@ import { CollageWallComponent } from './countdown/collage-wall/collage-wall.comp
     SubIdeaComponent,
     MeasureConverterComponent,
     CollageWallComponent,
+    CollageModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ import { CollageWallComponent } from './countdown/collage-wall/collage-wall.comp
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule
   ],
   entryComponents: [
-    PopupComponent
+    PopupComponent,
+    CollageModalComponent
   ],
   providers: [ServerService, WeatherService],
   bootstrap: [AppComponent]
