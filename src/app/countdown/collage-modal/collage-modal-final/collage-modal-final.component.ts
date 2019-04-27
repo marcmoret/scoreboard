@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollageModalFinalComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {

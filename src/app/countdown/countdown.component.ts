@@ -8,7 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.css']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
 
   public effectOn: boolean;
   public timerFunction: any;
@@ -77,7 +77,9 @@ export class CountdownComponent implements OnInit {
 
   }// end onInit
 
-  
+  ngOnDestroy(){
+    
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(

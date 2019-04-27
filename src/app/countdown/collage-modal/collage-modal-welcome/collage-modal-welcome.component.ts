@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-collage-modal-welcome',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollageModalWelcomeComponent implements OnInit {
 
+  @Output() 
+  begin: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onBegin(){
+    this.begin.emit();
   }
 
 }
