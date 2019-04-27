@@ -5,6 +5,8 @@ import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask 
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-modal.component';
 
 @Component({
   selector: 'app-lvl6',
@@ -33,10 +35,24 @@ export class Lvl6Component implements OnInit {
   imagePath: any;
   imgURL: any;
   previewLoaded = false;
+  config: MatDialogConfig = {
+    disableClose: false,
+    hasBackdrop: true,
+    backdropClass: '',
+    width: 'auto',
+    height: 'auto',
+    position: {
+        top: '',
+        bottom: '',
+        left: '',
+        right: ''
+    }
+  }
 
   
   constructor(private formBuilder: FormBuilder,
     private afsStorage:AngularFireStorage,
+    private dialog: MatDialog,
     private afs: AngularFirestore) {}
 
   ngOnInit() {
@@ -44,6 +60,15 @@ export class Lvl6Component implements OnInit {
       name: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       confirmEmail: ['', [Validators.required]]
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(
+      CollageModalComponent, this.config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 

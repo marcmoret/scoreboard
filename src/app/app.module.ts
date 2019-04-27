@@ -49,6 +49,9 @@ import { MeasureConverterComponent } from './measure-converter/measure-converter
 import { WeatherService } from './testing/lvl4/lvl4.service';
 import { CollageWallComponent } from './countdown/collage-wall/collage-wall.component';
 import { CollageModalComponent } from './countdown/collage-modal/collage-modal.component';
+import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-modal-welcome/collage-modal-welcome.component';
+import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
+import { CollageModalFinalComponent } from './countdown/collage-modal/collage-modal-final/collage-modal-final.component';
 
 
 
@@ -78,6 +81,9 @@ import { CollageModalComponent } from './countdown/collage-modal/collage-modal.c
     MeasureConverterComponent,
     CollageWallComponent,
     CollageModalComponent,
+    CollageModalWelcomeComponent,
+    CollageModalGeneralComponent,
+    CollageModalFinalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { CollageModalComponent } from './collage-modal/collage-modal.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 
 @Component({
@@ -14,6 +14,19 @@ export class CountdownComponent implements OnInit {
   public timerFunction: any;
   public countDownDate:any = new Date("April 21, 2019 00:00:00");
   public timerOn: boolean;
+  config: MatDialogConfig = {
+    disableClose: false,
+    hasBackdrop: true,
+    backdropClass: '',
+    width: 'auto',
+    height: 'auto',
+    position: {
+        top: '',
+        bottom: '',
+        left: '',
+        right: ''
+    }
+  }
  
   constructor(public dialog: MatDialog) { }
 
@@ -64,13 +77,11 @@ export class CountdownComponent implements OnInit {
 
   }// end onInit
 
+  
+
   openDialog(): void {
     const dialogRef = this.dialog.open(
-      CollageModalComponent,{
-        width: '100%',
-        height: '100%',
-        data: {}
-      });
+      CollageModalComponent, this.config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
