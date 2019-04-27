@@ -48,8 +48,8 @@ export class CollageModalGeneralComponent implements OnInit {
       finalize(()=> {
         this.ref.getDownloadURL().subscribe(url => {
           this.downloadSrc = url;
-          this.afs.collection('collageProfiles').doc('Marco').set({'path':this.downloadSrc, 'date': 1, 'text': "big ol test"});
-          this.allDone(); // takes the img filePath and stores it as a string
+          this.afs.collection('collageProfiles').doc(this.user.name).set({'path':this.downloadSrc, 'date': 1, 'text': "big ol test"});
+          this.allDone(); // takes the img filePath in firecloud and stores it as a string
         });
       })
     ).subscribe(); //end
@@ -71,10 +71,10 @@ export class CollageModalGeneralComponent implements OnInit {
       this.names = res;
       this.processNames(this.names);
     });
+
   }
   processNames(names: any[]) {    
     this.namesList = names;
-    console.log(this.user);
   }
 
   preview(files){
