@@ -13,12 +13,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 form-group" >
-      <label for="message">Password </label><span matTooltip="Allows you to make edits to your post later on." class="glyphicon glyphicon-info-sign"></span>
-      <input class="form-control" [(ngModel)]="user.password">
-    </div>
-  </div>
-  <div class="row">
     <div class="col-sm-12">
       <h3>Upload a File</h3>
       <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
