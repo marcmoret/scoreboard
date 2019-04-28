@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
@@ -114,7 +114,7 @@ import { CollageModalFinalComponent } from './countdown/collage-modal/collage-mo
     PopupComponent,
     CollageModalComponent
   ],
-  providers: [ServerService, WeatherService],
+  providers: [ServerService, WeatherService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

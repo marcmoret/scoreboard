@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { finalize } from 'rxjs/operators';
 import { User } from '../../user';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-collage-modal-general',
