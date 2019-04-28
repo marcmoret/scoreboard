@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-collage-modal-final',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollageModalFinalComponent implements OnInit {
 
-  
+  @Input()
+  public img;
+  public message;
+  public name;
 
   constructor() { }
 
