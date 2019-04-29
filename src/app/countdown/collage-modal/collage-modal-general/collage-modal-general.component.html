@@ -13,6 +13,12 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-sm-6 form-group" >
+      <label for="message">Password &nbsp;</label><span matTooltip="This will allow you to make edits to your post later on" class="glyphicon glyphicon-info-sign"></span>
+      <input type="text" class="form-control" [(ngModel)]="user.password">
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-12">
       <h3>Upload a File</h3>
       <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
@@ -21,7 +27,27 @@
       <div *ngIf="imgURL">
         <div>
           <h4>Preview</h4>
-          <img [src]="imgURL" id="previewImage">
+          <mat-card class="collage-card">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>
+              </mat-card-subtitle>
+              <button style="float:right;" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              </button>
+            </mat-card-header>
+            <img mat-card-image [src]="imgURL" id="previewImage" alt="">
+            <mat-card-content>
+              <p>
+                {{user.message}}
+              </p>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions> -->
+          </mat-card>
+          <!-- <img [src]="imgURL" id="previewImage"> -->
         </div>
         <button *ngIf="previewLoaded" [disabled]="collageProfilePath" type="button" mat-button (click)="imgFileInput.click()">Change</button>
         <button type="button" [disabled]="collageProfilePath" mat-button (click)="upload(imgURL)">Done</button>

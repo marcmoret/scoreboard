@@ -4,4 +4,5 @@ export class User{
     date: number = 0;
     path: string = "";
     text: string = "";
+    password: string = "";
 }

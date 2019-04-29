@@ -11,6 +11,7 @@ export class CollageModalFinalComponent implements OnInit {
   public img;
   public message;
   public name;
+  public password;
 
   constructor() { }
 

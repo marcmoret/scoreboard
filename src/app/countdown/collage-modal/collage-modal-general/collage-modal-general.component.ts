@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -18,6 +18,7 @@ export class CollageModalGeneralComponent implements OnInit {
   uploadProgress:Observable<number>;
   downloadURL: Observable<string>;
   uploading = false;
+  @Output()
   public user: User = new User;
   public today:Date = new Date();
 

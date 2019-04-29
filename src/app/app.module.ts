@@ -31,7 +31,7 @@ import {MatButtonModule,
    MatSortModule, MatExpansionModule, MatInputModule, 
    MatSnackBarModule, MatCardModule, MatSidenavModule, 
    MatDialogModule, MatGridListModule, MatListModule, 
-   MatOptionModule, MatSelectModule, MatIconModule} from '@angular/material';
+   MatOptionModule, MatSelectModule, MatIconModule, MatTooltipModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -105,7 +105,7 @@ import { CollageModalFinalComponent } from './countdown/collage-modal/collage-mo
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
-    MatButtonModule, MatOptionModule, MatSelectModule,
+    MatButtonModule, MatOptionModule, MatSelectModule, MatTooltipModule,
     MatCheckboxModule, MatTableModule, MatGridListModule, MatListModule,
     MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule, MatInputModule, MatIconModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule
