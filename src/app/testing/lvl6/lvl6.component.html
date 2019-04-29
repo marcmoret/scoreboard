@@ -43,7 +43,7 @@
   <div *ngIf="imgURL">
     <div>
       <h4>Preview</h4>
-     <img [src]="imgURL" id="previewImage">
+     <img [src]="imgURL" (click)="open(i)" id="previewImage">
     </div>
     <button *ngIf="previewLoaded" [disabled]="collageProfilePath" type="button" mat-button (click)="imgFileInput.click()">Change</button>
     <button type="button" [disabled]="collageProfilePath" mat-button (click)="upload(imgURL)">Done</button>

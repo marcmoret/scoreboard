@@ -12,8 +12,8 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   public effectOn: boolean;
   public timerFunction: any;
-  public countDownDate:any = new Date("April 21, 2019 00:00:00");
-  public timerOn: boolean;
+  public countDownDate:any = new Date("June 21, 2019 00:00:00");
+  public timerOn: boolean = true;
   config: MatDialogConfig = {
     disableClose: false,
     hasBackdrop: true,
@@ -32,7 +32,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Set the date we're counting down to
-  this.countDownDate.getTime();
+  this.countDownDate.getTime(); 
 
   // Update the count down every 1 second
   this.timerFunction = setInterval(() => {
@@ -52,7 +52,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   // Output the result in an element with id="demo"
   if(document.getElementById("demo") != null){
     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s " + "Until FU Vince Day!";
+    + minutes + "m " + seconds + "s " + '<br>' + "Until FU Vince Day!";
   } 
     
 

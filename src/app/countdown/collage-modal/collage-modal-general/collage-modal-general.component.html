@@ -13,14 +13,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6 form-group" >
-      <label for="message">Password &nbsp;</label><span matTooltip="This will allow you to make edits to your post later on" class="glyphicon glyphicon-info-sign"></span>
+    <div class="col-sm-4 form-group" >
+      <label for="message">Password &nbsp;</label><span matTooltipPosition="right" matTooltip="This will allow you to make edits to your post later on" class="glyphicon glyphicon-info-sign"></span>
       <input type="text" class="form-control" [(ngModel)]="user.password">
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h3>Upload a File</h3>
+      <h3>Photo</h3>
+      <p>Recommeneded photo width size: 400px</p>
       <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
       <input hidden [(ngModel)]="user.path" style="display:none;" type="file" #imgFileInput  (change)="preview($event)" accept=".png,.jpg"/>
 
@@ -29,20 +30,20 @@
           <h4>Preview</h4>
           <mat-card class="collage-card">
             <mat-card-header>
-              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-title>{{user.name}}</mat-card-title>
               <mat-card-subtitle>
               </mat-card-subtitle>
-              <button style="float:right;" type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-edit"></span> Edit
-              </button>
             </mat-card-header>
             <img mat-card-image [src]="imgURL" id="previewImage" alt="">
             <mat-card-content>
-              <p>
-                {{user.message}}
+              <p id="userText">
+                {{user.text}}
               </p>
             </mat-card-content>
             <!-- <mat-card-actions>
+              <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              </button>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
             </mat-card-actions> -->

@@ -48,12 +48,18 @@ export class Lvl6Component implements OnInit {
         right: ''
     }
   }
-
+  private _albums = [];
+  public album = {
+    src: this.imgURL,
+    caption: '',
+    thumb: ''
+ };
   
   constructor(private formBuilder: FormBuilder,
     private afsStorage:AngularFireStorage,
     private dialog: MatDialog,
-    private afs: AngularFirestore) {}
+    private afs: AngularFirestore,
+    ) {}
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({

@@ -35,6 +35,7 @@ import {MatButtonModule,
 import { TableTestComponent } from './table-test/table-test.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { DatabaseComponent } from './table-test/database/database.component';
 import { AgmCoreModule } from '@agm/core';
 import { Lvl2Component } from './testing/lvl2/lvl2.component';
@@ -52,7 +53,6 @@ import { CollageModalComponent } from './countdown/collage-modal/collage-modal.c
 import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-modal-welcome/collage-modal-welcome.component';
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { CollageModalFinalComponent } from './countdown/collage-modal/collage-modal-final/collage-modal-final.component';
-
 
 
 @NgModule({
