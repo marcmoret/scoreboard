@@ -18,7 +18,7 @@ export class Lvl5Component implements OnInit {
   name: string;
 
   public timer;
-  public compareDate = new Date("April 21, 2019 00:00:00");
+  public compareDate = new Date("June 21, 2019 00:00:00");
 
   active = false;
 
@@ -45,7 +45,7 @@ export class Lvl5Component implements OnInit {
       // Timer done
       clearInterval(this.timer);
       this.active = true;
-    
+      this.callback('mhm')
     } else {
       
       var seconds = Math.floor(difference / 1000);

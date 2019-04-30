@@ -34,6 +34,7 @@ export class CollageWallComponent implements OnInit {
         width: 'auto',
         height: 'auto',
         data: {url: path},
+        panelClass: 'custom-modalbox'
       });
   
     dialogRef.afterClosed().subscribe(result => {
