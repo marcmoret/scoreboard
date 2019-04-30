@@ -53,6 +53,7 @@ import { CollageModalComponent } from './countdown/collage-modal/collage-modal.c
 import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-modal-welcome/collage-modal-welcome.component';
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { CollageModalFinalComponent } from './countdown/collage-modal/collage-modal-final/collage-modal-final.component';
+import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { CollageModalFinalComponent } from './countdown/collage-modal/collage-mo
     ScoreComponent,
     ChooseNameComponent,
     HeadComponent,
+    GalleryModalComponent,
     WeddingEstimatorComponent,
     WeddingOptionsComponent,
     WeddingSelectComponent,
@@ -93,7 +95,6 @@ import { CollageModalFinalComponent } from './countdown/collage-modal/collage-mo
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'
     }),
-
     CountdownTimerModule.forRoot(), // for countdown component
     NgbModule,
     HttpModule,
@@ -112,7 +113,8 @@ import { CollageModalFinalComponent } from './countdown/collage-modal/collage-mo
   ],
   entryComponents: [
     PopupComponent,
-    CollageModalComponent
+    CollageModalComponent,
+    GalleryModalComponent
   ],
   providers: [ServerService, WeatherService, AngularFireDatabase],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { CollageModalComponent } from './collage-modal/collage-modal.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({

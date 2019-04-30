@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material';
 import { Component, OnInit, Output } from '@angular/core';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
@@ -5,6 +6,7 @@ import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { finalize } from 'rxjs/operators';
 import { User } from '../../user';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 
 @Component({
   selector: 'app-collage-modal-general',
@@ -32,7 +34,10 @@ export class CollageModalGeneralComponent implements OnInit {
   imgURL: any;
   previewLoaded = false;
 
-  constructor(private afs: AngularFirestore, private afsStorage:AngularFireStorage){
+  
+
+  constructor(private afs: AngularFirestore, private afsStorage:AngularFireStorage,
+    private dialog: MatDialog){
     this.user.date = this.today.getDate();
   }
 
@@ -89,5 +94,16 @@ export class CollageModalGeneralComponent implements OnInit {
   }
 }
 
+onGallery(){
+  const dialogRef = this.dialog.open(
+    GalleryModalComponent,{
+      width: 'auto',
+      height: 'auto',
+      data: {url: this.imgURL},
+    });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
 
 }

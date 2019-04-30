@@ -44,7 +44,7 @@
   <div *ngIf="imgURL">
     <div>
       <h4>Preview</h4>
-     <img [src]="imgURL" (click)="open(i)" id="previewImage">
+     <img [src]="imgURL" (click)="onClick()" id="previewImage" style="cursor:pointer">
     </div>
     <button *ngIf="previewLoaded" [disabled]="collageProfilePath" type="button" mat-button (click)="imgFileInput.click()">Change</button>
     <button type="button" [disabled]="collageProfilePath" mat-button (click)="upload(imgURL)">Done</button>
@@ -61,4 +61,4 @@
 
 <!--                                           -->
 
-<a (click)="onClick()" href="#">Open Slideshow</a>
+<button (click)="onClick()">Open Component</button>

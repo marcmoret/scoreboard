@@ -6,6 +6,8 @@ import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-modal.component';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 
 
 @Component({
@@ -44,6 +46,7 @@ export class Lvl6Component implements OnInit {
     backdropClass: '',
     width: 'auto',
     height: 'auto',
+    data: {url: this.imgURL},
     position: {
         top: '',
         bottom: '',
@@ -55,6 +58,7 @@ export class Lvl6Component implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private afsStorage:AngularFireStorage,
     private dialog: MatDialog,
+    private imgGallery: NgbModal,
     private afs: AngularFirestore,
     ) {}
 
@@ -67,11 +71,22 @@ export class Lvl6Component implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(
+    const dialogRefs = this.dialog.open(
       CollageModalComponent, this.config);
 
+    dialogRefs.afterClosed().subscribe(result => {
+    });
+  }
+
+  onClick(){
+    const dialogRef = this.dialog.open(
+      GalleryModalComponent,{
+        width: 'auto',
+        height: 'auto',
+        data: {url: this.imgURL},
+      });
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
