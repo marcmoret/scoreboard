@@ -1,12 +1,12 @@
 import { Component, OnInit, Directive, Output } from '@angular/core';
 import { FormBuilder, Validators,FormGroup, AbstractControl } from '@angular/forms';
-import { ValidationService } from './validation.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-modal.component';
+
 
 @Component({
   selector: 'app-lvl6',
@@ -16,11 +16,14 @@ import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-m
 
 export class Lvl6Component implements OnInit {
  
+  
+
   ref:AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress:Observable<number>;
   downloadURL: Observable<string>;
   uploading = false;
+  
  
   userForm: FormGroup;
   public confirmPassword: AbstractControl;
@@ -48,12 +51,6 @@ export class Lvl6Component implements OnInit {
         right: ''
     }
   }
-  private _albums = [];
-  public album = {
-    src: this.imgURL,
-    caption: '',
-    thumb: ''
- };
   
   constructor(private formBuilder: FormBuilder,
     private afsStorage:AngularFireStorage,

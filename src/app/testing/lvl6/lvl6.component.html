@@ -1,5 +1,5 @@
 <div class="container" id="test">
-    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <!-- <form [formGroup]="userForm" (ngSubmit)="saveUser()">
       <div>
         <label for="name">Name: </label>
         <input formControlName="name" id="name"/>
@@ -24,7 +24,8 @@
         <span *ngIf="this.userForm.controls.confirmEmail.invalid">Required</span>  
       </div>
       <button type="submit" [disabled]="!userForm.valid">Submit</button>
-    </form>
+    </form> -->
+
     <button (click)="openDialog()"> openDialog</button>
 </div>
 <div class="container">
@@ -57,3 +58,7 @@
       aria-valuemax="100"></div>
   </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>  
 </div>
+
+<!--                                           -->
+
+<a (click)="onClick()" href="#">Open Slideshow</a>
