@@ -1,16 +1,14 @@
 <div class="flex-container">
-  <div class="collage-wall" *ngFor="let card of obj">
+  <div class="collage-wall" *ngFor="let post of collagePosts | async">
     <mat-card class="collage-card">
       <mat-card-header>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>{{post.name}}</mat-card-title>
+        <mat-card-subtitle>{{post.date | date}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="{{post.path}}" (click)="onGallery(post.path)" alt="Photo of a you n Vince">
       <mat-card-content>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
+          {{post.text}}
         </p>
       </mat-card-content>
       <mat-card-actions>

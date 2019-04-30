@@ -8,3 +8,9 @@
 #previewImage{
     cursor: pointer;
 }
+@media(max-width: 376px){
+    .collage-card{
+        width: 235px;
+    }
+}
+

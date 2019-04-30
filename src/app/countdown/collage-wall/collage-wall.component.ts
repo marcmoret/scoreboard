@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 
 @Component({
   selector: 'app-collage-wall',
@@ -7,11 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollageWallComponent implements OnInit {
 
-  public obj = [1,2,3,4,5,6,6,7,8]
+  constructor(private afs: AngularFirestore,  private dialog: MatDialog) { }
 
-  constructor() { }
+  public collagePosts;
+  
+  list:[];
 
   ngOnInit() {
+    this.collagePosts = this.afs.collection('collageProfiles').valueChanges();
+    // this.collagePosts.subscribe(res =>{
+    //   this.list = res.map(item =>{
+    //     return item.payload.doc.data();
+    //   })
+    // });
+    //console.log(this.list);
+    
+  }
+
+  onGallery(path){
+    const dialogRef = this.dialog.open(
+      GalleryModalComponent,{
+        width: 'auto',
+        height: 'auto',
+        data: {url: path},
+      });
+  
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }

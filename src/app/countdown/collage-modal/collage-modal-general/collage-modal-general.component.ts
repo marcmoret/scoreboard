@@ -22,7 +22,7 @@ export class CollageModalGeneralComponent implements OnInit {
   uploading = false;
   @Output()
   public user: User = new User;
-  public today:Date = new Date();
+  public today: number = Date.now();
 
   public downloadSrc: string;
   public collageProfilePath: any;
@@ -38,7 +38,7 @@ export class CollageModalGeneralComponent implements OnInit {
 
   constructor(private afs: AngularFirestore, private afsStorage:AngularFireStorage,
     private dialog: MatDialog){
-    this.user.date = this.today.getDate();
+    this.user.date = this.today;
   }
 
   ngOnInit() {    
@@ -55,7 +55,7 @@ export class CollageModalGeneralComponent implements OnInit {
       finalize(()=> {
         this.ref.getDownloadURL().subscribe(url => {
           this.downloadSrc = url;
-          this.afs.collection('collageProfiles').doc('Marco').set({'path':this.downloadSrc, 'date': 1, 'text': "big ol test"});
+          this.afs.collection('collageProfiles').doc(this.user.name).set({'path':this.downloadSrc, 'date': this.today,'name':this.user.name, 'text': this.user.text, 'password':this.user.password});
           this.allDone(); // takes the img filePath and stores it as a string
         });
       })

@@ -78,18 +78,6 @@ export class Lvl6Component implements OnInit {
     });
   }
 
-  onClick(){
-    const dialogRef = this.dialog.open(
-      GalleryModalComponent,{
-        width: 'auto',
-        height: 'auto',
-        data: {url: this.imgURL},
-      });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
-
   saveUser() {
     if (this.userForm.dirty && this.userForm.valid) {
       console.log(this.userForm.controls.name.invalid, this.userForm.controls.confirmPassword.invalid, this.userForm)
