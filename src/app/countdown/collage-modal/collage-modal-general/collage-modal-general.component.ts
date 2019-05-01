@@ -48,6 +48,11 @@ export class CollageModalGeneralComponent implements OnInit {
     const id = Math.random().toString(36).substring(2);
     this.ref = this.afsStorage.ref(id);
 
+    //capitlizes first name no matter how they enter it, removes whitespace//
+    this.user.name = this.user.name.toLowerCase().trim();
+    this.user.name = this.user.name.charAt(0).toUpperCase() + this.user.name.substr(1);
+    //capitlizes first name no matter how they enter it//
+
     this.uploading = true;
     this.task = this.ref.put(this.imagePath.target.files[0])
     this.uploadProgress = this.task.percentageChanges();
@@ -63,7 +68,7 @@ export class CollageModalGeneralComponent implements OnInit {
   }
 
   allDone(){
-    this.collageProfilePath = this.afs.collection('collageProfiles').doc('Marco');
+    this.collageProfilePath = this.afs.collection('collageProfiles').doc(this.user.name);
 
     this.collection = this.afs.collection('collageProfiles');
     this.tempData = this.collection.snapshotChanges()

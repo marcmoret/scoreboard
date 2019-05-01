@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
+import { PasswordComponent } from './collage-wall-password.component';
 
 @Component({
   selector: 'app-collage-wall',
@@ -14,8 +15,6 @@ export class CollageWallComponent implements OnInit {
   constructor(private afs: AngularFirestore,  private dialog: MatDialog) { }
 
   public collagePosts;
-  
-  list:[];
 
   ngOnInit() {
     this.collagePosts = this.afs.collection('collageProfiles').valueChanges();
@@ -38,6 +37,19 @@ export class CollageWallComponent implements OnInit {
       });
   
     dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  onEdit(event){
+    const dialogRefs = this.dialog.open(
+      PasswordComponent,{
+        width: 'auto',
+        height: 'auto',
+        data: {name: event}
+      });
+  
+    dialogRefs.afterClosed().subscribe(result => {
+      //console.log(result);
     });
   }
 

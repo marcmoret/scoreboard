@@ -54,6 +54,7 @@ import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { CollageModalFinalComponent } from './countdown/collage-modal/collage-modal-final/collage-modal-final.component';
 import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
+import { PasswordComponent } from './countdown/collage-wall/collage-wall-password.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.comp
     HomeComponent,
     CountdownComponent,
     TestingComponent,
+    PasswordComponent,
     IdeasComponent,
     TableTestComponent,
     DatabaseComponent,
@@ -114,7 +116,8 @@ import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.comp
   entryComponents: [
     PopupComponent,
     CollageModalComponent,
-    GalleryModalComponent
+    GalleryModalComponent,
+    PasswordComponent
   ],
   providers: [ServerService, WeatherService, AngularFireDatabase],
   bootstrap: [AppComponent]
