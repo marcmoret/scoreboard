@@ -52,7 +52,6 @@ import { CollageWallComponent } from './countdown/collage-wall/collage-wall.comp
 import { CollageModalComponent } from './countdown/collage-modal/collage-modal.component';
 import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-modal-welcome/collage-modal-welcome.component';
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
-import { CollageModalFinalComponent } from './countdown/collage-modal/collage-modal-final/collage-modal-final.component';
 import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
 import { PasswordComponent } from './countdown/collage-wall/collage-wall-password.component';
 
@@ -87,7 +86,6 @@ import { PasswordComponent } from './countdown/collage-wall/collage-wall-passwor
     CollageModalComponent,
     CollageModalWelcomeComponent,
     CollageModalGeneralComponent,
-    CollageModalFinalComponent,
   ],
   imports: [
     BrowserModule,
