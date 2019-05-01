@@ -7,10 +7,7 @@ interface Post{
   fullName: string;
   idea:string;
   date: number;
-
 }
-
-
 
 interface PostId extends Post{
   id: string;
@@ -32,6 +29,9 @@ export class DatabaseComponent implements OnInit {
   
   postCol: AngularFirestoreCollection<Post>;
   posts: any
+
+  collageProfiles: AngularFirestoreCollection<Post>;
+  profiles: any;
   
   postCol2: AngularFirestoreCollection<Post>;
   postCol3: AngularFirestoreCollection<Post>;
@@ -51,31 +51,35 @@ export class DatabaseComponent implements OnInit {
   }
     
     ngOnInit() {
-        this.postCol = this.afs.collection('profiles');
-        // this.posts = this.postCol.valueChanges();
-        
-    
-        this.posts = this.postCol.snapshotChanges()
+      this.postCol = this.afs.collection('profiles');
+      // this.posts = this.postCol.valueChanges();
+
+      this.posts = this.postCol.snapshotChanges()
+      .map(actions =>{
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data};
+        })
+      });   
+      
+      this.collageProfiles = this.afs.collection('collageProfiles');
+
+      this.profiles = this.collageProfiles.snapshotChanges()
         .map(actions =>{
           return actions.map(a => {
             const data = a.payload.doc.data();
             const id = a.payload.doc.id;
             return { id, data};
           })
-        });
-    
-        
-    
-      }
-    
-    getPost(postId){
-        this.postDoc = this.afs.doc('ideas/' + postId);
-        this.post = this.postDoc.valueChanges();
-      }
-    
+      })       
+    } 
      
+    deleteCollagePost(collageProfile){
+      this.afs.doc('collageProfiles/' + collageProfile).delete();
+    }
     
-    deletePost(postId){
+    deleteProfile(postId){
      
      this.postCol3=  this.test.collection('profiles').doc(postId).collection('results', ref => ref.where('name', '==',postId));
       
@@ -98,9 +102,9 @@ export class DatabaseComponent implements OnInit {
     });  
 
      this.afs.doc('profiles/' + postId).delete();
-      }
+    }
     deleteIdeas(postId){
-      this.postCol3=  this.test.collection('profiles').doc(postId).collection('results', ref => ref.where('name', '==',postId));
+     this.postCol3=  this.test.collection('profiles').doc(postId).collection('results', ref => ref.where('name', '==',postId));
       
      this.posts3 = this.postCol3.snapshotChanges()
      .map(actions =>{

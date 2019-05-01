@@ -18,7 +18,6 @@ export class PasswordComponent implements OnInit{
     constructor(public dialogRefs: MatDialogRef<PasswordComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any, private afs:AngularFirestore){
             this.currentCollection = this.afs.collection('collageProfiles').doc(this.data.name).valueChanges();
-            
         }
 
     ngOnInit(){
@@ -36,8 +35,6 @@ export class PasswordComponent implements OnInit{
         }else{
             this.error = true;
         }
-        
-
     }
 
 

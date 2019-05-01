@@ -1,16 +1,26 @@
 <div class="container">
-    <h1 class="display-4">
-            Backend
-    </h1>
-        
-   
-    
-    <ul *ngFor="let post of posts | async">
-        <li (click)="getPost(post.id)">
-         Name:   {{post.id}} <br>
-          ( <a (click)="deletePost(post.id)">Delete Profile</a> ) <br>
-          ( <a (click)="deleteIdeas(post.id)">Delete Ideas</a> ) <br>
-        </li>
-    </ul>
-      
+    <div class="row">
+        <h1 class="display-4">
+                Backend
+        </h1>
+        <div class="col-sm-6">
+            <h4>Ideas</h4>
+        <ul *ngFor="let post of posts | async">
+            <li>
+                Name:   {{post.id}} <br>
+                ( <a (click)="deleteProfile(post.id)">Delete Profile</a> ) <br>
+                ( <a (click)="deleteIdeas(post.id)">Delete Ideas</a> ) <br>
+            </li>
+        </ul>
+        </div>
+        <div class="col-sm-6">
+            <h4>Collage Wall</h4>
+            <ul *ngFor="let profile of profiles | async">
+                <li>
+                    Name:   {{profile.id}} <br>
+                    ( <a (click)="deleteCollagePost(profile.id)">Delete Profile</a> ) <br>
+                </li>
+            </ul>
+        </div>
+    </div>
  </div>
