@@ -46,7 +46,6 @@ export class Lvl6Component implements OnInit {
     backdropClass: '',
     width: 'auto',
     height: 'auto',
-    data: {url: this.imgURL},
     position: {
         top: '',
         bottom: '',

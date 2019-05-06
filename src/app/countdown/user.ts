@@ -5,4 +5,5 @@ export class User{
     path: string = "";
     text: string = "";
     password: string = "";
+    hasWelcomed:boolean;
 }

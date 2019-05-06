@@ -39,18 +39,21 @@
                 {{user.text}}
               </p>
             </mat-card-content>
-            <!-- <mat-card-actions>
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-edit"></span> Edit
-              </button>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions> -->
           </mat-card>
-          <!-- <img [src]="imgURL" id="previewImage"> -->
         </div>
-        <button *ngIf="previewLoaded" [disabled]="collageProfilePath" type="button" mat-button (click)="imgFileInput.click()">Change</button>
-        <button type="button" [disabled]="collageProfilePath" mat-button (click)="upload(imgURL)">Done</button>
+        
+        <button 
+        *ngIf="previewLoaded" 
+        [disabled]="collageProfilePath" 
+        type="button"
+        mat-button 
+        (click)="imgFileInput.click()">Change</button>
+
+        <button 
+        type="button" 
+        [disabled]="collageProfilePath" 
+        mat-button (click)="upload(imgURL)">Done</button>
+
       </div>
       <div *ngIf="uploading" class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated"

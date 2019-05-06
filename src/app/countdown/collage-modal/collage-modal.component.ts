@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, OnInit, Inject, Input, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogData } from 'src/app/testing/lvl5/lvl5.component';
 import { User } from '../user';
+import { OuterSubscriber } from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-collage-modal',
@@ -10,16 +10,14 @@ import { User } from '../user';
 })
 export class CollageModalComponent implements OnInit {
 
-  public startWelcome: boolean;
-  public currentCollage: User;
+  public startWelcome: boolean = true;
 
   constructor(public dialogRef: MatDialogRef<CollageModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData){}
-
-  
+    @Inject(MAT_DIALOG_DATA) public data: User){
+    }
 
   ngOnInit() {
-    this.currentCollage? this.startWelcome = false : this.startWelcome = true;
+    this.data? this.startWelcome = false : this.startWelcome = true;
   }
   dismiss(){
     this.dialogRef.close();

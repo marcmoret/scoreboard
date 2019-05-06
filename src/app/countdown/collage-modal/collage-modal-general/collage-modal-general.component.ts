@@ -1,5 +1,5 @@
 import { MatDialog } from '@angular/material';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -20,8 +20,9 @@ export class CollageModalGeneralComponent implements OnInit {
   uploadProgress:Observable<number>;
   downloadURL: Observable<string>;
   uploading = false;
-  @Output()
   public user: User = new User;
+  @Input() public current:User;
+  
   public today: number = Date.now();
 
   public downloadSrc: string;
@@ -33,17 +34,23 @@ export class CollageModalGeneralComponent implements OnInit {
   imagePath: any;
   imgURL: any;
   previewLoaded = false;
+  
 
   toolMessage="This will allow you to make edits to your post later on. (Don't put real passwords, I can see them!)";
-
-  
 
   constructor(private afs: AngularFirestore, private afsStorage:AngularFireStorage,
     private dialog: MatDialog){
     this.user.date = this.today;
   }
 
-  ngOnInit() {    
+  ngOnInit() {        
+    if (this.current){
+      this.user.name = this.current.name;
+      this.user.text = this.current.text;
+      this.user.password = this.current.password;
+      this.imgURL = this.current.path;
+      this.previewLoaded = true;
+    }
   }
 
   upload(file){
@@ -56,13 +63,15 @@ export class CollageModalGeneralComponent implements OnInit {
     //capitlizes first name no matter how they enter it//
 
     this.uploading = true;
+    
     this.task = this.ref.put(this.imagePath.target.files[0])
     this.uploadProgress = this.task.percentageChanges();
     this.task.snapshotChanges().pipe(
       finalize(()=> {
         this.ref.getDownloadURL().subscribe(url => {
           this.downloadSrc = url;
-          this.afs.collection('collageProfiles').doc(this.user.name).set({'path':this.downloadSrc, 'date': this.today,'name':this.user.name, 'text': this.user.text, 'password':this.user.password});
+          this.afs.collection('collageProfiles').doc(this.user.name).set(
+            {'path':this.downloadSrc, 'date': this.today,'name':this.user.name, 'text': this.user.text, 'password':this.user.password});
           this.allDone(); // takes the img filePath and stores it as a string
         });
       })
@@ -88,7 +97,6 @@ export class CollageModalGeneralComponent implements OnInit {
   }
   processNames(names: any[]) {    
     this.namesList = names;
-    console.log(this.user);
   }
 
   preview(files){

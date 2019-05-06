@@ -33,7 +33,6 @@ export class PasswordComponent implements OnInit{
                 
         if(event === this.currentCollage.password){
             this.error = false;
-            console.log('success');
             this.onPassword(this.currentCollage);
             this.dialogRefs.close(event);
         }else{
@@ -46,7 +45,7 @@ export class PasswordComponent implements OnInit{
           CollageModalComponent,{
             width: 'auto',
             height: 'auto',
-            data: {currentCollage: currentCollage, startWelcome: false}
+            data: currentCollage,
           });
       
         dialogRef.afterClosed().subscribe(result => {
