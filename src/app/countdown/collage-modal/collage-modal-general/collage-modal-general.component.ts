@@ -34,6 +34,8 @@ export class CollageModalGeneralComponent implements OnInit {
   imgURL: any;
   previewLoaded = false;
 
+  toolMessage="This will allow you to make edits to your post later on. (Don't put real passwords, I can see them!)";
+
   
 
   constructor(private afs: AngularFirestore, private afsStorage:AngularFireStorage,

@@ -1,7 +1,10 @@
+import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-modal.component';
+import { User } from './../user';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { CollageWallComponent } from './collage-wall.component';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { Component, OnInit, Inject } from '@angular/core';
+import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 
 @Component({
   selector: 'app-collage-wall-password',
@@ -11,12 +14,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 export class PasswordComponent implements OnInit{
 
     public password:string;
-    public currentCollage: any;
+    public currentCollage: User;
     public currentCollection: any;
     public error:boolean = false;
 
     constructor(public dialogRefs: MatDialogRef<PasswordComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any, private afs:AngularFirestore){
+        @Inject(MAT_DIALOG_DATA) public data: any, private afs:AngularFirestore, private dialog: MatDialog){
             this.currentCollection = this.afs.collection('collageProfiles').doc(this.data.name).valueChanges();
         }
 
@@ -31,11 +34,26 @@ export class PasswordComponent implements OnInit{
         if(event === this.currentCollage.password){
             this.error = false;
             console.log('success');
+            this.onPassword(this.currentCollage);
             this.dialogRefs.close(event);
         }else{
             this.error = true;
         }
     }
+
+    onPassword(currentCollage){
+        const dialogRef = this.dialog.open(
+          CollageModalComponent,{
+            width: 'auto',
+            height: 'auto',
+            data: {currentCollage: currentCollage, startWelcome: false}
+          });
+      
+        dialogRef.afterClosed().subscribe(result => {
+        });
+      }
+
+
 
 
 }
