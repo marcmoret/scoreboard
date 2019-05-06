@@ -1,8 +1,9 @@
-<app-collage-modal-welcome (begin)="onBegin()" *ngIf="!startWelcome" ></app-collage-modal-welcome>
-<app-collage-modal-general *ngIf="startWelcome"></app-collage-modal-general>
-<!-- <app-collage-modal-final></app-collage-modal-final> -->
-<div class="row">
-    <div class="col-sm-12" style="text-align:right;">
-        <button class="btn" (click)="dismiss()" >Quit</button>
+<div mat-dialog-content>
+    <app-collage-modal-welcome (begin)="onBegin()" *ngIf="!startWelcome" ></app-collage-modal-welcome>
+    <app-collage-modal-general *ngIf="startWelcome"></app-collage-modal-general>
+    <div class="row">
+        <div class="col-sm-12" style="text-align:right;">
+            <button class="btn" (click)="dismiss()" >Quit</button>
+        </div>
     </div>
 </div>
