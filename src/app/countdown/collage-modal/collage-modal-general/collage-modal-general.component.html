@@ -1,31 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 form-group" >
+    <div class="col-sm-6 form-group" >
       <label for="name">Name</label>
       <input class="form-control" type="text" [(ngModel)]="user.name">
-    </div>
-    <div class="col-sm-8"></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 form-group" >
       <label for="message">Personal Note/Description/Message</label>
       <textarea class="form-control" [(ngModel)]="user.text"></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 form-group" >
       <label for="message">Password &nbsp;</label><span matTooltipPosition="right" matTooltip="{{toolMessage}}" class="glyphicon glyphicon-info-sign"></span>
       <input type="password" class="form-control" [(ngModel)]="user.password">
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h3>Photo</h3>
-      <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
-      <input hidden [(ngModel)]="user.path" style="display:none;" type="file" #imgFileInput  (change)="preview($event)" accept=".png,.jpg"/>
 
-      <div *ngIf="imgURL">
-        <div>
+      <div class="col-sm-6">
+        <h3>Photo</h3>
+        <button *ngIf="!previewLoaded" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
+        <input hidden [(ngModel)]="user.path" style="display:none;" type="file" #imgFileInput  (change)="preview($event)" accept=".png,.jpg"/>    
+        <div *ngIf="imgURL">
           <h4>Preview</h4>
           <mat-card class="collage-card">
             <mat-card-header>
@@ -50,21 +38,23 @@
         (click)="imgFileInput.click()">Change</button>
 
         <button 
+        *ngIf="imgURL"
         type="button" 
         [disabled]="collageProfilePath" 
         mat-button (click)="upload(imgURL)">Done</button>
-
       </div>
-      <div *ngIf="uploading" class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated"
-          role="progressbar"
-          [style.width]="(uploadProgress | async) + '%'" 
-          [attr.aria-valuenow]="(uploadProgress | async)" 
-          aria-valuemin="0" 
-          aria-valuemax="100"></div>
-      </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>    
-    </div>
-    </div>
+
+      <div class="row">
+        <div *ngIf="uploading" class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            [style.width]="(uploadProgress | async) + '%'" 
+            [attr.aria-valuenow]="(uploadProgress | async)" 
+            aria-valuemin="0" 
+            aria-valuemax="100"></div>
+        </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>   
+      </div>
+  </div>
 </div>
   
     

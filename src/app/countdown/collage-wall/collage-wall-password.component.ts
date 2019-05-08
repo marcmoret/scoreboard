@@ -29,8 +29,7 @@ export class PasswordComponent implements OnInit{
         });
     }
 
-    onSubmit(event){
-                
+    onSubmit(event){     
         if(event === this.currentCollage.password){
             this.error = false;
             this.onPassword(this.currentCollage);

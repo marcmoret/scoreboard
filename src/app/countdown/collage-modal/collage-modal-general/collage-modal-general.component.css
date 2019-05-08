@@ -7,10 +7,16 @@
 }
 #previewImage{
     cursor: pointer;
+    width: 500px;
+    height: auto;
 }
 @media(max-width: 376px){
     .collage-card{
         width: 235px;
     }
+}
+textarea{
+    resize: vertical;
+    height: 298px;    
 }
 
