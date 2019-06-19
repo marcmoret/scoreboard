@@ -44,16 +44,15 @@
         mat-button (click)="upload(imgURL)">Done</button>
       </div>
 
-      <div class="row">
-        <div *ngIf="uploading" class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated"
-            role="progressbar"
-            [style.width]="(uploadProgress | async) + '%'" 
-            [attr.aria-valuenow]="(uploadProgress | async)" 
-            aria-valuemin="0" 
-            aria-valuemax="100"></div>
-        </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>   
-      </div>
+      
+      <div *ngIf="uploading" class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated"
+          role="progressbar"
+          [style.width]="(uploadProgress | async) + '%'" 
+          [attr.aria-valuenow]="(uploadProgress | async)" 
+          aria-valuemin="0" 
+          aria-valuemax="100"></div>
+      </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>   
   </div>
 </div>
   
