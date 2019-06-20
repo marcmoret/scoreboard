@@ -87,7 +87,6 @@ export class CountdownComponent implements OnInit, OnDestroy {
       CollageModalComponent, this.config);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

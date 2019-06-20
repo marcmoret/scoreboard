@@ -1,6 +1,7 @@
 <div class="flex-container">
   <div class="collage-wall" *ngFor="let post of collagePosts | async">
     <mat-card class="collage-card">
+        <button style="float:right" mat-stroked-button (click)="onEdit(post.name)">Edit</button>
       <mat-card-header>
         <mat-card-title>{{post.name}}</mat-card-title>
         <mat-card-subtitle>{{post.date | date}}</mat-card-subtitle>
@@ -12,8 +13,6 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button (click)="onEdit(post.name)">Edit</button>
-        <!-- <button mat-button>SHARE</button> -->
       </mat-card-actions>
     </mat-card>
   </div>
