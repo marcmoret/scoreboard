@@ -16,6 +16,9 @@
   #collageImg{
     cursor: pointer;
   }
+  .userText{
+    text-align: center;
+  }
  
   
   /* .flex-container > div {

@@ -23,7 +23,7 @@
             </mat-card-header>
             <img mat-card-image [src]="imgURL" (click)="onGallery()" id="previewImage" alt="">
             <mat-card-content>
-              <p id="userText">
+              <p style="text-align:center" id="userText">
                 {{user.text}}
               </p>
             </mat-card-content>
@@ -53,7 +53,7 @@
             aria-valuemin="0" 
             aria-valuemax="100"></div>
         </div><span *ngIf="collageProfilePath" class="glyphicon glyphicon-ok" style="color:green"></span>   
-        
+
   </div>
 </div>
   

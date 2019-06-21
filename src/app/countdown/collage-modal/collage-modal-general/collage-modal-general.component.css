@@ -1,11 +1,14 @@
 #userText{
     word-break: break-all;
     overflow: hidden;
+    text-align: center !important;
 }
-#previewImage{
-    cursor: pointer;
-    width: 500px;
-    height: auto;
+@media(min-width: 376px){
+    #previewImage{
+        cursor: pointer;
+        width: 500px;
+        height: auto;
+    }
 }
 @media(max-width: 376px){
     .collage-card{
@@ -16,4 +19,3 @@ textarea{
     resize: vertical;
     height: 298px;    
 }
-
