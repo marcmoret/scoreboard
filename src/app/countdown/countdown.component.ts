@@ -11,9 +11,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CountdownComponent implements OnInit, OnDestroy {
 
-  public effectOn = true;
+  public effectOn: boolean;
   public timerFunction: any;
-  public countDownDate:any = new Date("June 5, 2019 09:00:00");
+  public countDownDate:any = new Date("June 21, 2019 09:00:00");
   public timerOn: boolean = true;
   config: MatDialogConfig = {
     disableClose: false,
@@ -65,7 +65,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
     const wait = (ms) => new Promise(res => setTimeout(res, ms));
     const startAsync = async callback => {
       await wait(6500);
-      callback(this.effectOn = false, this.timerOn = true, this.openDialog());
+      callback(this.effectOn = false, this.timerOn = false, this.openDialog());
     };
     startAsync(text => console.log());
     }else{
@@ -87,6 +87,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
       CollageModalComponent, this.config);
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 
