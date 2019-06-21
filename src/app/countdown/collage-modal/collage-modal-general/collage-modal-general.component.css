@@ -1,7 +1,7 @@
 #userText{
     word-break: break-all;
     overflow: hidden;
-    text-align: center !important;
+    text-align: center;
 }
 @media(min-width: 376px){
     #previewImage{
