@@ -14,26 +14,26 @@ export class ChooseNameComponent implements OnInit {
   @Input() names:[];
 
   constructor() { }
-  x:number= 0;
+  score:number= 0;
 
   ngOnInit() {
   }
 
   goal(){
 
-    this.x++;
+    this.score++;
 
   }
   onMinus(){
-    this.x--;
+    this.score--;
 
   }
   reset(){
-    this.x  = 0;
+    this.score  = 0;
   }
-  AddScore(){
-    this.x =  this.x + +this.addScore.nativeElement.value;
-    console.log(this.x);
+  onAddScore(){
+    this.score =  this.score + +this.addScore.nativeElement.value;
+    console.log(this.score);
     this.addScore.nativeElement.value = '';
   }
   onDelete(index:number){

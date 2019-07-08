@@ -38,8 +38,7 @@ input{
     font-weight: bold;
 } */
 #score{
-    font-size: 50px;
-
+    font-size: 40px;
 }
 
 
@@ -108,4 +107,12 @@ input{
         margin: 1%;
     }
     
+}
+
+i{
+    cursor: pointer;
+    border: solid 1px lightgrey;
+}
+.mat-card{
+    min-width: 200px;
 }

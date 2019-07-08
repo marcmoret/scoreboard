@@ -1,7 +1,7 @@
-<fieldset>
+<!-- <fieldset>
 <div class="row">
     <div id="score" class="col-xs-12" >
-        <span id="playerName"> {{ this.playerName }} </span>
+        <span id="playerName"> {{ playerName }} </span>
         
 
         <input 
@@ -16,10 +16,10 @@
 </div>
 <div class="row">
     <div class="col-xs-12" id="score">
-        <span id="scoreSpan" >{{ this.x }}</span>
+        <span id="scoreSpan" >{{ score }}</span>
     </div>
 </div>
-<!-- Add/minus buttons plus addscore and reset -->
+Add/minus buttons plus addscore and reset
 <div class="" id="increment">
 
     <input class="btn btn-success" type="image"
@@ -29,10 +29,10 @@
     style="margin-left: 1%" (click)="onMinus()"
     src="../../../assets/img/minusPng.png">
 
-    <!-- Required for desktop, hides on Mobile-->
+    Required for desktop, hides on Mobile
     <br>
     <br>
-    <!-- Required for desktop, hides on Mobile-->
+    Required for desktop, hides on Mobile
 
     <input 
     placeholder="0" 
@@ -53,4 +53,26 @@
     src="../../../assets/img/Reset.png">
 
 </div>
-</fieldset>
+</fieldset> -->
+<mat-card>
+    <mat-card-header>
+    <mat-card-title> {{ playerName }} </mat-card-title>
+    <mat-card-subtitle> <a type="button" style="float: left" (click)="onDelete(this.indexplayer)">Remove Player</a> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div id="score">
+            <span id="scoreSpan" >{{ score }}</span>        
+        </div>
+        <div>
+            <i (click)="onMinus()" id="increment" class="material-icons">exposure_neg_1</i>
+            <i (click)="goal()"  id="increment" class="material-icons">exposure_plus_1</i>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-form-field>
+            <input matInput type="number" (keyup.enter)="onAddScore()" #addScore>
+        </mat-form-field>
+            <i class="material-icons" (click)="onAddScore()">add_circle_outline</i>
+            <i class="material-icons" (click)="reset()">refresh</i>
+    </mat-card-actions>
+</mat-card>

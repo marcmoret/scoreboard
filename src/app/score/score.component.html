@@ -1,20 +1,22 @@
 <app-head></app-head>
 <body>
-    <div class="container">
-        <h1 id="scoreboard" class="jumbotron">Scoreboard</h1>
-        <div id="scoreboard" >
-            <label id="enterName" for="name" style="margin: 1%;">Enter Name: </label>
-            <input required maxlength="10" id="enterNameId" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
-            <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
-            <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
+    <form>
+        <div class="container">
+            <h1 id="scoreboard" class="jumbotron">Scoreboard</h1>
+            <div style="text-align: center">
+                <label for="name" style="margin: 1%;">Enter Name: </label>
+                <input required maxlength="10" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+                <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
+                <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
+            </div>
         </div>
-    </div>
-    <div class="container">
-    <div class="col-xs-12">
-        <ul *ngFor="let x of names; let i = index">
-            <app-choose-name playerName="{{x}}" indexplayer="{{i}}" [names]="names"></app-choose-name>
-        </ul>
-    </div>
-    </div>
+    </form>
+        <div class="container">
+        <div class="col-xs-12">
+            <ul *ngFor="let x of names; let i = index">
+                <app-choose-name playerName="{{x}}" indexplayer="{{i}}" [names]="names"></app-choose-name>
+            </ul>
+        </div>
+        </div>
 </body>
 <p>v 1.0</p>
