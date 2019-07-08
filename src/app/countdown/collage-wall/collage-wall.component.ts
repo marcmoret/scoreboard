@@ -17,14 +17,7 @@ export class CollageWallComponent implements OnInit {
   public collagePosts;
 
   ngOnInit() {
-    this.collagePosts = this.afs.collection('collageProfiles').valueChanges();
-    // this.collagePosts.subscribe(res =>{
-    //   this.list = res.map(item =>{
-    //     return item.payload.doc.data();
-    //   })
-    // });
-    //console.log(this.list);
-    
+    this.collagePosts = this.afs.collection('collageProfiles').valueChanges();    
   }
 
   onGallery(path){

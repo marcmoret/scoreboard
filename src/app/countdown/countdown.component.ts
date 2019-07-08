@@ -13,7 +13,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   public effectOn: boolean;
   public timerFunction: any;
-  public countDownDate:any = new Date("June 21, 2019 09:00:00");
+  public countDownDate:any = new Date("June 21, 2020 09:00:00");
   public timerOn: boolean = true;
   config: MatDialogConfig = {
     disableClose: false,

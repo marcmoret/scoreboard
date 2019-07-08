@@ -73,7 +73,7 @@ export class CollageModalGeneralComponent implements OnInit {
         finalize(()=> {
           this.ref.getDownloadURL().subscribe(url => {
             this.downloadSrc = url;
-            this.afs.collection('collageProfiles').doc(this.user.name).set(
+            this.afs.collection('collageProfiles2020').doc(this.user.name).set(
               {'path':this.downloadSrc, 'date': this.today,'name':this.user.name, 'text': this.user.text, 'password':this.user.password});
             this.allDone(); // takes the img filePath and stores it as a string
             this.dialogRef.close(); // closes window

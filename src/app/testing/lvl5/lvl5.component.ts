@@ -22,7 +22,6 @@ export class Lvl5Component implements OnInit {
 
   active = false;
 
-
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(){
@@ -31,6 +30,19 @@ export class Lvl5Component implements OnInit {
   this.timer = setInterval(() => {
     this.timeBetweenDates(this.compareDate);
   }, 1000);
+
+  var array = [2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,9];
+  console.log(array)
+  // var indexx = array.indexOf(5);
+  // array.forEach((item, index) =>{
+  //   if (indexx > -1) {
+  //     array.splice(indexx, 1);
+  //   }
+  // })
+
+  const result = array.filter(array => array != 5);
+  
+  console.log(result);
 
 }
 
