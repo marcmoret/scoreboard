@@ -3,11 +3,13 @@
     <form>
         <div class="container">
             <h1 id="scoreboard" class="jumbotron">Scoreboard</h1>
-            <div style="text-align: center">
-                <label for="name" style="margin: 1%;">Enter Name: </label>
-                <input required maxlength="10" placeholder="Enter Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
-                <button class="btn btn-primary" style="margin: 1%;" type="button" (click)="onAddName()">Add</button>
-                <button class="form control" class="btn btn-danger" type="button" (click)="onReset()"> Reset</button>
+            <div style="text-align: center" class="row">
+                <div class="col-xs-12">
+                    <label for="name" style="margin: 1%;">Player Name: </label>
+                    <input class="" required placeholder="Player Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
+                    <i class="material-icons" id="addName" (click)="onAddName()">person_add</i>
+                    <i class="material-icons" id="onReset" (click)="onReset()">cached</i>        
+                </div>
             </div>
         </div>
     </form>

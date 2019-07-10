@@ -15,16 +15,13 @@ export class ScoreComponent implements OnInit {
   @ViewChild('name') addname2: ElementRef;
   @Output() newName: any;
   @Output() score = [0];
-  ArrayAdded:boolean = false;
 
   @Output() user1:number = 0;
   ngOnInit() {
   }
 
   onReset() {
-    this.names.length = 0;
     this.names = [];
-    this.ArrayAdded = false;
   }
 
   onAddName() {
@@ -32,18 +29,11 @@ export class ScoreComponent implements OnInit {
     console.log(this.names);
     // resets the input field to nothing
     this.addname2.nativeElement.value = '';
-    this.ArrayAdded = true;
-   
   }
   goal() {
   this.user1++;
   this.score.push(this.user1);
   console.log(this.score);
   }
-
-  // onDelete(index:number){
-  //   console.log(index);
-  //   this.names.splice(index,1);
-  // }
 
 }

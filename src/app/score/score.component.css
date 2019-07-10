@@ -62,3 +62,15 @@ input{
     }
 
 }
+
+#onReset{
+    font-size: 30px;
+    vertical-align: -webkit-baseline-middle;
+    margin-bottom: 11px;
+}
+#addName{
+    margin: 1%;
+    font-size: 30px;
+    vertical-align: -webkit-baseline-middle;
+    margin-bottom: 23px;
+}

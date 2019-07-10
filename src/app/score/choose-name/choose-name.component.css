@@ -1,118 +1,29 @@
-img{
-    width: 25px;
-    height: 25px;
+.mat-card{
+    min-width: 200px;
 }
 
-input{
-    height: 33px;
-}
-#delete{
-    float: right;
-    margin: 5px;
-}
-#Addscore{
-    height: 33px;
-    /* margin-left: 6px; */
-    margin-bottom: 4px; 
-    margin-left: -4px;
-}
-#reset{
-    margin-left: 6px;
-    margin-bottom: 4px;
-}
-
-.form-group{
-    width: 165px;
-}
-#number{
-    width: 90px;
-    padding-right: 50px;
-}
-#playerName{
-    font-size: 25px;
-    font-family: sans-serif;
-    text-decoration: underline;
-}
-/* #Addscore{
-    color: black;
-    font-weight: bold;
-} */
 #score{
-    font-size: 40px;
+    font-size: 35px;
+    position: static;
+    float: right;
+    margin-bottom: 0%;
+    width: 100%;
 }
+#increment{
+    /* margin-top:30px !important; */
+    margin-bottom: 0px;
+    height: auto;
+    border: solid 1px white;
 
-
-
-@media (max-width: 375px){
-    /* fieldset{
-        border: 1px black groove ;
-    } */
-    
-    #playerName{
-        font-size: 35px;
-        float: left;
-    }
-    #scoreSpan{
-        float: left;
-    }
-    input{
-        height: 33px;
-        border-radius: 5px;
-        
-    }
-    #score{
-        font-size: 35px;
-        position: static;
-        float: right;
-        margin-bottom: 0%;
-        width: 100%;
-    }
-   
-    #reset{
-        height: 33px;
-    }
-    img{
-        width: auto;
-        height: auto;
-    }
-    br{
-        display:none;
-    }
-    .form-control{
-        display: inline;
-        margin-left: 5%;
-        vertical-align: bottom;
-    }
-    #number{
-        max-width: 22%;
-        height: 33px;
-        vertical-align: middle;
-        margin: 4%;
-        padding: 0;
-    }
-    #increment{
-        /* margin-top:30px !important; */
-        margin-bottom: 0px;
-        height: auto;
-    }
-    #Addscore{
-        height: 33px;
-        margin: 0;
-    }
-    #delete{
-        float: right;
-        margin: 5px;
-    }
-    #reset{
-        margin: 1%;
-    }
-    
 }
-
-i{
+#increment:hover{
+    /* margin-top:30px !important; */
+    margin-bottom: 0px;
+    height: auto;
     cursor: pointer;
     border: solid 1px lightgrey;
 }
-.mat-card{
-    min-width: 200px;
+
+#deletePlayer{
+    widows: 100%;
 }

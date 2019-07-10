@@ -29,7 +29,7 @@ export class ChooseNameComponent implements OnInit {
 
   }
   reset(){
-    this.score  = 0;
+    this.score = 0;
   }
   onAddScore(){
     this.score =  this.score + +this.addScore.nativeElement.value;

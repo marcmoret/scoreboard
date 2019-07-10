@@ -55,13 +55,16 @@ Add/minus buttons plus addscore and reset
 </div>
 </fieldset> -->
 <mat-card>
+        <i class="material-icons" style="float: right;" id="deletePlayer" (click)="onDelete(this.indexplayer)">delete</i>
     <mat-card-header>
     <mat-card-title> {{ playerName }} </mat-card-title>
-    <mat-card-subtitle> <a type="button" style="float: left" (click)="onDelete(this.indexplayer)">Remove Player</a> </mat-card-subtitle>
+    <mat-card-subtitle>
+    </mat-card-subtitle>
     </mat-card-header>
+    <hr>
     <mat-card-content>
         <div id="score">
-            <span id="scoreSpan" >{{ score }}</span>        
+            <p id="scoreSpan" >{{ score }}</p>        
         </div>
         <div>
             <i (click)="onMinus()" id="increment" class="material-icons">exposure_neg_1</i>
@@ -72,7 +75,7 @@ Add/minus buttons plus addscore and reset
         <mat-form-field>
             <input matInput type="number" (keyup.enter)="onAddScore()" #addScore>
         </mat-form-field>
-            <i class="material-icons" (click)="onAddScore()">add_circle_outline</i>
-            <i class="material-icons" (click)="reset()">refresh</i>
+            <i class="material-icons" style="cursor: pointer" (click)="onAddScore()">add_circle_outline</i>
+            <i class="material-icons" style="cursor: pointer" (click)="reset()">refresh</i>
     </mat-card-actions>
 </mat-card>
