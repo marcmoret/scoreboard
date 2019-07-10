@@ -6,19 +6,19 @@
             <div style="text-align: center" class="row">
                 <div class="col-xs-12">
                     <label for="name" style="margin: 1%;">Player Name: </label>
-                    <input class="" required placeholder="Player Name" #name ngModel name="name" (keyup.enter)="onAddName()" type="text" >
-                    <i class="material-icons" id="addName" (click)="onAddName()">person_add</i>
-                    <i class="material-icons" id="onReset" (click)="onReset()">cached</i>        
+                    <input name="playerName" maxlength="15" [(ngModel)]="playerName" (keyup.enter)="onAddName()" type="text" >
+                    <i class="material-icons unselectable" id="addName" (click)="onAddName()">person_add</i>
+                    <i class="material-icons unselectable" id="onReset" (click)="onReset()">cached</i>        
                 </div>
             </div>
         </div>
     </form>
         <div class="container">
-        <div class="col-xs-12">
+        <div class="col-xs-12 scoreList">
             <ul *ngFor="let x of names; let i = index">
-                <app-choose-name playerName="{{x}}" indexplayer="{{i}}" [names]="names"></app-choose-name>
+                <app-choose-name [playerName]="x" [indexplayer]="i" [names]="names"></app-choose-name>
             </ul>
         </div>
         </div>
 </body>
-<p>v 1.0</p>
+<p>v 1.1</p>

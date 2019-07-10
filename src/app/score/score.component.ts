@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-score',
@@ -7,33 +7,29 @@ import { Component, OnInit, Output, ViewChild, ElementRef } from '@angular/core'
   styleUrls: ['./score.component.css']
 })
 export class ScoreComponent implements OnInit {
+  
   constructor() { }
 
   
   
-  @Output() names = [];
-  @ViewChild('name') addname2: ElementRef;
-  @Output() newName: any;
-  @Output() score = [0];
+  @Output() public names = [];
+  public playerName: string;
+  public numOfPlayers = 0;
 
-  @Output() user1:number = 0;
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onReset() {
+  public onReset() {
     this.names = [];
+    this.numOfPlayers = 0;
   }
 
-  onAddName() {
-    this.names.push(this.addname2.nativeElement.value);
-    console.log(this.names);
+  public onAddName() {
+    this.numOfPlayers++;
+    if(this.playerName === ''){
+      this.playerName = 'Player ' + this.numOfPlayers
+    }
+    this.names.push(this.playerName);
     // resets the input field to nothing
-    this.addname2.nativeElement.value = '';
+    this.playerName = '';
   }
-  goal() {
-  this.user1++;
-  this.score.push(this.user1);
-  console.log(this.score);
-  }
-
 }

@@ -1,5 +1,5 @@
 .mat-card{
-    min-width: 200px;
+    /* min-width: 200px; */
 }
 
 #score{
@@ -14,16 +14,19 @@
     margin-bottom: 0px;
     height: auto;
     border: solid 1px white;
-
+    float: right;
 }
 #increment:hover{
     /* margin-top:30px !important; */
     margin-bottom: 0px;
     height: auto;
+    float: right;
     cursor: pointer;
     border: solid 1px lightgrey;
 }
 
-#deletePlayer{
-    widows: 100%;
+.playerName{
+    font-weight: bold;
+    font-size: 20px;
 }
+
