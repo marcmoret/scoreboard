@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   { path: 'ideas', component: IdeasComponent},
   { path: 'testdb', component: TableTestComponent},
   { path: 'converter', component: MeasureConverterComponent},
-  { path: 'hero/:id', component: IToldYaComponent},
+  { path: 'itoldya', component: IToldYaComponent},
 
 
 ];
