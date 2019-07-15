@@ -1,3 +1,4 @@
+import { IToldYaComponent } from './i-told-ya/i-told-ya.component';
 import { IdeasComponent } from './ideas/ideas.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'ideas', component: IdeasComponent},
   { path: 'testdb', component: TableTestComponent},
   { path: 'converter', component: MeasureConverterComponent},
+  { path: 'hero/:id', component: IToldYaComponent},
 
 
 ];

@@ -54,6 +54,7 @@ import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
 import { PasswordComponent } from './countdown/collage-wall/collage-wall-password.component';
+import { IToldYaComponent } from './i-told-ya/i-told-ya.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { PasswordComponent } from './countdown/collage-wall/collage-wall-passwor
     CollageModalComponent,
     CollageModalWelcomeComponent,
     CollageModalGeneralComponent,
+    IToldYaComponent,
   ],
   imports: [
     BrowserModule,

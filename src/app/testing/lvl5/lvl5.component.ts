@@ -19,6 +19,7 @@ export class Lvl5Component implements OnInit {
 
   public timer;
   public compareDate = new Date("June 21, 2019 00:00:00");
+  public heroId = 10;
 
   active = false;
 
@@ -94,6 +95,8 @@ export class Lvl5Component implements OnInit {
     });
   }
 
+  nextPage(){
 
+  }
 
 }
