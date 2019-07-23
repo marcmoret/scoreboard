@@ -58,7 +58,7 @@ import { PasswordComponent } from './countdown/collage-wall/collage-wall-passwor
 import { OngoingArguementsComponent } from './told-ya/ongoing-arguements/ongoing-arguements.component';
 import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resolved-arguements.component';
 import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
