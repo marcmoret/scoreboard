@@ -1,4 +1,3 @@
-import { IToldYaComponent } from './i-told-ya/i-told-ya.component';
 import { IdeasComponent } from './ideas/ideas.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +8,7 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { TestingComponent } from './testing/testing.component';
 import { TableTestComponent } from './table-test/table-test.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
+import { ToldYaComponent } from './told-ya/told-ya.component';
 
 const appRoutes: Routes = [
   { path: '', component:HomeComponent},
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   { path: 'ideas', component: IdeasComponent},
   { path: 'testdb', component: TableTestComponent},
   { path: 'converter', component: MeasureConverterComponent},
-  { path: 'itoldya', component: IToldYaComponent},
+  { path: 'toldya', component: ToldYaComponent},
 
 
 ];

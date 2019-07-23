@@ -1,3 +1,4 @@
+import { ToldYaComponent } from './told-ya/told-ya.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -54,8 +55,10 @@ import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
 import { PasswordComponent } from './countdown/collage-wall/collage-wall-password.component';
-import { IToldYaComponent } from './i-told-ya/i-told-ya.component';
-
+import { OngoingArguementsComponent } from './told-ya/ongoing-arguements/ongoing-arguements.component';
+import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resolved-arguements.component';
+import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -87,12 +90,16 @@ import { IToldYaComponent } from './i-told-ya/i-told-ya.component';
     CollageModalComponent,
     CollageModalWelcomeComponent,
     CollageModalGeneralComponent,
-    IToldYaComponent,
+    ToldYaComponent,
+    OngoingArguementsComponent,
+    ResolvedArguementsComponent,
+    NewArguementComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    CKEditorModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'

@@ -1,0 +1,18 @@
+<form>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group text-center">
+        <label for="arguement">Main Arguement</label>
+        <!-- <textarea class="form-control" id="arguement" rows="3"></textarea> -->
+        <ckeditor [(ngModel)]="model.editorData" [editor]="Editor"></ckeditor>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <!-- <div contentEditable="true" class="custom-area">Type here. You can insert images too
+        <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcQCze-mfukcuvzKk7Ilj2zQ0CS6PbOkq7ZhRInnNd1Yz3TQzU4e&t=1" />
+      </div> -->
+    </div>
+  </div>
+</form>

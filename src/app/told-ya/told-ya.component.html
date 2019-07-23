@@ -1,0 +1,26 @@
+<app-head></app-head>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center" >
+        <h2>
+          Told Ya!
+        </h2>
+        <div *ngIf="!onBegin">
+          <h4>Told Ya! <span>&trade;</span> is a site for people who absolutly need to prove that they're right.
+          This site will allow you to write down your point have others vote and judge who the winner is. Have fun!</h4>
+          <button mat-button (click)="onStart()">Start</button>
+        </div>
+    </div>
+  </div>
+
+
+<app-ongoing-arguements *ngIf="!onBegin"></app-ongoing-arguements>
+
+<hr>
+
+<app-resolved-arguements *ngIf="!onBegin"></app-resolved-arguements>
+
+<app-new-arguement *ngIf="onBegin"></app-new-arguement>
+
+</div>
