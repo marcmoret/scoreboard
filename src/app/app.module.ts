@@ -58,7 +58,7 @@ import { PasswordComponent } from './countdown/collage-wall/collage-wall-passwor
 import { OngoingArguementsComponent } from './told-ya/ongoing-arguements/ongoing-arguements.component';
 import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resolved-arguements.component';
 import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 
 @NgModule({
   declarations: [
@@ -94,12 +94,12 @@ import { CKEditorModule } from 'ckeditor4-angular';
     OngoingArguementsComponent,
     ResolvedArguementsComponent,
     NewArguementComponent,
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CKEditorModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'
@@ -109,6 +109,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
     HttpModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserModule, FormsModule, RichTextEditorAllModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
