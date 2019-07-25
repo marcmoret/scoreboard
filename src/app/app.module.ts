@@ -59,6 +59,7 @@ import { OngoingArguementsComponent } from './told-ya/ongoing-arguements/ongoing
 import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resolved-arguements.component';
 import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { RegisterPhoneComponent } from './told-ya/register-phone/register-phone.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor'
     OngoingArguementsComponent,
     ResolvedArguementsComponent,
     NewArguementComponent,
+    RegisterPhoneComponent,
     
   ],
   imports: [

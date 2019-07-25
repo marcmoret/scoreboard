@@ -14,6 +14,7 @@ export class NewArguementComponent implements OnInit {
 
   <p>Try to make the arguement sound more like a question, which you will answer in your main points below and try to convince others that you are right. E.g., 'Should plastic straws be banned?'</p>`
   public arguementForm: FormGroup;
+  public arguementValid = false;
   
   constructor(private formGroup:FormBuilder) { }
 
@@ -33,6 +34,19 @@ export class NewArguementComponent implements OnInit {
   }
 
   test(){
+  }
+
+  public onAccept(){
+    if(this.arguementForm.valid){
+      this.arguementValid = true;
+    }
+  }
+
+  public clearText(){
+    let text = this.arguementForm.get('main').value;
+    if(text === this.value){
+      this.arguementForm.controls['main'].setValue('');
+    }
   }
 
 }
