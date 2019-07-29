@@ -1,16 +1,18 @@
 <div>
   <form [formGroup]="registerPhoneForm">
-    <div class="row">
+    <div class="row text-center">
       <div class="form-group">
-        <div class="col-sm-6">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">
           <div>
-            <input class="form-control" type="nummber">
-          </div>
-          <div>
-            <input class="form-control" type="nummber">
+            <input type="nummber" class="form-control" formControlName="phonenumber" placeholder="{{test | phone }}">
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-5 text-left">
+          <div>
+            <button class="btn btn-success" (click)="addPhone()" >Add</button>
+            <button class="btn btn-danger" >Remove</button>
+          </div>
         </div>
       </div>
     </div>

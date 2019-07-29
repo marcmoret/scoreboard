@@ -60,6 +60,7 @@ import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resol
 import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { RegisterPhoneComponent } from './told-ya/register-phone/register-phone.component';
+import { PhonePipe } from './common/phonepipe'; 
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { RegisterPhoneComponent } from './told-ya/register-phone/register-phone.
     Lvl4Component,
     Lvl5Component,
     PopupComponent,
+    PhonePipe,
     Lvl6Component,
     SubIdeaComponent,
     MeasureConverterComponent,

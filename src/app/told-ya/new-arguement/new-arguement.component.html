@@ -10,36 +10,31 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="form-group text-center">
           <label for="name1">Name</label>
           <input formControlName="point1" class="form-control" type="text">
+          <label>Your point of view</label>
+          <ejs-richtexteditor id='iframeRTE' formControlName="point1" [toolbarSettings]='tools'></ejs-richtexteditor>  
         </div>
       </div>
-      <div class="col-sm-1"></div>
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
-        <div class="form-group text-center">
-          <label for="name2">Name</label>
-          <input formControlName="point2" class="form-control" type="text">
-        </div>
-      </div>
-      <div class="col-sm-1"></div>
-    </div>
-    <div class="row text-center">
       <div class="col-sm-6">
-        <label>Your point of view</label>
-        <ejs-richtexteditor id='iframeRTE' formControlName="point1" [toolbarSettings]='tools'></ejs-richtexteditor>
-      </div>
-      <div class="col-sm-6">
+          <div class="form-group text-center">
+            <label for="name2">Name</label>
+            <input formControlName="point2" class="form-control" type="text">
         <label>Your point of view</label>
         <ejs-richtexteditor id='iframeRTE' formControlName="point2" [toolbarSettings]='tools'></ejs-richtexteditor>
       </div>
+      </div>
     </div>
-    <button (click)="test()">test</button>
+    <div class="row text-center">
+      <div class="col-sm-12">
+        <button class="btn" (click)="onAccept()">Next</button>
+      </div>
+    </div>
   </form>
-  <button (click)="onAccept()">Next</button>
 </div>
 
-<app-register-phone *ngIf="arguementValid"></app-register-phone>
+<div *ngFor="let item of phoneList; let i = index;">
+    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
+</div>

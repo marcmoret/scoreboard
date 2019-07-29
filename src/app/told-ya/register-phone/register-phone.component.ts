@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PhonePipe } from 'src/app/common/phonepipe';
 
 @Component({
   selector: 'app-register-phone',
   templateUrl: './register-phone.component.html',
-  styleUrls: ['./register-phone.component.css']
+  styleUrls: ['./register-phone.component.css'],
+  providers: [PhonePipe]
 })
 export class RegisterPhoneComponent implements OnInit {
 
   public registerPhoneForm: FormGroup;
+  @Output() public addPhoneEmit: EventEmitter<[any]> = new EventEmitter();
+  public test = 11234567899;
+  @Input() public phoneIndex;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(  
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit() {
     this.createForm();
+  }
+
+  public addPhone(){
+    this.addPhoneEmit.emit(this.registerPhoneForm.get('phonenumber').value);
   }
 
   public createForm(){

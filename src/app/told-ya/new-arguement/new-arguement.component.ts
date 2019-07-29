@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
+import { RegisterPhoneComponent } from '../register-phone/register-phone.component';
 
 @Component({
   selector: 'app-new-arguement',
@@ -15,30 +16,46 @@ export class NewArguementComponent implements OnInit {
   <p>Try to make the arguement sound more like a question, which you will answer in your main points below and try to convince others that you are right. E.g., 'Should plastic straws be banned?'</p>`
   public arguementForm: FormGroup;
   public arguementValid = false;
+  public phoneList: RegisterPhoneComponent[] = [];
+  public phoneIndex;
+
   
-  constructor(private formGroup:FormBuilder) { }
+  constructor(
+    private formGroup:FormBuilder,
+    ) { 
+
+    }
 
   ngOnInit() {
     this.createForm();
     const mainA = this.arguementForm.controls['main'].valueChanges.subscribe(main =>{
-      console.log(main);
-      
     })
   }
   public createForm() {
     this.arguementForm = this.formGroup.group({
       main: [this.value],
-      point1: ['', [Validators.required]],
-      point2: ['', [Validators.required]]
+      point1: ['', []],
+      point2: ['', []]
     })
   }
 
-  test(){
+  public removePhoneEmit(){
+    
+  }
+
+  public addPhoneEmit(event){
+    console.log('fired');
+    console.log(event);
+    
+    let phone = new RegisterPhoneComponent(this.formGroup);
+    this.phoneList.push(phone)
   }
 
   public onAccept(){
     if(this.arguementForm.valid){
       this.arguementValid = true;
+      let phone = new RegisterPhoneComponent(this.formGroup);
+      this.phoneList.push(phone)
     }
   }
 
