@@ -12,7 +12,7 @@ export class RegisterPhoneComponent implements OnInit {
 
   public registerPhoneForm: FormGroup;
   @Output() public addPhoneEmit: EventEmitter<[any]> = new EventEmitter();
-  public test = 11234567899;
+  public placeholder = 5142421234;
   @Input() public phoneIndex;
 
   constructor(  
@@ -29,7 +29,7 @@ export class RegisterPhoneComponent implements OnInit {
 
   public createForm(){
     this.registerPhoneForm = this.formBuilder.group({
-      phonenumber: ['', [Validators.required]]
+      phonenumber: ['', [Validators.required, Validators.pattern("[0-9]{10,}")]]
     })
   }
 

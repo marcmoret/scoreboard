@@ -18,6 +18,7 @@ export class NewArguementComponent implements OnInit {
   public arguementValid = false;
   public phoneList: RegisterPhoneComponent[] = [];
   public phoneIndex;
+  public secondPage: boolean = false;
 
   
   constructor(
@@ -39,8 +40,8 @@ export class NewArguementComponent implements OnInit {
     })
   }
 
-  public removePhoneEmit(){
-    
+  public onNext(){
+    this.secondPage = true;
   }
 
   public addPhoneEmit(event){

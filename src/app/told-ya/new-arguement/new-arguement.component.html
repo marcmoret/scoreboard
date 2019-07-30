@@ -10,26 +10,27 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group text-center">
+      <div class="col-sm-12">
+        <div *ngIf="!secondPage"  class="form-group text-center">
           <label for="name1">Name</label>
           <input formControlName="point1" class="form-control" type="text">
           <label>Your point of view</label>
           <ejs-richtexteditor id='iframeRTE' formControlName="point1" [toolbarSettings]='tools'></ejs-richtexteditor>  
         </div>
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group text-center">
-            <label for="name2">Name</label>
-            <input formControlName="point2" class="form-control" type="text">
+      <div *ngIf="secondPage" >
+        <div class="form-group text-center">
+          <label for="name2">Name</label>
+          <input formControlName="point2" class="form-control" type="text">
         <label>Your point of view</label>
         <ejs-richtexteditor id='iframeRTE' formControlName="point2" [toolbarSettings]='tools'></ejs-richtexteditor>
       </div>
       </div>
+     </div>
     </div>
     <div class="row text-center">
       <div class="col-sm-12">
-        <button class="btn" (click)="onAccept()">Next</button>
+        <button *ngIf="!secondPage" class="btn" (click)="onNext()">Next</button>
+        <button *ngIf="secondPage" class="btn" (click)="onAccept()">Done</button>
       </div>
     </div>
   </form>
