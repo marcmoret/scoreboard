@@ -1,6 +1,6 @@
 <form [formGroup]="registerPhoneForm">
   <div class="row text-center">
-    <div class="form-group">
+    <div class="form-group border border-primary">
       <div class="col-sm-5"></div>
       <div class="col-sm-2">
         <div>
@@ -10,7 +10,7 @@
       <div class="col-sm-5 text-left">
         <div class="form-group">
           <button [disabled]="registerPhoneForm.get('phonenumber').invalid" class="btn btn-success" (click)="addPhone()" >Add</button>
-          <button [disabled]="registerPhoneForm.get('phonenumber').invalid" class="btn btn-danger" >Remove</button>
+          <button [disabled]="registerPhoneForm.get('phonenumber').invalid" *ngIf="phoneIndex > 0" (click)="removePhone()" class="btn btn-danger" >Remove</button>
         </div>
       </div>
     </div>

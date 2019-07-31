@@ -25,7 +25,7 @@
         <div *ngFor="let x of testArray3; let i = index;" class="flex">
             <mat-card>
                 <mat-card-title>
-                        <span  id="name">{{x.id}}</span>
+                        <span [ngStyle]="{'color': x.id == 'Elise' ? '#901e90' : '#000' }"  id="name">{{x.id}}</span>
                 </mat-card-title>
                 <mat-card-content>
                    <app-sub-idea [currentId]="x.id"></app-sub-idea> 

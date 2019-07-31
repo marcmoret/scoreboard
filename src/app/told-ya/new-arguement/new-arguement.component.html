@@ -11,16 +11,16 @@
     <hr>
     <div class="row">
       <div class="col-sm-12">
-        <div *ngIf="!secondPage"  class="form-group text-center">
+        <div *ngIf="!secondPage" class="form-group text-center">
           <label for="name1">Name</label>
-          <input formControlName="point1" class="form-control" type="text">
+          <input formControlName="point1" class="form-control text-center" type="text">
           <label>Your point of view</label>
           <ejs-richtexteditor id='iframeRTE' formControlName="point1" [toolbarSettings]='tools'></ejs-richtexteditor>  
         </div>
       <div *ngIf="secondPage" >
         <div class="form-group text-center">
           <label for="name2">Name</label>
-          <input formControlName="point2" class="form-control" type="text">
+          <input formControlName="point2" class="form-control text-center" type="text">
         <label>Your point of view</label>
         <ejs-richtexteditor id='iframeRTE' formControlName="point2" [toolbarSettings]='tools'></ejs-richtexteditor>
       </div>
@@ -37,5 +37,10 @@
 </div>
 
 <div *ngFor="let item of phoneList; let i = index;">
-    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
+    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-primary" (click)="onSubmit()"></button>
+  </div>
 </div>

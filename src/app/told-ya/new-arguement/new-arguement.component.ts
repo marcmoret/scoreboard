@@ -52,12 +52,20 @@ export class NewArguementComponent implements OnInit {
     this.phoneList.push(phone)
   }
 
+  public removePhoneEmit(index){
+    this.phoneList.splice(index, 1)
+  }
+
   public onAccept(){
     if(this.arguementForm.valid){
       this.arguementValid = true;
       let phone = new RegisterPhoneComponent(this.formGroup);
       this.phoneList.push(phone)
     }
+  }
+
+  public onSubmit(){
+    
   }
 
   public clearText(){
