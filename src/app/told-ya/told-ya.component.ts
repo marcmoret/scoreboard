@@ -10,13 +10,18 @@ import { NewArguementComponent } from './new-arguement/new-arguement.component';
 export class ToldYaComponent implements OnInit {
 
   public onBegin: boolean = false;
-  constructor() {}
+  public test2;
+  constructor(
+  ) {}
 
   ngOnInit() {
   }
 
   onStart(){
     this.onBegin = true;
+  }
+
+  test(){
   }
 
 }

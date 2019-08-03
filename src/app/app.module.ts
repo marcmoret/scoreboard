@@ -8,9 +8,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreComponent } from './score/score.component';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 import { HeadComponent } from './head/head.component';
@@ -34,9 +34,8 @@ import {MatButtonModule,
    MatDialogModule, MatGridListModule, MatListModule, 
    MatOptionModule, MatSelectModule, MatIconModule, MatTooltipModule} from '@angular/material';
 import { TableTestComponent } from './table-test/table-test.component';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { DatabaseComponent } from './table-test/database/database.component';
 import { AgmCoreModule } from '@agm/core';
 import { Lvl2Component } from './testing/lvl2/lvl2.component';

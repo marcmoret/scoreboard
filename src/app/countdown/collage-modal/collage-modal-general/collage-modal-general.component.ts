@@ -1,6 +1,6 @@
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Component, OnInit, Output, Input } from '@angular/core';
-import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { finalize } from 'rxjs/operators';

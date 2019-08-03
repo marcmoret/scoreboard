@@ -1,6 +1,6 @@
 import { Component, OnInit, Directive, Output } from '@angular/core';
 import { FormBuilder, Validators,FormGroup, AbstractControl } from '@angular/forms';
-import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
