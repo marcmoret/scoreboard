@@ -10,18 +10,19 @@ import { PhonePipe } from 'src/app/common/phonepipe';
 })
 export class RegisterPhoneComponent implements OnInit {
 
-  public registerPhoneForm: FormGroup;
+  @Input() public registerPhoneForm: FormGroup;
   @Output() public addPhoneEmit: EventEmitter<[any]> = new EventEmitter();
   @Output() public removePhoneEmit: EventEmitter<[any]> = new EventEmitter();
   public placeholder = 5142421234;
   @Input() public phoneIndex;
+  public allInvited: boolean = false;
 
   constructor(  
     private formBuilder: FormBuilder
     ) { }
 
   ngOnInit() {
-    this.createForm();
+    //this.createForm();
   }
 
   public addPhone(){
@@ -30,7 +31,8 @@ export class RegisterPhoneComponent implements OnInit {
 
   public createForm(){
     this.registerPhoneForm = this.formBuilder.group({
-      phonenumber: ['', [Validators.required, Validators.pattern("[0-9]{10,}")]]
+      phonenumber: ['', [Validators.required, Validators.pattern("[0-9]{10,}")]],
+      allInvited: [this.allInvited, [Validators.required]]
     })
   }
 

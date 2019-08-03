@@ -1,6 +1,7 @@
 import { MatDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { NewArguementComponent } from './new-arguement/new-arguement.component';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-i-told-ya',
@@ -10,7 +11,6 @@ import { NewArguementComponent } from './new-arguement/new-arguement.component';
 export class ToldYaComponent implements OnInit {
 
   public onBegin: boolean = false;
-  public test2;
   constructor(
   ) {}
 
@@ -20,8 +20,4 @@ export class ToldYaComponent implements OnInit {
   onStart(){
     this.onBegin = true;
   }
-
-  test(){
-  }
-
 }

@@ -1,5 +1,5 @@
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 import { RegisterPhoneComponent } from '../register-phone/register-phone.component';
 
@@ -14,11 +14,12 @@ export class NewArguementComponent implements OnInit {
   public value: string = `<p>This is where you will put your main arguement. You can add pictures or links for context.</p> 
 
   <p>Try to make the arguement sound more like a question, which you will answer in your main points below and try to convince others that you are right. E.g., 'Should plastic straws be banned?'</p>`
-  public arguementForm: FormGroup;
+  @Output() public arguementForm: FormGroup;
   public arguementValid = false;
   public phoneList: RegisterPhoneComponent[] = [];
   public phoneIndex;
   public secondPage: boolean = false;
+  public allInvited: boolean = false;
 
   
   constructor(
@@ -36,7 +37,9 @@ export class NewArguementComponent implements OnInit {
     this.arguementForm = this.formGroup.group({
       main: [this.value],
       point1: ['', []],
-      point2: ['', []]
+      point2: ['', []],
+      phonenumber: ['', [Validators.required, Validators.pattern("[0-9]{10,}")]],
+      allInvited: [this.allInvited, [Validators.required]]
     })
   }
 
@@ -57,15 +60,12 @@ export class NewArguementComponent implements OnInit {
   }
 
   public onAccept(){
+    this.arguementValid = true;
     if(this.arguementForm.valid){
-      this.arguementValid = true;
+      
       let phone = new RegisterPhoneComponent(this.formGroup);
       this.phoneList.push(phone)
     }
-  }
-
-  public onSubmit(){
-    
   }
 
   public clearText(){

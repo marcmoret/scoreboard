@@ -29,18 +29,13 @@
     </div>
     <div class="row text-center">
       <div class="col-sm-12">
-        <button *ngIf="!secondPage" class="btn" (click)="onNext()">Next</button>
-        <button *ngIf="secondPage" class="btn" (click)="onAccept()">Done</button>
+        <button mat-button *ngIf="!secondPage" (click)="onNext()">Next</button>
+        <button mat-button *ngIf="secondPage" (click)="onAccept()">Done</button>
       </div>
     </div>
   </form>
 </div>
 
 <div *ngFor="let item of phoneList; let i = index;">
-    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <button class="btn btn-primary" (click)="onSubmit()"></button>
-  </div>
+    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" [registerPhoneForm]=arguementForm (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
 </div>
