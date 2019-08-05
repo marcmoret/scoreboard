@@ -1,7 +1,7 @@
+import { Arguement } from './../models/arguement';
 import { MatDialog } from '@angular/material';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NewArguementComponent } from './new-arguement/new-arguement.component';
-import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-i-told-ya',
@@ -11,6 +11,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class ToldYaComponent implements OnInit {
 
   public onBegin: boolean = false;
+  @Output() public arguement = new Arguement();
   constructor(
   ) {}
 

@@ -10,22 +10,34 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
         <div *ngIf="!secondPage" class="form-group text-center">
           <label for="name1">Name</label>
-          <input formControlName="point1" class="form-control text-center" type="text">
-          <label>Your point of view</label>
-          <ejs-richtexteditor id='iframeRTE' formControlName="point1" [toolbarSettings]='tools'></ejs-richtexteditor>  
+          <input formControlName="firstName" class="form-control text-center" type="text">
         </div>
       <div *ngIf="secondPage" >
         <div class="form-group text-center">
           <label for="name2">Name</label>
-          <input formControlName="point2" class="form-control text-center" type="text">
-        <label>Your point of view</label>
-        <ejs-richtexteditor id='iframeRTE' formControlName="point2" [toolbarSettings]='tools'></ejs-richtexteditor>
+          <input formControlName="secondName" class="form-control text-center" type="text">
       </div>
       </div>
      </div>
+     <div class="col-sm-3"></div>
+    </div>
+    <div class="row text-center">
+      <div class="col-sm-12">
+        <div *ngIf="!secondPage" class="form-group text-center">
+          <label>Your point of view</label>
+          <ejs-richtexteditor id='iframeRTE' formControlName="firstPoint" [toolbarSettings]='tools'></ejs-richtexteditor>  
+        </div>
+        <div *ngIf="secondPage" >
+          <div class="form-group text-center">
+            <label>Your point of view</label>
+            <ejs-richtexteditor id='iframeRTE' formControlName="secondPoint" [toolbarSettings]='tools'></ejs-richtexteditor>
+          </div>
+        </div>        
+      </div>
     </div>
     <div class="row text-center">
       <div class="col-sm-12">
@@ -37,5 +49,5 @@
 </div>
 
 <div *ngFor="let item of phoneList; let i = index;">
-    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" [registerPhoneForm]=arguementForm (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
+    <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
 </div>

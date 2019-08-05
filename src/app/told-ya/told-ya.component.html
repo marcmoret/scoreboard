@@ -19,7 +19,7 @@
 <hr>
 <app-resolved-arguements *ngIf="!onBegin"></app-resolved-arguements>
 
-<app-new-arguement *ngIf="onBegin"></app-new-arguement>
+<app-new-arguement [arguement]="arguement" *ngIf="onBegin"></app-new-arguement>
 
 <!-- {{ test2 | async}} -->
 
