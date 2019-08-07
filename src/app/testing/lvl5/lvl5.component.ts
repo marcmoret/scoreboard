@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { PopupComponent } from './popup/popup.component';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 export interface DialogData {
   animal: string;
@@ -20,13 +21,19 @@ export class Lvl5Component implements OnInit {
   public timer;
   public compareDate = new Date("June 21, 2019 00:00:00");
   public heroId = 10;
+  public order: any
 
   active = false;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private db: AngularFireDatabase) {}
 
   ngOnInit(){
   this.compareDate.setDate(this.compareDate.getDate());
+
+
+  this.order = this.db.object('/orders/testPizza123')
+
 
   this.timer = setInterval(() => {
     this.timeBetweenDates(this.compareDate);
@@ -46,6 +53,15 @@ export class Lvl5Component implements OnInit {
   console.log(result);
 
 }
+
+
+
+  updatePhoneNumber() {
+    this.order.update({ phoneNumber: '+15144634193',
+                        status: 'big old fkn big dick energy test2' });
+    console.log('fired');
+    
+  }
 
   timeBetweenDates(toDate) {
 
