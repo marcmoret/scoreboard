@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 import { PasswordComponent } from './collage-wall-password.component';
 

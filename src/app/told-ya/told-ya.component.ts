@@ -1,5 +1,5 @@
 import { Arguement } from './../models/arguement';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit, Output } from '@angular/core';
 import { NewArguementComponent } from './new-arguement/new-arguement.component';
 

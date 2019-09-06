@@ -16,7 +16,7 @@ export class WeddingSelectComponent implements OnInit {
   @Output() isBand:boolean = false;
 
   
-  @ViewChild('y') form: NgForm;
+  @ViewChild('y', {static: false}) form: NgForm;
 
   @Output() currentForm = [];
   defaultValue:number = 0;

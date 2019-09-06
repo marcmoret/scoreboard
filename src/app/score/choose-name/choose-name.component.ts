@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 export class ChooseNameComponent implements OnInit {
 
-  @ViewChild('addScore') addScore: ElementRef;
+  @ViewChild('addScore', {static: false}) addScore: ElementRef;
   @Input() playerName:any;
   @Input() indexplayer:any;
   @Input() names:[];
