@@ -25,4 +25,15 @@
     font-weight: bold;
     font-size: 20px;
 }
+@media(max-width:398px){
+    .material-icons{
+        font-size: 31px;
+    }
+}
+
+@media(min-width:399px){
+    .material-icons{
+        font-size: 35px;
+    }
+}
 

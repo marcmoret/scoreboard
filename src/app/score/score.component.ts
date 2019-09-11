@@ -13,7 +13,7 @@ export class ScoreComponent implements OnInit {
   
   
   @Output() public names = [];
-  public playerName: string;
+  public playerName: string = '';
   public numOfPlayers = 0;
 
   ngOnInit() {}
@@ -25,8 +25,10 @@ export class ScoreComponent implements OnInit {
 
   public onAddName() {
     this.numOfPlayers++;
-    if(this.playerName === ''){
+    if(this.playerName === '' || null){
       this.playerName = 'Player ' + this.numOfPlayers
+      console.log(this.playerName);
+      
     }
     this.names.push(this.playerName);
     // resets the input field to nothing
