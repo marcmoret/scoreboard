@@ -51,3 +51,7 @@
 <div *ngFor="let item of phoneList; let i = index;">
     <app-register-phone *ngIf="arguementValid" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)" (removePhone)="removePhoneEmit()"></app-register-phone>
 </div>
+
+<div class="container row text-center" *ngIf="arguementValid">
+  <button mat-button *ngIf="arguementValid" (click)="submit()">Done</button>
+</div>

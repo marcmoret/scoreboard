@@ -1,6 +1,6 @@
 import { Arguement } from './../../models/arguement';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 import { RegisterPhoneComponent } from '../register-phone/register-phone.component';
 
@@ -19,15 +19,13 @@ export class NewArguementComponent implements OnInit {
   public phoneIndex;
   public secondPage: boolean = false;
   @Input() public arguement: Arguement
-
+  @ViewChild(RegisterPhoneComponent, {static: false}) registerChild: RegisterPhoneComponent;
   
   constructor(
     private formGroup:FormBuilder,
     ) { }
 
   ngOnInit() {
-    console.log(this.arguement);
-    
     this.createForm();
   }
   public createForm() {
@@ -45,9 +43,6 @@ export class NewArguementComponent implements OnInit {
   }
 
   public addPhoneEmit(event){
-    console.log('fired');
-    console.log(event);
-    
     let phone = new RegisterPhoneComponent(this.formGroup);
     this.phoneList.push(phone)
   }
@@ -69,6 +64,17 @@ export class NewArguementComponent implements OnInit {
     if(text === this.startMessage){
       this.arguementForm.controls['main'].setValue('');
     }
+  }
+
+  public submit(){
+    if(this.registerChild.registerPhoneForm.valid){
+      //this.arguementForm.addControl('phoneNumber', new FormControl(this.registerChild.registerPhoneForm.value, Validators.required));
+      this.phoneList.forEach((form)=>{
+        console.log(form)
+      });
+      
+    }
+    //console.log(this.arguementForm);
   }
 
 }

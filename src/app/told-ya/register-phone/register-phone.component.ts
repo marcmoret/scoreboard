@@ -17,7 +17,6 @@ export class RegisterPhoneComponent implements OnInit {
   @Input() public phoneIndex;
   public allInvited: boolean = false;
 
-  
   constructor(  
     private formBuilder: FormBuilder
     ) { }
