@@ -1,18 +1,13 @@
 const functions = require('firebase-functions');
-const Nexmo = require('nexmo');
+// const accountSid = 'AC3ceaa1fdbfdd698c5e460e9cea640062';
+// const authToken = 'your_auth_token';
+//const client = require('twilio')(accountSid, authToken);
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-    const nexmo = new Nexmo({
-      apiKey: '4cd3f7a6',
-      apiSecret: 'YwXJ0akyN3EAzI0Z',
-    });
-    
-    const from = '18732700804';
-    const to = '15144634193';
-    const text = 'Hello from Nexmo';
-    
-    nexmo.message.sendSms(from, to, text);
+exports.ToldYa = functions.https.onRequest((request, response) => {
+  // client.messages
+  // .create({body: 'Hi there! big ol test', from: '+14387943264', to: '+15144634193'})
+  // .then(message => console.log(message.sid));
 });
