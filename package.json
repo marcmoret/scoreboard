@@ -28,6 +28,7 @@
     "@angular/router": "~8.2.5",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
+    "@syncfusion/ej2": "^17.2.51",
     "@syncfusion/ej2-angular-richtexteditor": "^17.2.49",
     "@types/googlemaps": "^3.37.6",
     "@types/hammerjs": "^2.0.36",
