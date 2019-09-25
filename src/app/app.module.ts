@@ -38,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatStepperModule} from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -130,7 +131,7 @@ import { PhonePipe } from './common/phonepipe';
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
-    MatButtonModule, MatOptionModule, MatSelectModule, MatTooltipModule,
+    MatButtonModule, MatOptionModule, MatSelectModule, MatTooltipModule, MatStepperModule,
     MatCheckboxModule, MatTableModule, MatGridListModule, MatListModule,
     MatPaginatorModule, MatSortModule, MatExpansionModule, MatSidenavModule, MatInputModule, MatIconModule,
     MatButtonModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDialogModule

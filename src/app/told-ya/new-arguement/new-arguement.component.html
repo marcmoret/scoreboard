@@ -1,4 +1,4 @@
-<div *ngIf="!arguementValid">
+<!-- <div *ngIf="!arguementValid">
   <form [formGroup]="arguementForm">
     <div class="row">
       <div class="col-sm-12">
@@ -54,4 +54,70 @@
 
 <div class="container row text-center" *ngIf="arguementValid">
   <button mat-button *ngIf="arguementValid" (click)="submit()">Done</button>
-</div>
+</div> -->
+
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>First person's name</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>The arguement</ng-template>
+      <!-- <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field> -->
+      <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="secondCtrl" [toolbarSettings]='tools'></ejs-richtexteditor>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup"></form>
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <ng-template matStepLabel>Fill out your address</ng-template>
+    <mat-form-field>
+      <input matInput placeholder="Address" required>
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup">
+    <ng-template matStepLabel>Fill out your address</ng-template>
+    <mat-form-field>
+      <input matInput placeholder="Address" required>
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="fifthFormGroup">
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepperDone()">Done</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
