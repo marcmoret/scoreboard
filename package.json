@@ -39,7 +39,7 @@
     "bootstrap": "^3.4.1",
     "chart.js": "^2.8.0",
     "compressible": "^2.0.16",
-    "core-js": "^3.2.1",
+    "core-js": "^2.5.0",
     "easycountdown": "^1.0.9",
     "firebase": "^6.6.0",
     "firebase-admin": "^8.5.0",
@@ -67,7 +67,7 @@
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.3",
+    "@angular-devkit/build-angular": "^0.12.4",
     "@angular/cli": "^8.3.3",
     "@angular/compiler-cli": "^8.2.5",
     "@angular/language-service": "~8.2.5",

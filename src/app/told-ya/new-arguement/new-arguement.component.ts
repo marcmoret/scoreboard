@@ -34,19 +34,21 @@ export class NewArguementComponent implements OnInit {
   ngOnInit() {
     //this.createForm();
     this.firstFormGroup = this.formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: [this.startMessage, Validators.required],
     });
     this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: [this.startMessage, Validators.required]
+      name: ['', Validators.required],
+      arguement: ['', Validators.required]
     });
     this.thirdFormGroup = this.formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+      name: ['', Validators.required],
+      arguement: ['', Validators.required]
     });
     this.fourthFormGroup = this.formBuilder.group({
-      fourthCtrl: ['', Validators.required]
+      phone: ['', Validators.required],
     });
     this.fifthFormGroup = this.formBuilder.group({
-      fifthCtrl: ['', Validators.required]
+      //fifthCtrl: ['', Validators.required]
     });
   }
 
@@ -86,9 +88,9 @@ export class NewArguementComponent implements OnInit {
   // }
 
   public clearText(){
-    let text = this.secondFormGroup.get('secondCtrl').value;
+    let text = this.firstFormGroup.get('firstCtrl').value;
     if(text === this.startMessage){
-      this.secondFormGroup.controls['secondCtrl'].setValue('');
+      this.firstFormGroup.controls['firstCtrl'].setValue('');
     }
   }
 

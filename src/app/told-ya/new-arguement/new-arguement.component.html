@@ -59,10 +59,9 @@
 <mat-horizontal-stepper #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>First person's name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Name" formControlName="firstCtrl" required>
-      </mat-form-field>
+      <ng-template matStepLabel>Main Arguement</ng-template>
+      <label for="arguement">Main Arguement</label>
+        <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="firstCtrl" [toolbarSettings]='tools'></ejs-richtexteditor>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -70,11 +69,16 @@
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>The arguement</ng-template>
+      <ng-template matStepLabel>First opinion</ng-template>
       <!-- <mat-form-field>
         <input matInput placeholder="Address" formControlName="secondCtrl" required>
       </mat-form-field> -->
-      <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="secondCtrl" [toolbarSettings]='tools'></ejs-richtexteditor>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" required>
+      </mat-form-field> 
+      <br>
+      <label for="">Opinion</label>
+      <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="arguement" [toolbarSettings]='tools'></ejs-richtexteditor>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -82,17 +86,21 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup"></form>
-      <ng-template matStepLabel>Fill out your address</ng-template>
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Second opinion</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Address" required>
+        <input matInput placeholder="Name" formControlName="name" required>
       </mat-form-field>
+      <br>
+      <label for="">Opinion</label>
+      <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="arguement" [toolbarSettings]='tools'></ejs-richtexteditor>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
+    </form>
   </mat-step>
-  <mat-step [stepControl]="thirdFormGroup">
+  <!-- <mat-step [stepControl]="thirdFormGroup">
     <ng-template matStepLabel>Fill out your address</ng-template>
     <mat-form-field>
       <input matInput placeholder="Address" required>
@@ -101,11 +109,11 @@
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
     </div>
-  </mat-step>
+  </mat-step> -->
   <mat-step [stepControl]="fourthFormGroup">
-    <ng-template matStepLabel>Fill out your address</ng-template>
+    <ng-template matStepLabel>Phone Numbers</ng-template>
     <mat-form-field>
-      <input matInput placeholder="Address" required>
+      <input type="tel" matInput placeholder="Address" required>
     </mat-form-field>
     <div>
       <button mat-button matStepperPrevious>Back</button>
@@ -113,8 +121,33 @@
     </div>
   </mat-step>
   <mat-step [stepControl]="fifthFormGroup">
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
+    <ng-template matStepLabel>Review</ng-template>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepperDone()">Done</button>
