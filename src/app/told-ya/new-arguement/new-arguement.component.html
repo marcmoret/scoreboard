@@ -67,17 +67,15 @@
       </div>
     </form>
   </mat-step>
+
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>First opinion</ng-template>
-      <!-- <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field> -->
       <mat-form-field>
         <input matInput placeholder="Name" formControlName="name" required>
       </mat-form-field> 
       <br>
-      <label for="">Opinion</label>
+      <label>Opinion</label>
       <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="arguement" [toolbarSettings]='tools'></ejs-richtexteditor>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -85,6 +83,7 @@
       </div>
     </form>
   </mat-step>
+
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Second opinion</ng-template>
@@ -92,29 +91,20 @@
         <input matInput placeholder="Name" formControlName="name" required>
       </mat-form-field>
       <br>
-      <label for="">Opinion</label>
+      <label>Opinion</label>
       <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="arguement" [toolbarSettings]='tools'></ejs-richtexteditor>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="onNext()">Next</button>
       </div>
     </form>
   </mat-step>
-  <!-- <mat-step [stepControl]="thirdFormGroup">
-    <ng-template matStepLabel>Fill out your address</ng-template>
-    <mat-form-field>
-      <input matInput placeholder="Address" required>
-    </mat-form-field>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-  </mat-step> -->
+
   <mat-step [stepControl]="fourthFormGroup">
     <ng-template matStepLabel>Phone Numbers</ng-template>
-    <mat-form-field>
-      <input type="tel" matInput placeholder="Address" required>
-    </mat-form-field>
+    <div>
+      <app-register-phone *ngFor="let item of phoneList; let i = index;" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)"></app-register-phone>
+    </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>

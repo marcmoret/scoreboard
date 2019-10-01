@@ -70,14 +70,15 @@ export class NewArguementComponent implements OnInit {
   //   this.secondPage = true;
   // }
 
-  // public addPhoneEmit(event){
-  //   let phone = new RegisterPhoneComponent(this.formGroup);
-  //   this.phoneList.push(phone)
-  // }
+  public addPhoneEmit(event){
+    let formGroup: FormBuilder;
+    let phone = new RegisterPhoneComponent(formGroup);
+    this.phoneList.push(phone)
+  }
 
-  // public removePhoneEmit(index){
-  //   this.phoneList.splice(index, 1)
-  // }
+  public removePhoneEmit(index){
+    this.phoneList.splice(index, 1)
+  }
 
   // public onAccept(){
   //   if(this.arguementForm.valid){
@@ -92,6 +93,15 @@ export class NewArguementComponent implements OnInit {
     if(text === this.startMessage){
       this.firstFormGroup.controls['firstCtrl'].setValue('');
     }
+  }
+
+  public onNext(){
+        if(this.thirdFormGroup.valid){
+          let formGroup: FormBuilder;
+          let phone = new RegisterPhoneComponent(formGroup);
+          this.phoneList.push(phone)
+        }
+
   }
 
   // public submit(){
