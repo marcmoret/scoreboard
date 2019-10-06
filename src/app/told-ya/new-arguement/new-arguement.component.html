@@ -56,14 +56,15 @@
   <button mat-button *ngIf="arguementValid" (click)="submit()">Done</button>
 </div> -->
 
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper #stepper [linear]="true">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Main Arguement</ng-template>
       <label for="arguement">Main Arguement</label>
         <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="firstCtrl" [toolbarSettings]='tools'></ejs-richtexteditor>
+        <p *ngIf="firstFormGroup.invalid" class="text-warning">*Arguement required*</p>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="test()" >Next</button>
       </div>
     </form>
   </mat-step>

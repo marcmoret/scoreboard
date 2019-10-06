@@ -45,7 +45,7 @@ export class NewArguementComponent implements OnInit {
       arguement: ['', Validators.required]
     });
     this.fourthFormGroup = this.formBuilder.group({
-      phone: ['', Validators.required],
+      //phone: ['', Validators.required],
     });
     this.fifthFormGroup = this.formBuilder.group({
       //fifthCtrl: ['', Validators.required]
@@ -102,6 +102,11 @@ export class NewArguementComponent implements OnInit {
           this.phoneList.push(phone)
         }
 
+  }
+
+  public test(){
+    console.log(this.firstFormGroup);
+    
   }
 
   // public submit(){
