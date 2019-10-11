@@ -62,7 +62,7 @@
       <ng-template matStepLabel>Main Arguement</ng-template>
       <label for="arguement">Main Arguement</label>
         <ejs-richtexteditor (focus)="clearText()" id='iframeRTE' formControlName="firstCtrl" [toolbarSettings]='tools'></ejs-richtexteditor>
-        <p *ngIf="firstFormGroup.invalid" class="text-warning">*Arguement required*</p>
+        <p *ngIf="firstFormGroup.invalid && firstFormGroup.touched" class="text-warning">*Arguement required*</p>
       <div>
         <button mat-button matStepperNext (click)="test()" >Next</button>
       </div>
@@ -104,11 +104,11 @@
   <mat-step [stepControl]="fourthFormGroup">
     <ng-template matStepLabel>Phone Numbers</ng-template>
     <div>
-      <app-register-phone *ngFor="let item of phoneList; let i = index;" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)"></app-register-phone>
+      <app-register-phone #registerPhone *ngFor="let item of phoneList; let i = index;" [phoneIndex]="i" (removePhoneEmit)="removePhoneEmit($event)" (addPhoneEmit)="addPhoneEmit($event)"></app-register-phone>
     </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
+      <button mat-button matStepperNext (click)="onGetNumbers()">Next</button>
     </div>
   </mat-step>
   <mat-step [stepControl]="fifthFormGroup">

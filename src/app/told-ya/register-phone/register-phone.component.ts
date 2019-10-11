@@ -40,4 +40,8 @@ export class RegisterPhoneComponent implements OnInit {
     this.removePhoneEmit.emit(this.phoneIndex)
   }
 
+  public onChange(result){
+    console.log(this.registerPhoneForm.get("phonenumber").value);
+  }
+
 }

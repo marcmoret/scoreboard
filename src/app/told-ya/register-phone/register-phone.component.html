@@ -13,7 +13,7 @@
       <div class="col-sm-5"></div>
       <div class="col-sm-2 text-center">
         <div>
-          <input type="nummber" class="form-control" formControlName="phonenumber" maxlength="10" placeholder="{{ placeholder }}">
+          <input type="nummber" class="form-control" formControlName="phonenumber" maxlength="10" (change)="onChange($event)" placeholder="{{ placeholder }}">
         </div>
       </div>
       <div class="col-sm-5 text-left">

@@ -12,6 +12,7 @@ import { RegisterPhoneComponent } from '../register-phone/register-phone.compone
 })
 export class NewArguementComponent implements OnInit {
 
+  @ViewChild("registerPhone", {static:false}) registerPhone: RegisterPhoneComponent;
   public startMessage: string = `<p>This is where you will put your main arguement. You can add pictures or links for context.</p>`
   @Output() public arguementForm: FormGroup;
   public arguementValid = false;
@@ -45,7 +46,7 @@ export class NewArguementComponent implements OnInit {
       arguement: ['', Validators.required]
     });
     this.fourthFormGroup = this.formBuilder.group({
-      //phone: ['', Validators.required],
+      phone: [''],
     });
     this.fifthFormGroup = this.formBuilder.group({
       //fifthCtrl: ['', Validators.required]
@@ -102,6 +103,16 @@ export class NewArguementComponent implements OnInit {
           this.phoneList.push(phone)
         }
 
+  }
+
+  public onGetNumbers(){
+    //console.log(this.fourthFormGroup.get('phone').value);
+    if(this.registerPhone.registerPhoneForm.valid){
+      console.log(
+        this.registerPhone.registerPhoneForm.get("phonenumber").value,
+        this.registerPhone.registerPhoneForm.get("allInvited").value  
+      )
+    }
   }
 
   public test(){
