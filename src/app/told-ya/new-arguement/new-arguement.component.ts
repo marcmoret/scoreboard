@@ -33,7 +33,6 @@ export class NewArguementComponent implements OnInit {
   constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    //this.createForm();
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: [this.startMessage, Validators.required],
     });

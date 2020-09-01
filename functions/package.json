@@ -12,8 +12,8 @@
   "dependencies": {
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.1.0",
-    "messagebird": "^3.0.0",
-    "nexmo": "^2.4.2"
+    "messagebird": "^3.5.0",
+    "nexmo": "^2.9.1"
   },
   "devDependencies": {
     "eslint": "^4.12.0",
