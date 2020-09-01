@@ -10,8 +10,8 @@ import { toArray } from 'rxjs/operators';
 @Injectable()
 export class WeddingOptionsComponent implements OnInit {
   
-@ViewChild('f', {static: false}) form: NgForm;
-@ViewChild('g', {static: false}) edit: NgForm;
+@ViewChild('f') form: NgForm;
+@ViewChild('g') edit: NgForm;
   constructor() {}
 
   @Input() personInfo = [];

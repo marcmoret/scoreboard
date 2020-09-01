@@ -12,7 +12,7 @@ import { RegisterPhoneComponent } from '../register-phone/register-phone.compone
 })
 export class NewArguementComponent implements OnInit {
 
-  @ViewChild("registerPhone", {static:false}) registerPhone: RegisterPhoneComponent;
+  @ViewChild("registerPhone") registerPhone: RegisterPhoneComponent;
   public startMessage: string = `<p>This is where you will put your main arguement. You can add pictures or links for context.</p>`
   @Output() public arguementForm: FormGroup;
   public arguementValid = false;
@@ -20,7 +20,7 @@ export class NewArguementComponent implements OnInit {
   public phoneIndex;
   public secondPage: boolean = false;
   @Input() public arguement: Arguement
-  @ViewChild(RegisterPhoneComponent, {static: false}) registerChild: RegisterPhoneComponent;
+  @ViewChild(RegisterPhoneComponent) registerChild: RegisterPhoneComponent;
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
