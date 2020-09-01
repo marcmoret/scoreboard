@@ -1,5 +1,4 @@
 import { Component, Output } from '@angular/core';
-import 'hammerjs';
 import * as $ from 'jquery';
 
 @Component({
