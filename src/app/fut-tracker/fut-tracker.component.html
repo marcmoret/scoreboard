@@ -1,1 +1,37 @@
-<p>fut-tracker works!</p>
+<div class="container">
+	<div class="header">
+		<h3 class="center">Who's logged in right now</h3>
+		<h4 class="center" *ngIf="player?.isOnline; else free">{{ player.name}}</h4>
+		<ng-template #free>
+			<h4 class="center">No one is online</h4>
+		</ng-template>
+	</div>
+	<div class="body">
+		<div class="submit">
+			<mat-card>
+				<mat-form-field>
+					<mat-select>
+						<mat-option value="0">Marco</mat-option>
+						<mat-option value="1">Vince</mat-option>
+						<mat-option value="2">Robert</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+			</mat-card>
+		</div>
+		<div class="grid">
+			<mat-card>
+			<ul>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+				<li>test</li>
+			</ul>
+			</mat-card>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+.center {
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+
+.grid {
+  width: 100%;
+  margin: 5%;
+}
+
+.submit {
+  width: 100%;
+  margin: 5%;
+}
