@@ -1,4 +1,3 @@
-import { ToldYaComponent } from './told-ya/told-ya.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,7 +20,6 @@ import { WeddingSelectComponent } from './wedding-estimator/wedding-select/weddi
 import { WeddingOptionsComponent } from './wedding-estimator/wedding-select/wedding-options/wedding-options.component';
 import { HomeComponent } from './home/home.component';
 import { CountdownComponent } from './countdown/countdown.component';
-import { CountdownTimerModule } from 'ngx-countdown-timer';
 import { TestingComponent } from './testing/testing.component';
 import { HttpModule } from '@angular/http';
 import { IdeasComponent } from './ideas/ideas.component';
@@ -66,12 +64,8 @@ import { CollageModalWelcomeComponent } from './countdown/collage-modal/collage-
 import { CollageModalGeneralComponent } from './countdown/collage-modal/collage-modal-general/collage-modal-general.component';
 import { GalleryModalComponent } from './common/gallery-modal/gallery-modal.component';
 import { PasswordComponent } from './countdown/collage-wall/collage-wall-password.component';
-import { OngoingArguementsComponent } from './told-ya/ongoing-arguements/ongoing-arguements.component';
-import { ResolvedArguementsComponent } from './told-ya/resolved-arguements/resolved-arguements.component';
-import { NewArguementComponent } from './told-ya/new-arguement/new-arguement.component';
-import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
-import { RegisterPhoneComponent } from './told-ya/register-phone/register-phone.component';
-import { PhonePipe } from './common/phonepipe'; 
+import { PhonePipe } from './common/phonepipe';
+import { FutTrackerComponent } from './fut-tracker/fut-tracker.component'; 
 
 @NgModule({
   declarations: [
@@ -104,12 +98,7 @@ import { PhonePipe } from './common/phonepipe';
     CollageModalComponent,
     CollageModalWelcomeComponent,
     CollageModalGeneralComponent,
-    ToldYaComponent,
-    OngoingArguementsComponent,
-    ResolvedArguementsComponent,
-    NewArguementComponent,
-    RegisterPhoneComponent,
-    
+    FutTrackerComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,12 +108,10 @@ import { PhonePipe } from './common/phonepipe';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s'
     }),
-    CountdownTimerModule.forRoot(), // for countdown component
     NgbModule,
     HttpModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserModule, FormsModule, RichTextEditorAllModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,

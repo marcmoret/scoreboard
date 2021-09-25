@@ -1,10 +1,8 @@
 import { CollageModalComponent } from 'src/app/countdown/collage-modal/collage-modal.component';
 import { User } from './../user';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { CollageWallComponent } from './collage-wall.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
-import { GalleryModalComponent } from 'src/app/common/gallery-modal/gallery-modal.component';
 
 @Component({
   selector: 'app-collage-wall-password',

@@ -8,7 +8,7 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { TestingComponent } from './testing/testing.component';
 import { TableTestComponent } from './table-test/table-test.component';
 import { MeasureConverterComponent } from './measure-converter/measure-converter.component';
-import { ToldYaComponent } from './told-ya/told-ya.component';
+import { FutTrackerComponent } from './fut-tracker/fut-tracker.component';
 
 const appRoutes: Routes = [
   { path: '', component:HomeComponent},
@@ -19,13 +19,11 @@ const appRoutes: Routes = [
   { path: 'ideas', component: IdeasComponent},
   { path: 'testdb', component: TableTestComponent},
   { path: 'converter', component: MeasureConverterComponent},
-  { path: 'toldya', component: ToldYaComponent},
-
-
+  { path: 'futtracker', component: FutTrackerComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
