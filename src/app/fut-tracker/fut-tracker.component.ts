@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { FutPlayer } from './../models/futPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ export class FutTrackerComponent implements OnInit {
   currentlyLoggedIn = '';
   player: FutPlayer;
   players: FutPlayer[] = [];
+  form: FormGroup
 
 
   constructor(
@@ -35,5 +37,9 @@ export class FutTrackerComponent implements OnInit {
       return player.isOnline === true;
     });
     console.log(this.player);
+  }
+
+  submit() {
+
   }
 }
