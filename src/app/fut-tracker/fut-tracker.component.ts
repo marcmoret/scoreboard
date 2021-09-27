@@ -2,6 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { FutPlayer } from './../models/futPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-fut-tracker',
@@ -13,7 +14,8 @@ export class FutTrackerComponent implements OnInit {
   currentlyLoggedIn = '';
   player: FutPlayer;
   players: FutPlayer[] = [];
-  form: FormGroup
+  form: FormGroup;
+  stopWatch;
 
 
   constructor(
@@ -26,6 +28,7 @@ export class FutTrackerComponent implements OnInit {
       this.players = users;
       this.whoOnline();
     });
+
   }
 
   whoOnline() {
@@ -36,10 +39,22 @@ export class FutTrackerComponent implements OnInit {
 
       return player.isOnline === true;
     });
-    console.log(this.player);
+    this.checkTimer(this.player)
   }
 
   submit() {
 
+  }
+
+  checkTimer(player:FutPlayer) {
+    var time = 7200;
+var duration = moment.duration(time * 1000, 'milliseconds');
+var interval = 1000;
+
+setInterval(() => {
+  duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+  //show how many hours, minutes and seconds are left
+  //this.stopWatch = moment('.countdown').text(moment(duration.asMilliseconds()).format('h:mm:ss'));
+}, interval);
   }
 }
