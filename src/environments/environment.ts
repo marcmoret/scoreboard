@@ -5,12 +5,13 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyB_-3jRxquznXsxUdtHvQahhMEjVDiY2Zg",
+    apiKey: "AIzaSyBFyRsf2UhHNwioJc5NaXfbblvGV4Afh0s",
     authDomain: "scoreboard-ffd72.firebaseapp.com",
     databaseURL: "https://scoreboard-ffd72.firebaseio.com",
     projectId: "scoreboard-ffd72",
-    storageBucket: "gs://scoreboard-ffd72.appspot.com/",
-    messagingSenderId: "215882356568"
+    storageBucket: "scoreboard-ffd72.appspot.com",
+    messagingSenderId: "215882356568",
+    appId: "1:215882356568:web:debd37cfe6663b3a"
   }
 };
 

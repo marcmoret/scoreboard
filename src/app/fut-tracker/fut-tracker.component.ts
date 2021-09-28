@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FutPlayer } from './../models/futPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
@@ -19,8 +19,13 @@ export class FutTrackerComponent implements OnInit {
 
 
   constructor(
-    private firebase: AngularFirestore
-  ) { }
+    private firebase: AngularFirestore,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      name: [this.player?.name],
+    })
+  }
 
   ngOnInit(): void {
     let test = this.firebase.collection<FutPlayer>('tracker');
@@ -28,33 +33,63 @@ export class FutTrackerComponent implements OnInit {
       this.players = users;
       this.whoOnline();
     });
-
   }
 
   whoOnline() {
     console.log('fired');
-    
+
     this.player = this.players.find((player) => {
       console.log('player', player.isOnline);
 
       return player.isOnline === true;
     });
-    this.checkTimer(this.player)
+    // this.checkTimer(this.player)
   }
 
-  submit() {
+  submit(status: boolean) {
+    let player = {} as FutPlayer;
+    const date = Date.now();
+    player.isOnline = status;
+    player.name = this.form.get('name').value;
+    player.time = date;
+
+    console.log(player);
+
+    this.logEveryoneOut();
+
+    this.firebase.collection('tracker').doc(player.name).update(player);
+  }
+
+  isDisabled() {
+    let valid = false;
+
+    if(this.form.get('name').value === this.player.name && this.player.isOnline) {
+      console.log('yesss');
+      
+    }
+
+    return valid
+  }
+
+  logEveryoneOut() {
+    let player = {} as FutPlayer;
+    player.isOnline = false;
+
+    this.firebase.collection('tracker').doc('Marco').update(player);
+    this.firebase.collection('tracker').doc('Vince').update(player);
+    this.firebase.collection('tracker').doc('Robert').update(player);
 
   }
 
-  checkTimer(player:FutPlayer) {
+  checkTimer(player: FutPlayer) {
     var time = 7200;
-var duration = moment.duration(time * 1000, 'milliseconds');
-var interval = 1000;
+    var interval = 1000;
 
-setInterval(() => {
-  duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-  //show how many hours, minutes and seconds are left
-  //this.stopWatch = moment('.countdown').text(moment(duration.asMilliseconds()).format('h:mm:ss'));
-}, interval);
+    var startTimestamp = moment().startOf("day");
+    setInterval(() => {
+      startTimestamp.add(1, 'second');
+      document.getElementById('timer').innerHTML =
+        startTimestamp.format('HH:mm:ss');
+    }, interval);
   }
-}
+};
